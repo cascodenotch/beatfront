@@ -1,1 +1,47 @@
-<p>header works!</p>
+<header>
+
+    <div id="logo"><img src="../../../assets/Img/logo.png" alt="logo"></div>
+    <div id="titulo">BeatCraft</div>
+
+    <!-- Para usuarios no conectados -->
+
+    <ng-container *ngIf="logueado; else headerLogueado">
+        <div id="menu">
+            <button>
+            <img src="../../../assets/Iconos/spotify.png" alt="">
+            <span>Vincular Spotify</span>
+            </button>
+        </div>
+    </ng-container>
+
+    <!-- Para usarios conectados -->
+
+    <ng-template #headerLogueado>
+        <div id="menu">
+          
+            <div class="links">
+                <a routerLink="mis-sets" routerLinkActive="active-link">
+                    <div class="link-image">
+                        <img class="default-icon" src="../../../assets/Iconos/set blue.png" alt="set blue">
+                        <img class="hover-icon" src="../../../assets/Iconos/set white.png" alt="set white">
+                    </div>
+                    <span class="link-text">Sets</span>
+                </a>
+            </div>
+            
+            <div class="links">
+                <a routerLink="nosotros" routerLinkActive="active-link">
+                    <div class="link-image">
+                        <img class="default-icon" src="../../../assets/Iconos/nosotros blue.png" alt="nosotros blue">
+                        <img class="hover-icon" src="../../../assets/Iconos/nosotros white.png" alt="nosotros white">
+                    </div>
+                    <span class="link-text">Nosotros</span>
+                </a>
+            </div>
+
+            <img class="foto-perfil" src="../../../assets/Img/perfil.jpg" alt="foto de perfil">
+        </div>
+    </ng-template>
+    
+    
+</header>

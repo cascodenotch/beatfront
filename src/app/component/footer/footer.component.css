@@ -1,0 +1,48 @@
+footer{
+    border: 5px solid orange;
+    background-color: #A7C5D9;
+    color: #253E6C;
+    height: 10vh;
+    color: #253E6C ;
+    display: flex;
+    flex-direction: row;
+}
+
+#logo{
+    border: 5px solid purple;
+    height: 100%;
+    width: 33.33%;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+
+#logo img{
+    border: 1px solid white;
+    height: 150px;
+    width: auto;
+    position: absolute; 
+    top: -30%; 
+    right: -20px;
+}
+
+#texto{
+    border: 5px solid orchid;
+    height: 100%;
+    width: 66.66%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item{
+    border: 5px solid slateblue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.item img{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
