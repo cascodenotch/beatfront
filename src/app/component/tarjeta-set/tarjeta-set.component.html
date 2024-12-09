@@ -1,29 +1,31 @@
-
 <div class="container">
-    <div class="card2">
-        <div class="header2">Nuevo <span>Set</span> </div>
-        <div class="content2">
-          <button class="add-btn">
-            <img src="../../../assets/Iconos/add white.png" class="add" alt="añadir" />
-          </button>
-        </div>
-      </div>
-
-    <div class="card" *ngFor="let card of cards">
-      <div class="header">{{ card.title }}</div>
-      <div class="content">
-        <button class="play-btn">
-          <img src="../../../assets/Iconos/play-circle.png" alt="play" />
-        </button>
-      </div>
-      <div class="footer">
-        <button class="icon">
-          <img src="../../../assets/Iconos/delete.png" alt="Eliminar" />
-        </button>
-        <button class="icon">
-          <img src="../../../assets/Iconos/edit.png" alt="Editar" />
-        </button>
-      </div>
+  <div class="card2">
+    <div class="header2">Nuevo <span>Set</span> </div>
+    <div class="content2">
+      <button class="add-btn">
+        <img src="../../../assets/Iconos/add white.png" class="add" alt="añadir" />
+      </button>
     </div>
   </div>
-  
+
+  <div class="card" *ngFor="let card of cards">
+    <div class="header">{{ card.title }}</div>
+    <div class="content">
+      <button class="play-btn">
+        <img src="../../../assets/Iconos/play-circle.png" alt="play" />
+      </button>
+    </div>
+    <div class="footer">
+      <button class="icon" (click)="onclickDel(card)">
+        <img src="../../../assets/Iconos/delete.png" alt="Eliminar" />
+      </button>
+      <button class="icon">
+        <img src="../../../assets/Iconos/edit.png" alt="Editar" />
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showValidation">
+  <app-validacion-eliminar (closeValidation)="closeValidation()"></app-validacion-eliminar>
+</div>
