@@ -1,7 +1,7 @@
 
   body {
     margin: 0;
-    height: 90vh;
+    height: 92vh;
     background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
     color: white;
     display: flex;
@@ -13,7 +13,7 @@
   p {
     font-size: 48px;
     position: absolute;
-    top: 40px;
+    top: 150px;
     left: 150px;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
@@ -21,7 +21,7 @@
   
   .busc {
     position: absolute;
-    top: 40px;
+    top: 150px;
     right: 150px;
     height: 50px;
     background-color: rgba(0, 0, 0, 0.3);
