@@ -1,5 +1,5 @@
 header{
-    border: 5px solid orange;
+    border: 0px solid orange;
     background-color: #A7C5D9;
     color: #253E6C;
     height: 8vh;
@@ -9,7 +9,7 @@ header{
 }
 
 #logo{
-    border: 5px solid purple;
+    border: 0px solid purple;
     height: 100%;
     width: 33.33%;
     display: flex;
@@ -18,16 +18,16 @@ header{
 }
 
 #logo img{
-    border: 1px solid white;
+    border: 0px solid white;
     height: 150px;
     width: auto;
     position: absolute; 
-    top: -50%; 
+    top: -30%; 
     left: -20px;
 }
 
 #titulo{
-    border: 5px solid red;
+    border: 0px solid red;
     font-family: "Montserrat", serif;
     font-size: xx-large;
     font-weight: 550;
@@ -38,7 +38,7 @@ header{
 }
 
 #menu {
-    border: 5px solid pink;
+    border: 0px solid pink;
     font-size: large;
     width: 33.33%;
     display: flex;
@@ -48,7 +48,7 @@ header{
 }
 
 .links {
-    border: 5px solid yellowgreen;
+    border: 0px solid yellowgreen;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -108,17 +108,17 @@ header{
 }
 
 .foto-perfil{
-    border: 5px solid yellowgreen;
+    border: 0px solid yellowgreen;
     border-radius: 50%;
     height: 60px;
     width: auto;
     margin-right: 30px;
 }
 
-/* .active-link{
+.active-link{
     background-color: #779ED6;
     color: white;
-} */
+}
 
 button{
     border: 1px solid transparent;
@@ -136,4 +136,40 @@ button img {
     width: 30px;
     height: 30px;
     margin-right: 10px; 
+}
+
+.desplegable {
+    border: 0px solid sandybrown;
+    border-radius: 8px;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    background-color: #253E6C;
+    color: white ;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.links-desplegable a {
+    border: 0px solid white;
+    border-radius: 8px; 
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; 
+    background-color: transparent; 
+    color: white;
+
+}
+
+.links-desplegable a:hover {
+    background-color: #779ED6;
+    border-radius: 5px;
+    color: white;
+}
+
+#editar{
+    color: #6fd861;
 }
