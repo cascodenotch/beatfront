@@ -1,0 +1,70 @@
+
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 150px;
+  }
+  
+  p {
+    font-size: 48px;
+    position: absolute;
+    top: 40px;
+    left: 150px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .busc {
+    position: absolute;
+    top: 40px;
+    right: 150px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  
+  button {
+    border: none;
+    background: none;
+  }
+  
+  img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+  }
+  
+  span {
+    color: var(--color-complemento);
+  }
+
+  input {
+    width: 100%; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: transparent; 
+    color: white; 
+    font-size: large; 
+    outline: none; 
+    font-family: 'Montserrat', sans-serif;
+} 
+
+.lupa{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: -40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 8px ;
+}
