@@ -8,13 +8,5 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 
   public logueado: boolean = false; 
-  public desplegable: boolean = false;
-
-  constructor (){
-  }
-
-  mostrarDesplegable(){
-    this.desplegable = !this.desplegable; 
-  }
-
+ 
 }

@@ -1,57 +1,65 @@
-footer{
-    border: 0px solid orange;
-    background-color: #A7C5D9;
-    color: #253E6C;
+/* Estilo general del footer */
+footer {
+    background-color: var(--color-secuandario);
+    color: var(--color-fondo);
     height: 10vh;
-    color: #253E6C ;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
 }
 
-#logo{
-    border: 0px solid purple;
-    height: 100%;
-    width: 33.33%;
-    display: flex;
-    justify-content: flex-start;
-    position: relative;
-}
-
-#logo img{
-    border: 0px solid white;
-    height: 150px;
-    width: auto;
-    position: absolute; 
-    top: -15%; 
-    right: -10px;
-}
-
-#texto{
-    border: 0px solid orchid;
-    height: 100%;
-    width: 66.66%;
+/* Contenedor de información del footer */
+.footer-details {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 66.66%;
 }
 
-.item{
-    border: 0px solid slateblue;
+/* Elemento individual en los detalles del footer */
+.detail-item {
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
-.item img{
+
+.detail-item img {
     height: 30px;
     width: 30px;
     margin-right: 10px;
 }
 
-a{
+.detail-item a {
     text-decoration: none;
-    color: #253E6C;
+    color: var(--color-fondo);
+    transition: color 0.3s;
 }
 
-a:hover{
+.detail-item a:hover {
     color: white;
+}
+
+/* Estilo para la sección del logo */
+.footer-logo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 33.33%;
+}
+
+.footer-logo img {
+    height: 130px;
+    width: auto;
+    margin-bottom: -15px;
+}
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 1024px) {
+    .footer-details {
+        width: auto;
+    }
+    .footer-logo {
+        width: 15%;
+    }
 }

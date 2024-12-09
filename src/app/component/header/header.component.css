@@ -1,175 +1,196 @@
-header{
-    border: 0px solid orange;
-    background-color: #A7C5D9;
-    color: #253E6C;
-    height: 8vh;
-    color: #253E6C ;
-    display: flex;
-    flex-direction: row;
+/* Estilo general del header */
+header {
+  border: 0px solid red;
+  background-color: var(--color-secuandario);
+  color: var(--color-fondo);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  width: 100%;
 }
 
-#logo{
-    border: 0px solid purple;
-    height: 100%;
-    width: 33.33%;
-    display: flex;
-    justify-content: flex-start;
-    position: relative;
+/* Contenedor del logo */
+.header-logo {
+  border: 0px solid purple;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 33.33%;
 }
 
-#logo img{
-    border: 0px solid white;
-    height: 150px;
-    width: auto;
-    position: absolute; 
-    top: -30%; 
-    left: -20px;
+/* Estilo de la imagen del logo */
+.header-logo img {
+  border: 0px solid salmon;
+  height: 130px;
+  width: auto;
+  margin-top: 15px;
 }
 
-#titulo{
-    border: 0px solid red;
-    font-family: "Montserrat", serif;
-    font-size: xx-large;
-    font-weight: 550;
-    width: 33.33%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Contenedor del título */
+.header-title {
+  border: 0px solid greenyellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", serif;
+  font-size: xx-large;
+  font-weight: 550;
+  height: 100%;
+  width: 33.33%;
 }
 
-#menu {
-    border: 0px solid pink;
-    font-size: large;
-    width: 33.33%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 30px;
+/* Contenedor del menu */
+.header-menu {
+  border: 0px solid orange;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 33.33%;
+  gap: 20px;
 }
 
-.links {
-    border: 0px solid yellowgreen;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Estilo de los enlaces del menú */
+.menu-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.link-image {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px; 
+/* Estilo del icono de cada enlace */
+.menu-link-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 }
 
-.default-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.3s;
+.default-icon, .hover-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s;
 }
 
 .hover-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.3s;
+  opacity: 0; /* Oculto por defecto */
 }
 
-.links a:hover .default-icon {
-    opacity: 0;
+/* Estilo del texto de cada enlace */
+.menu-link a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: transparent;
+  color: var(--color-fondo);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.links a:hover .hover-icon {
-    opacity: 1;
+/* Efectos de hover y estado activo para los enlaces */
+.menu-link a:hover, .menu-link .active-link {
+  background-color: var(--color-terciario);
+  color: white;
 }
 
-.links a {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 10px; 
-    transition: background-color 0.3s, color 0.3s; 
-    background-color: transparent; 
-    color: #253E6C; 
+.menu-link a:hover .default-icon, .menu-link .active-link .default-icon {
+  opacity: 0;
 }
 
-.links a:hover {
-    background-color: #779ED6;
-    color: white;
+.menu-link a:hover .hover-icon, .menu-link .active-link .hover-icon {
+  opacity: 1;
 }
 
-.foto-perfil{
-    border: 0px solid yellowgreen;
-    border-radius: 50%;
-    height: 60px;
+/* Estilo de la imagen de perfil */
+.profile {
+  border: 0px solid yellow;
+  position: relative;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  height: 50px;
+  width: auto;
+  margin-right: 30px;
+}
+
+/* Estilo del menú desplegable */
+.dropdown {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 100%;
+  right: 30%;
+  background-color: var(--color-fondo);
+  border-radius: 8px;
+  color: white;
+  z-index: 10;
+}
+
+.profile:hover .dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo de los enlaces dentro del menú desplegable */
+.dropdown-link a {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  background-color: transparent;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+  width: 170px;
+}
+
+/* Efecto de hover en los enlaces del menú desplegable */
+.dropdown-link a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+/* Color especial para el enlace de "Editar Perfil" */
+.edit-profile {
+  color: #6fd861;
+}
+
+/* Estilo del botón vincular Spotify */
+.menu-button {
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background-color: #6fd861;
+  font-size: large;
+  color: white;
+  margin-right: 30px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo del icono dentro del botón */
+.menu-button img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 1024px) {
+  .header-logo {
+    width: 15%;
+  }
+  .header-title, .header-menu {
     width: auto;
-    margin-right: 30px;
-}
-
-.active-link{
-    background-color: #779ED6;
-    color: white;
-}
-
-button{
-    border: 1px solid transparent;
-    border-radius: 7px;
-    background-color: #6fd861;
-    font-size: large;
-    color: white;
-    margin-right: 30px;
-    padding: 5px 15px;
-    display: flex;
-    align-items: center;
-}
-
-button img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px; 
-}
-
-.desplegable {
-    border: 0px solid sandybrown;
-    border-radius: 8px;
-    position: absolute;
-    top: 80px;
-    right: 30px;
-    background-color: #253E6C;
-    color: white ;
-    display: flex;
-    flex-direction: column;
-    z-index: 10;
-}
-
-.links-desplegable a {
-    border: 0px solid white;
-    border-radius: 8px; 
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s; 
-    background-color: transparent; 
-    color: white;
-
-}
-
-.links-desplegable a:hover {
-    background-color: #779ED6;
-    border-radius: 5px;
-    color: white;
-}
-
-#editar{
-    color: #6fd861;
+  }
 }
