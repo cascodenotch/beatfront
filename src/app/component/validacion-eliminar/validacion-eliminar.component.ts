@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-validacion-eliminar',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class ValidacionEliminarComponent {
 
+  @Output() closeValidation = new EventEmitter<void>(); 
+
+  close(){
+    this.closeValidation.emit(); 
+  }
+  
 }

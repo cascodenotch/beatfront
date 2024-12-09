@@ -17,4 +17,14 @@ export class TarjetaSetComponent {
     { title: 'Título Set 8' },
     { title: 'Título Set 9' },
   ];
+
+  showValidation = false; 
+
+  onclickDel(card: any){
+    this.showValidation = true; 
+  }
+
+  closeValidation(){
+    this.showValidation = false; 
+  }
 }
