@@ -1,29 +1,26 @@
+/* Estilos generales del body */
 body {
-    margin: 0;
-    height: 92vh;
-    background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 150px;
-  }
+  margin: 0;
+  height: 92vh;
+  background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 150px;
+}
 
-  
-  .menu{
-    border: 0px solid salmon;
-    gap: 20px;
-    position: absolute;
-    top: 155px;
-    right: 150px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    flex-direction: row;
-    width: auto;
-  }
+/* Estilos del contenedor de menú */
+.menu{
+  gap: 20px;
+  position: absolute;
+  top: 155px;
+  right: 150px;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
 
-/* Estilo del icono de cada enlace */
-
+/* Estilos para cada ícono dentro del menú */
 .menu-icon-box {
   position: relative;
   display: flex;
@@ -32,15 +29,17 @@ body {
   width: 40px;
   height: 40px;
 }
+
+/* Estilos para los íconos de cada elemento */
 .menu-icon {
-  /* position: relative; */
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
+/* Estilos para los íconos por defecto y al pasar el ratón */
 .default-icon, .hover-icon {
   position: absolute;
   top: 0;
@@ -51,7 +50,7 @@ body {
 }
 
 .hover-icon {
-  opacity: 0; /* Oculto por defecto */
+  opacity: 0; /* Inicialmente oculto */
 }
 
 .default-icon:hover{
@@ -59,9 +58,10 @@ body {
 }
 
 .hover-icon:hover {
-  opacity: 1;
+  opacity: 1; /* Aparece cuando se pasa el ratón */
 }
 
+/* Estilos para la etiqueta debajo de cada ícono */
 .etiqueta{
   display: none;
   position: absolute;
@@ -73,64 +73,67 @@ body {
   border-radius: 10px;
 }
 
+/* Muestra la etiqueta al pasar el ratón sobre el ícono */
 .menu-icon-box:hover .etiqueta {
-  display: block; /* Muestra la etiqueta al hacer hover */
+  display: block;
 }
 
-  .title {
-    border: 0px solid red;
-    font-size: 48px;
-    position: absolute;
-    top: 150px;
-    left: 150px;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-  }
+/* Estilo del título principal de la página */
+.title {
+  font-size: 48px;
+  position: absolute;
+  top: 150px;
+  left: 150px;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
 
-  .back{
-    position: absolute;
-    top: 155px;
-    left: 40px;
-    width: 40px;
-    height: 40px;
-  }
+/* Estilo para el botón de retroceso */
+.back{
+  position: absolute;
+  top: 155px;
+  left: 40px;
+  width: 40px;
+  height: 40px;
+}
 
-  button {
-    border: none;
-    background: none;
-  }
-  
-  span {
-    color: var(--color-complemento);
-  }
+/* Estilo general de los botones (sin borde ni fondo) */
+button {
+  border: none;
+  background: none;
+}
 
+/* Estilo de los textos dentro de los <span> */
+span {
+  color: var(--color-complemento);
+}
 
-  .canciones {
-    border: solid 0px purple;
-    width: 100%;
-    height: calc(85vh - 200px); 
-    overflow-y: auto; 
-    padding-right: 20px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 30px;
-  }
-  
-  .canciones::-webkit-scrollbar {
-    width: 5px; 
-  }
-  
-  .canciones::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3); 
-    border-radius: 8px; 
-  }
-  
-  .canciones::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5); 
-  }
-  
-  .canciones::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1); 
-  }
-  
+/* Estilos para la sección de canciones */
+.canciones {
+  width: 100%;
+  height: calc(85vh - 200px); 
+  overflow-y: auto; 
+  padding-right: 20px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* Estilos para la barra de desplazamiento */
+.canciones::-webkit-scrollbar {
+  width: 5px; 
+}
+
+.canciones::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3); 
+  border-radius: 8px; 
+}
+
+.canciones::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5); 
+}
+
+.canciones::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); 
+}

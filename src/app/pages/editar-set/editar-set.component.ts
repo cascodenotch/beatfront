@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./editar-set.component.css']
 })
 export class EditarSetComponent {
+  titulo: string = 'Prueba de título';
 
 }
