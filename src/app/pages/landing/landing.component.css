@@ -13,7 +13,7 @@ body {
     position: relative;
 }
 
-/* Fondo adicional detrás del contenido */
+/* Fondo adicional detrás del body */
 body::before {
     content: '';
     position: absolute;
@@ -24,6 +24,7 @@ body::before {
     background: url(../../../assets/Img/logo.png) center/cover no-repeat;
     background-size: 80%;
     opacity: 0.05;
+    pointer-events: none; /* Permite que no interfiera con el hover*/
 }
 
 /* Estilo para la sección de bienvenida */
