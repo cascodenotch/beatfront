@@ -1,1 +1,42 @@
-<p>tarjeta-cancion-set works!</p>
+<div class="contenedor-rectangular">
+    <div class="contenedor-cartela">
+        <img id="song-image" src="../../../assets/Img/caratula cancion.png" alt="song image">
+    </div>
+    <div class="contenedor-informacion-principal">
+        <div class="title-author">
+            <div class="title-author-item">
+                <img src="../../../assets/Iconos/title.png" alt="title">
+                <p class="subtitle" id="song-title">Titulo canción</p>
+            </div>
+            <div class="title-author-item">
+                <img src="../../../assets/Iconos/author.png" alt="author">
+                <p class="subtitle" id="song-author">Autor</p>
+            </div>
+        </div>
+        <div class="contenedor-parametros">
+            <div class="parametro-danceability">
+                <p>Danceability: <span id="danceability">--</span></p>
+            </div>
+            <div class="parametro-energy">
+                <p>Energía: <span id="energy">--</span></p>
+            </div>
+            <div class="parametro-key">
+                <p>Clave: <span id="key">--</span></p>
+            </div>
+            <div class="parametro-tempo">
+                <p>Tempo: <span id="tempo">--</span></p>
+            </div>
+            <div class="parametro-duration">
+                <p>Duración: <span id="duration">--</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="contenedor-botones">
+        <a routerLink="#">
+            <img class="btn-icon" src="../../../assets/Iconos/play 2.png" alt="play">
+        </a>
+        <a routerLink="#">
+            <img class="btn-icon" src="../../../assets/Iconos/delete.png" alt="delete">
+        </a>
+    </div>
+</div>

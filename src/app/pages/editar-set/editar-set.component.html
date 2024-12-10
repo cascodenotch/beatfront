@@ -1,1 +1,69 @@
-<p>editar-set works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar set</title>
+</head>
+<body>
+
+    <button>
+        <img src="../../../assets/Iconos/back.png" class="back" alt="play" />
+    </button>
+    
+    <p class="title"><span>Título Set</span></p>
+
+    <div class="menu">
+
+        <div class="menu-icon-box">
+            <a routerLink="#">
+                <div class="menu-icon">
+                    <img class="default-icon" src="../../../assets/Iconos/analyze blue.png" alt="analyze blue">
+                    <img class="hover-icon" src="../../../assets/Iconos/analyze white.png" alt="analyze white">
+                </div>
+            </a>
+            <p class="etiqueta">Analizar</p>
+        </div>
+
+        <div class="menu-icon-box">
+            <a routerLink="#">
+                <div class="menu-icon">
+                    <img class="default-icon" src="../../../assets/Iconos/idea blue.png" alt="recommend blue">
+                    <img class="hover-icon" src="../../../assets/Iconos/idea white.png" alt="recommend white">
+                </div>
+            </a>
+            <p class="etiqueta">Recomendaciones</p>
+        </div>
+
+        <div class="menu-icon-box">
+        <a routerLink="#">
+            <div class="menu-icon">
+                <img class="default-icon" src="../../../assets/Iconos/add blue.png" alt="add blue">
+                <img class="hover-icon" src="../../../assets/Iconos/add white.png" alt="add white">
+            </div>
+        </a>
+        <p class="etiqueta">Añadir</p>
+        </div>
+
+        <div class="menu-icon-box">
+        <a routerLink="#">
+            <div class="menu-icon">
+                <img class="default-icon" src="../../../assets/Iconos/save blue.png" alt="save blue">
+                <img class="hover-icon" src="../../../assets/Iconos/save white.png" alt="save white">
+            </div>
+        </a>
+        <p class="etiqueta">Guardar</p>
+        </div>
+    
+
+    </div>
+
+    <div class="canciones">
+        <app-tarjeta-cancion-set></app-tarjeta-cancion-set>
+        <!-- <app-tarjeta-cancion-set></app-tarjeta-cancion-set>
+        <app-tarjeta-cancion-set></app-tarjeta-cancion-set>
+        <app-tarjeta-cancion-set></app-tarjeta-cancion-set> -->
+    </div>
+    
+</body>
+</html>

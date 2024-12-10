@@ -1,0 +1,116 @@
+.contenedor-rectangular {
+    border: 0px solid salmon;
+    border-radius: 10px;
+    height: 150px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.contenedor-cartela {
+    border: 0px solid orange;
+    height: 100%;
+    width: 10%;
+}
+
+.contenedor-cartela img{
+    height: 100%;
+    width: auto;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+}
+
+.contenedor-informacion-principal {
+    border: 0px solid plum;
+    height: 100%;
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-author {
+    border: 0px solid red;
+    height: 50%;
+    display: grid;
+    grid-template-columns: 750px 750px;
+    align-items: center;
+}
+
+.title-author-item {
+    border: 0px solid slateblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.contenedor-parametros {
+    border: 0px solid red;
+    height: 50%;
+    display: grid;
+    grid-template-columns: 200px 150px 150px 150px 150px;
+    gap: 100px; 
+    align-items: center;
+}
+
+img {
+    height: 30px;
+    width: 30px;
+}
+
+.subtitle {
+    font-size: 24px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.parametro-danceability {
+    padding: 5px 20px;
+    border: 1px solid #d6af78;
+    border-radius: 10px;
+    color: #d6af78;
+}
+
+.parametro-energy {
+    padding: 5px 20px;
+    border: 1px solid #d9bba7;
+    border-radius: 10px;
+    color: #d9bba7;
+}
+
+.parametro-key {
+    padding: 5px 20px;
+    border: 1px solid #96CFF2;
+    border-radius: 10px;
+    color: #96CFF2;
+}
+
+.parametro-tempo {
+    padding: 5px 20px;
+    border: 1px solid #ABC8FF;
+    border-radius: 10px;
+    color: #ABC8FF;
+}
+
+.parametro-duration {
+    padding: 5px 20px;
+    border: 1px solid #a7c5d9;
+    border-radius: 10px;
+    color: #a7c5d9;
+}
+
+.contenedor-botones {
+    border-left: 1px solid rgba(255, 255, 255, 0.1); 
+    width: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
