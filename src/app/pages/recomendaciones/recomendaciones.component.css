@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    height: 92vh;
+    background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 150px;
+  }
+  
+  img {
+ 
+    cursor: pointer;
+  }
+  
+  .title {
+    font-size: 48px;
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .back {
+    position: absolute;
+    top: 155px;
+    left: 40px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .act {
+    position: absolute;
+    top: 150px;
+    right: 150px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  button {
+    border: none;
+    background: none;
+  }
+  
+  span {
+    color: var(--color-complemento);
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start; 
+  }
+  
+  .repro {
+    width: 36%;
+    height: 90%;
+    margin-top: 50px;
+    margin-left: 50px;
+    background-image: url("../../../assets/Img/reproductor.png");
+  }
+  
+  .canciones {
+    width: 60%;
+    height: auto;
+    overflow-y: auto;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
