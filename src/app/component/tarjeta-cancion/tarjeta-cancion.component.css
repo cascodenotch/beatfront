@@ -1,0 +1,120 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 52px;
+    margin-top: 4%;
+  }
+  
+  .card {
+    width: 260px;
+    height: 260px;
+    background-color: #d58b85;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  }
+  
+  .header {
+    background-color: var(--color-fondo);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .datos {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .footer {
+    background-color: var(--color-fondo);
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .subIcon{
+    width: 15px;
+    height: 15px;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+  }
+  
+  .card:hover .overlay {
+    opacity: 1; 
+  }
+  
+  .play-btn {
+    position: relative;
+    z-index: 2; 
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .card:hover .play-btn {
+    opacity: 1;
+  }
+  
+  .play-btn img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+  }
+  
+  img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  button {
+    border: none;
+    background: none;
+  }
+  
+  input {
+    width: 10%;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    pointer-events: none; 
+    user-select: none; 
+    color: white;
+  }
+  

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class CancionesComponent {
 
+  searchText: string = '';
+  danceability: string = '';
+  energy: string = '';
+  key: string = '';
+  tempo: string = '';
 }

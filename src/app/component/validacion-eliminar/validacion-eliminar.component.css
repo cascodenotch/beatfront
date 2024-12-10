@@ -12,8 +12,6 @@
     z-index: 9999; 
     transition: visibility 0s, opacity 0.3s;
   }
-  
-
 
   .box {
     background: var(--color-fondo);

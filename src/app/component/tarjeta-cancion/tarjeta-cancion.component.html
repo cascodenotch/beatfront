@@ -1,1 +1,37 @@
-<p>tarjeta-cancion works!</p>
+<div class="container">
+
+    <div class="card" *ngFor="let card of filteredCards">
+      <div class="header">
+
+        <div class="datos">
+          {{ card.title }} <br />
+          {{ card.autor }}
+        </div>
+
+        <img src="../../../assets/Iconos/add white.png" class="add" alt="play" />
+      </div>
+
+      <div class="content">
+        <div class="overlay"></div>
+
+        <button class="play-btn">
+          <img src="../../../assets/Iconos/play-circle.png" alt="play" />
+        </button>
+      </div>
+
+      <div class="footer">
+        <img src="../../../assets/Iconos/danceability.png" class="subIcon" alt="play" /> :
+        <input type="text" [value]="card.danceability" readonly />
+        <img src="../../../assets/Iconos/energy.png" class="subIcon" alt="play" /> :
+        <input type="text" [value]="card.energy" readonly />
+        <img src="../../../assets/Iconos/key.png" class="subIcon" alt="play" /> :
+        <input type="text" [value]="card.key" readonly />
+        <img src="../../../assets/Iconos/tempo.png" class="subIcon" alt="play" /> :
+        <input type="text" [value]="card.tempo" readonly />
+        <img src="../../../assets/Iconos/duracion.png" class="subIcon" alt="play" /> :
+        <input type="text" value="3:45" readonly />
+      </div>
+
+    </div>
+  </div>
+  

@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    height: 92vh;
+    background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 150px;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+  }
+  
+  .title {
+    font-size: 48px;
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .filtro{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .fil {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative; 
+}
+
+.tem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative; 
+    
+}
+
+.fil::after {
+    content: ""; 
+    position: absolute;
+    height: 100%; 
+    width: 2px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    right: 45px; 
+    top: 0; 
+}
+.tem::after {
+    content: ""; 
+    position: absolute;
+    height: 100%; 
+    width: 2px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    right: 45px; 
+    top: 0; 
+}
+
+
+  .dance{
+    margin-left: 5px;
+    font-size: 23px;
+    color: var(--color-complemento);
+  }
+
+  .ener{
+    margin-left: 5px;
+    font-size: 24px;
+    color: #D9BBA7;
+  }
+
+  .key{
+    margin-left: 5px;
+    font-size: 24px;
+    color: #96CFF2;
+  }
+
+  .temp{
+    margin-left: 5px;
+    font-size: 24px;
+    color: #ABC8FF;
+  }
+
+  .subInp{
+    width: 24%;
+    margin-right: -5px;
+    
+  }
+
+  .subIcon{
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .back{
+    position: absolute;
+    top: 155px;
+    left: 40px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .busc {
+    position: absolute;
+    top: 150px;
+    right: 150px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  
+  button {
+    border: none;
+    background: none;
+  }
+  
+  span {
+    color: var(--color-complemento);
+  }
+
+  .barra{
+    color: rgba(255, 255, 255, 0.445);
+    font-size: 40px;
+  }
+
+  input {
+    width: 100%; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: transparent; 
+    color: white; 
+    font-size: large; 
+    outline: none; 
+    font-family: 'Montserrat', sans-serif;
+} 
+
+.lupa{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: -40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 8px ;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.repro{
+    width: 36%;
+    height: 90%;
+    margin-top: 10px;
+    margin-left: 50px;
+    background-image: url("../../../assets/Img/reproductor.png");
+}
+
+.canciones {
+    width: 60%;
+    height: calc(85vh - 200px); 
+    overflow-y: auto; 
+    padding-right: 20px; 
+  }
+  
+  .canciones::-webkit-scrollbar {
+    width: 5px; 
+  }
+  
+  .canciones::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3); 
+    border-radius: 8px; 
+  }
+  
+  .canciones::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5); 
+  }
+  
+  .canciones::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); 
+  }
+  
+
+  

@@ -1,1 +1,54 @@
-<p>canciones works!</p>
+<body>
+
+    <button>
+      <img src="../../../assets/Iconos/back.png" class="back" alt="play" />
+    </button>
+  
+    <p class="title">Mis <span>Canciones</span></p>
+  
+    <div class="busc">
+      <input type="text" class="buscador" placeholder="Buscar por título o autor..." [(ngModel)]="searchText"/>
+      <img src="../../../assets/Iconos/search.png" class="lupa" alt="buscar" />
+    </div>
+  
+    <div class="filtro">
+
+      <div class="fil">
+        <img src="../../../assets/Iconos/danceability.png" class="subIcon" alt="play" />
+        <p class="dance">Danceability</p>
+        <input type="text" class="subInp" [(ngModel)]="danceability" />
+      </div>
+  
+      <div class="fil">
+        <img src="../../../assets/Iconos/energy.png" class="subIcon" alt="play" />
+        <p class="ener">Energía</p>
+        <input type="text" class="subInp" [(ngModel)]="energy" />
+      </div>
+  
+      <div class="fil">
+        <img src="../../../assets/Iconos/key.png" class="subIcon" alt="play" />
+        <p class="key">Key</p>
+        <input type="text" class="subInp" [(ngModel)]="key" />
+      </div>
+  
+      <div class="fil" class="tem">
+        <img src="../../../assets/Iconos/tempo.png" class="subIcon" alt="play" />
+        <p class="temp">Tempo</p>
+        <input type="text" class="subInp" [(ngModel)]="tempo" />
+      </div>
+
+    </div>
+  
+    <div class="content">
+
+      <div class="canciones">
+        <app-tarjeta-cancion [searchText]="searchText" [danceability]="danceability" [energy]="energy" [key]="key" [tempo]="tempo"></app-tarjeta-cancion>
+      </div>
+
+      <div class="repro"></div>
+
+    </div>
+    
+  </body>
+  
+  
