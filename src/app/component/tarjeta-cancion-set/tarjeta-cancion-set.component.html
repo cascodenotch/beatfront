@@ -1,1 +1,55 @@
-<p>tarjeta-cancion-set works!</p>
+<div class="card-container" *ngFor="let card of cards">
+    <!-- Contenedor de la imagen -->
+    <div class="card-image-container">
+        <img id="song-image" [src]="card.img" alt="song image">
+    </div>
+
+    <!-- Contenedor de la información principal -->
+    <div class="card-info-container">
+        <!-- Título y autor -->
+        <div class="title-author-container">
+            <div class="title-author-item">
+                <img src="../../../assets/Iconos/title.png" alt="title">
+                <p class="subtitle" id="song-title">{{ card.title }}</p>
+            </div>
+            <div class="title-author-item">
+                <img src="../../../assets/Iconos/author.png" alt="author">
+                <p class="subtitle" id="song-author">{{ card.author }}</p>
+            </div>
+        </div>
+
+        <!-- Contenedor de las características de la canción -->
+        <div class="song-features-container">
+            <div class="song-feature song-feature-danceability">
+                <p>Danceability: <span id="danceability">{{ card.danceability }}</span></p>
+            </div>
+            <div class="song-feature song-feature-energy">
+                <p>Energía: <span id="energy">{{ card.energy }}</span></p>
+            </div>
+            <div class="song-feature song-feature-key">
+                <p>Clave: <span id="key">{{ card.key }}</span></p>
+            </div>
+            <div class="song-feature song-feature-tempo">
+                <p>Tempo: <span id="tempo">{{ card.tempo }}</span></p>
+            </div>
+            <div class="song-feature song-feature-duration">
+                <p>Duración: <span id="duration">{{ card.duration }} min</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor de los botones -->
+    <div class="buttons-container">
+        <a routerLink="#">
+            <img class="btn-icon" src="../../../assets/Iconos/play 2.png" alt="play">
+        </a>
+        <a routerLink="#"(click)="onDelete(card)">
+            <img class="btn-icon" src="../../../assets/Iconos/delete.png" alt="delete">
+        </a>
+    </div>
+
+    <!-- Mostrar mensaje de validación si showValidation es verdadero -->
+    <app-validacion-eliminar *ngIf="showValidation"></app-validacion-eliminar>
+
+</div>
+

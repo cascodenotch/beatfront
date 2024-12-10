@@ -1,0 +1,139 @@
+/* Estilos generales del body */
+body {
+  margin: 0;
+  height: 92vh;
+  background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 150px;
+}
+
+/* Estilos del contenedor de menú */
+.menu{
+  gap: 20px;
+  position: absolute;
+  top: 155px;
+  right: 150px;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+
+/* Estilos para cada ícono dentro del menú */
+.menu-icon-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+/* Estilos para los íconos de cada elemento */
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+/* Estilos para los íconos por defecto y al pasar el ratón */
+.default-icon, .hover-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s;
+}
+
+.hover-icon {
+  opacity: 0; /* Inicialmente oculto */
+}
+
+.default-icon:hover{
+  opacity: 0;
+}
+
+.hover-icon:hover {
+  opacity: 1; /* Aparece cuando se pasa el ratón */
+}
+
+/* Estilos para la etiqueta debajo de cada ícono */
+.etiqueta{
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  transform: translate(50%, -50%); 
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Muestra la etiqueta al pasar el ratón sobre el ícono */
+.menu-icon-box:hover .etiqueta {
+  display: block;
+}
+
+/* Estilo del título principal de la página */
+.title {
+  font-size: 48px;
+  position: absolute;
+  top: 150px;
+  left: 150px;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilo para el botón de retroceso */
+.back{
+  position: absolute;
+  top: 155px;
+  left: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+/* Estilo general de los botones (sin borde ni fondo) */
+button {
+  border: none;
+  background: none;
+}
+
+/* Estilo de los textos dentro de los <span> */
+span {
+  color: var(--color-complemento);
+}
+
+/* Estilos para la sección de canciones */
+.canciones {
+  width: 100%;
+  height: calc(85vh - 200px); 
+  overflow-y: auto; 
+  padding-right: 20px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* Estilos para la barra de desplazamiento */
+.canciones::-webkit-scrollbar {
+  width: 5px; 
+}
+
+.canciones::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3); 
+  border-radius: 8px; 
+}
+
+.canciones::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5); 
+}
+
+.canciones::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); 
+}

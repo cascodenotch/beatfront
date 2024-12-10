@@ -1,1 +1,83 @@
-<p>editar-set works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Configuración de los metadatos del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar set</title>
+</head>
+<body>
+
+    <!-- Botón de retroceso con imagen de ícono -->
+    <button>
+        <img src="../../../assets/Iconos/back.png" class="back" alt="play" />
+    </button>
+    
+    <!-- Título del set seleccionado por el usuario -->
+    <p class="title"><span>{{ titulo }}</span></p>
+
+    <!-- Menú de íconos con enlaces -->
+    <div class="menu">
+
+        <!-- Primer ícono en el menú (Analizar) -->
+        <div class="menu-icon-box">
+            <a routerLink="#">
+                <div class="menu-icon">
+                    <!-- Icono de estado por defecto -->
+                    <img class="default-icon" src="../../../assets/Iconos/analyze blue.png" alt="analyze blue">
+                    <!-- Icono que aparece cuando se pasa el ratón por encima -->
+                    <img class="hover-icon" src="../../../assets/Iconos/analyze white.png" alt="analyze white">
+                </div>
+            </a>
+            <p class="etiqueta">Analizar</p> <!-- Texto descriptivo del ícono -->
+        </div>
+
+        <!-- Segundo ícono en el menú (Recomendaciones) -->
+        <div class="menu-icon-box">
+            <a routerLink="#">
+                <div class="menu-icon">
+                    <!-- Icono de estado por defecto -->
+                    <img class="default-icon" src="../../../assets/Iconos/idea blue.png" alt="recommend blue">
+                    <!-- Icono que aparece cuando se pasa el ratón por encima -->
+                    <img class="hover-icon" src="../../../assets/Iconos/idea white.png" alt="recommend white">
+                </div>
+            </a>
+            <p class="etiqueta">Recomendaciones</p> <!-- Texto descriptivo del ícono -->
+        </div>
+
+        <!-- Tercer ícono en el menú (Añadir) -->
+        <div class="menu-icon-box">
+            <a routerLink="#">
+                <div class="menu-icon">
+                    <!-- Icono de estado por defecto -->
+                    <img class="default-icon" src="../../../assets/Iconos/add blue.png" alt="add blue">
+                    <!-- Icono que aparece cuando se pasa el ratón por encima -->
+                    <img class="hover-icon" src="../../../assets/Iconos/add white.png" alt="add white">
+                </div>
+            </a>
+            <p class="etiqueta">Añadir</p> <!-- Texto descriptivo del ícono -->
+        </div>
+
+        <!-- Cuarto ícono en el menú (Guardar) -->
+        <div class="menu-icon-box">
+            <a routerLink="#">
+                <div class="menu-icon">
+                    <!-- Icono de estado por defecto -->
+                    <img class="default-icon" src="../../../assets/Iconos/save blue.png" alt="save blue">
+                    <!-- Icono que aparece cuando se pasa el ratón por encima -->
+                    <img class="hover-icon" src="../../../assets/Iconos/save white.png" alt="save white">
+                </div>
+            </a>
+            <p class="etiqueta">Guardar</p> <!-- Texto descriptivo del ícono -->
+        </div>
+
+    </div>
+
+    <!-- Contenedor donde se muestran las canciones del set -->
+    <div class="canciones">
+        <!-- Componente de tarjeta de canción -->
+        <app-tarjeta-cancion-set></app-tarjeta-cancion-set>
+    </div>
+    
+</body>
+</html>
