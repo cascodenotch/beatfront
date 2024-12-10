@@ -1,0 +1,149 @@
+/* Estilo general para el cuerpo de la página */
+body {
+    border: 0px solid red;
+    background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 150px;
+    gap: 50px;
+    margin: 0;
+    min-height: 92vh;
+    position: relative;
+}
+
+/* Fondo adicional detrás del contenido */
+body::before {
+    content: '';
+    position: absolute;
+    top: -15%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../../../assets/Img/logo.png) center/cover no-repeat;
+    background-size: 80%;
+    opacity: 0.05;
+}
+
+/* Estilo para la sección de bienvenida */
+.mensaje-bienvenida {
+    border: 0px solid purple;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    gap: 50px;
+}
+
+/* Título de bienvenida */
+#titulo-bienvenida {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 46px;
+}
+
+/* Subtítulo de bienvenida */
+#subtitulo-bienvenida {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+}
+
+/* Estilo de los párrafos */
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+}
+
+/* Clase para texto en negrita */
+.bold {
+    font-weight: bold;
+}
+
+/* Estilo para la sección de propuestas */
+.seccion-propuestas {
+    border: 0px solid rgba(167, 197, 217, 0.3);
+    background-color: rgba(167, 197, 217, 0.3);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    padding: 30px;
+    gap: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para cada elemento de la sección de propuestas */
+.item-propuestas {
+    border: 0px solid purple;
+    width: 33.33%;
+}
+
+/* Estilo para la sección de pasos */
+.seccion-pasos {
+    border: 0px solid orange;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    gap: 50px;
+}
+
+/* Estilo para las flechas */
+#flecha-abajo {
+    border: 0px solid transparent;
+    transform: rotate(45deg);
+    margin-top: 100px;
+}
+
+#flecha-arriba {
+    border: 0px solid transparent;
+    transform: rotate(-45deg);
+    margin-top: 100px;
+}
+
+/* Estilo para cada elemento de la sección de pasos */
+.item-pasos {
+    border: 0px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo específico para el segundo paso */
+#paso-dos {
+    border: 0px solid green;
+    margin-top: 200px;
+}
+
+/* Estilo de las imágenes en la sección de pasos y en los elementos de pasos */
+.item-pasos img,
+.seccion-pasos img {
+    border: 0px solid grey;
+    width: 50px;
+    height: 50px;
+}
+
+/* Estilo del botón de vinculación de Spotify */
+.btn-vincular-spotify {
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background-color: #6fd861;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    margin-right: 30px;
+    font-size: 20px;
+}
+
+/* Estilo del icono dentro del botón de vinculación de Spotify */
+.btn-vincular-spotify img {
+    border: 0px solid transparent;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
