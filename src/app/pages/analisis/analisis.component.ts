@@ -24,7 +24,7 @@ import {
 export class AnalisisComponent implements AfterViewInit {
 
   constructor() {
-    // Registrar los componentes necesarios para los gráficos
+    
     Chart.register(
       ArcElement,
       LineElement,
@@ -100,7 +100,7 @@ export class AnalisisComponent implements AfterViewInit {
             legend: {
               display: true,
               labels: {
-                color: '#FFFFFF',  // Cambiar el color de la leyenda
+                color: '#FFFFFF',  
                 font: {
                   size: 18,
                   family: 'Roboto',
@@ -135,7 +135,7 @@ export class AnalisisComponent implements AfterViewInit {
             legend: {
               display: true,
               labels: {
-                color: 'black',  // Cambiar el color de la leyenda
+                color: 'black', 
                 font: {
                   size: 18,
                   family: 'Roboto',
