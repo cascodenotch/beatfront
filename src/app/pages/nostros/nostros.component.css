@@ -101,7 +101,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: end;
+    align-items: flex-end;
     
   }
 
