@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    height: 92vh;
+    background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
+    color: white;
+    padding: 100px;
+    padding-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 48px;
+    position: absolute;
+    top: 115px;
+    left: 110px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .back{
+    position: absolute;
+    top: 130px;
+    left: 40px;
+    width: 30px;
+    height: 30px;
+  }
+
+  button {
+    background: none;
+    border: none;
+  }
+  
+  span {
+    color: var(--color-complemento);
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; 
+    box-sizing: border-box;
+    margin-top: -30px;
+  }
+  
+  .head {
+    flex: 0 0 60%; 
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .stats {
+    width: 50%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 40px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 36px;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .stat1 {
+    background-color: #ABC8FF;
+    color: black;
+  }
+  
+  .stat2 {
+    background-color: #D9D9D9;
+    color: black;
+  }
+  
+  .stat3 {
+    background-color: var(--color-complemento);
+    color: black;
+  }
+  
+  .stat4 {
+    background-color: var(--color-fondo);
+    color: white;
+  }
+  
+  .circulo {
+    color: white;
+    width: 50%; 
+    height: 500px;
+    position: relative; 
+    margin-left: 100px;
+    margin-top: -70px;
+  }
+  
+  canvas {
+    display: block; 
+    width: 100% !important; 
+    height: 120% !important; 
+  }
+
+  .graf{
+    display: block; 
+    width: 100% !important; 
+    height: 90% !important;
+  }
+  
+  
+  .graficos {
+    margin-top: 20px;
+    flex: 0 0 40%; 
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; 
+    width: 100%;
+  }
+  
+  .grafic1 {
+    flex: 0 0 49%; 
+    height: 300px;
+    background-color: #333333; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    color: white;
+    font-size: 30px; 
+    border-radius: 10px;
+  }
+  
+  .grafic2 {
+    flex: 0 0 49%; 
+    height: 300px;
+    background-color: #0AF2FA; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    color: black;
+    font-size: 30px; 
+    border-radius: 10px;
+  }
+  
+  
