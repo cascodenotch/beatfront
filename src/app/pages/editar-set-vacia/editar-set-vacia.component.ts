@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-editar-set-vacia',
@@ -8,18 +10,17 @@ import { Component } from '@angular/core';
 export class EditarSetVaciaComponent {
 
   inputValue: string = '';
-  showAlert: boolean = false; 
+
+  constructor(private router: Router) {}
 
   onInputChange(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     this.inputValue = inputElement.value; 
   }
 
-  onAddSongClick() {
-    if (!this.inputValue) {
-      this.showAlert = true; 
-    } else {
-      this.showAlert = false; 
+  navigateToSongs() {
+    if (this.inputValue) {
+      this.router.navigate(['canciones']);
     }
-  }
+}
 }
