@@ -1,0 +1,126 @@
+/* Estilo general para el cuerpo de la página */
+body {
+    background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 150px;
+    gap: 50px;
+    margin: 0;
+    min-height: 92vh;
+    position: relative;
+}
+
+/* Fondo adicional detrás del body */
+body::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../../../assets/Img/logo.png) center/cover no-repeat;
+    background-size: 80%;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+/* Estilo del título principal de la página */
+.input-container {
+    position: relative;
+    display: inline-block;
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    width: 100%;
+    height: 60px;
+}
+
+input {
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.title-input {
+    font-size: 48px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.fake-placeholder{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 48px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    pointer-events: none;
+}
+
+.highlighted-text {
+    color: var(--color-complemento);
+    text-shadow: none;
+}
+
+.title-input:focus + .fake-placeholder,
+.title-input:not(:placeholder-shown) + .fake-placeholder {
+    opacity: 0;
+}
+
+/* Estilo para el botón de retroceso */
+.back {
+    position: absolute;
+    top: 155px;
+    left: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+/* Estilos para mensaje principal */
+.mensaje-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 150px;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    text-shadow: 
+        1px 1px 0 black, 
+        -1px 1px 0 black,  
+        1px -1px 0 black,   
+        -1px -1px 0 black;
+}
+
+/* Estilos para boton */
+button {
+    border: 1px solid #737373;
+    border-radius: 7px;
+    padding: 10px 20px;
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.active{
+    background-color: var(--color-fondo);
+    color: white;
+}
+
+button.disabled{
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #737373;
+    cursor: not-allowed;
+}
+
