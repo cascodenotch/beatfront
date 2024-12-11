@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Set</title>
+</head>
+
+<body>
+    <!-- Botón de retroceso con imagen de ícono -->
+    <a routerLink="">
+        <img src="../../../assets/Iconos/back.png" class="back" alt="play" />
+    </a>
+
+    <!-- Campo de entrada para nombrar el set -->
+    <div class="input-container">
+        <input type="text" class="title-input" placeholder="" (input)="onInputChange($event)">
+        <span class="fake-placeholder">Nombra tu nuevo <span class="highlighted-text">Set</span></span>
+    </div>
+
+    <!-- Mensaje principal -->
+    <div class="mensaje-principal">
+        <p>Aún no tienes <span class="highlighted-text">Canciones</span></p>
+        <p>!Añade una con esté botón!</p>
+        <button [disabled]="!inputValue" [ngClass]="{'active': inputValue, 'disabled': !inputValue}" (click)="onAddSongClick()" >Añadir canción</button>
+    </div>
+
+</body>
+
+</html>

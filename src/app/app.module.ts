@@ -21,6 +21,7 @@ import { ValidacionLogOutComponent } from './component/validacion-log-out/valida
 import { CancionComponent } from './models/cancion/cancion.component';
 import { SetComponent } from './models/set/set.component';
 import { UserComponent } from './models/user/user.component';
+import { EditarSetVaciaComponent } from './pages/editar-set-vacia/editar-set-vacia.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { UserComponent } from './models/user/user.component';
     ValidacionLogOutComponent,
     CancionComponent,
     SetComponent,
-    UserComponent
+    UserComponent,
+    EditarSetVaciaComponent
   ],
   imports: [
     BrowserModule,
