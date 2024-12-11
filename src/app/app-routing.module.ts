@@ -8,7 +8,6 @@ import { CancionComponent } from './models/cancion/cancion.component';
 import { NostrosComponent } from './pages/nostros/nostros.component';
 import { RecomendacionesComponent } from './pages/recomendaciones/recomendaciones.component';
 import { EditarSetVaciaComponent } from './pages/editar-set-vacia/editar-set-vacia.component';
-import { EditarSetComponent } from './pages/editar-set/editar-set.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
