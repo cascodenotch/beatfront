@@ -1,4 +1,4 @@
-<div class="card-container" *ngFor="let card of cards">
+<div class="card-container">
     <!-- Contenedor de la imagen -->
     <div class="card-image-container">
         <img id="song-image" [src]="card.img" alt="song image">
@@ -43,13 +43,13 @@
         <a routerLink="#">
             <img class="btn-icon" src="../../../assets/Iconos/play 2.png" alt="play">
         </a>
-        <a routerLink="#"(click)="onDelete(card)">
+        <button (click)="onDelete(card)">
             <img class="btn-icon" src="../../../assets/Iconos/delete.png" alt="delete">
-        </a>
+        </button>
     </div>
 
     <!-- Mostrar mensaje de validación si showValidation es verdadero -->
-    <app-validacion-eliminar *ngIf="showValidation"></app-validacion-eliminar>
+    <app-validacion-eliminar-cancion *ngIf="showValidation"></app-validacion-eliminar-cancion>
 
 </div>
 

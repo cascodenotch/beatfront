@@ -6,15 +6,15 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
-  padding: 150px;
+  padding: 110px;
 }
 
 /* Estilos del contenedor de menú */
 .menu{
   gap: 20px;
   position: absolute;
-  top: 155px;
-  right: 150px;
+  top: 130px;
+  right: 110px;
   display: flex;
   flex-direction: row;
   width: auto;
@@ -26,8 +26,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 /* Estilos para los íconos de cada elemento */
@@ -35,8 +35,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Estilos para los íconos por defecto y al pasar el ratón */
@@ -82,8 +82,8 @@ body {
 .title {
   font-size: 48px;
   position: absolute;
-  top: 150px;
-  left: 150px;
+  top: 115px;
+  left: 110px;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
@@ -91,16 +91,10 @@ body {
 /* Estilo para el botón de retroceso */
 .back{
   position: absolute;
-  top: 155px;
+  top: 130px;
   left: 40px;
-  width: 40px;
-  height: 40px;
-}
-
-/* Estilo general de los botones (sin borde ni fondo) */
-button {
-  border: none;
-  background: none;
+  width: 30px;
+  height: 30px;
 }
 
 /* Estilo de los textos dentro de los <span> */
@@ -110,14 +104,16 @@ span {
 
 /* Estilos para la sección de canciones */
 .canciones {
+  border: 0px solid salmon;
   width: 100%;
-  height: calc(85vh - 200px); 
+  height: 100%; 
   overflow-y: auto; 
   padding-right: 20px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 50px;
+  gap: 20px;
+  margin-top: 30px;
 }
 
 /* Estilos para la barra de desplazamiento */
