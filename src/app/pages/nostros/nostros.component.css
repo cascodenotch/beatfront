@@ -1,0 +1,117 @@
+body {
+    border: 0px solid red;
+    background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 100px;
+    gap: 50px;
+    margin: 0;
+    min-height: 92vh;
+    position: relative;
+}
+
+  body::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../../../assets/Img/logo.png) center/cover no-repeat;
+    background-size: 100%;
+    opacity: 0.05;
+    pointer-events: none; 
+ }
+
+  content{
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+  }
+
+  .head{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+  }
+
+  .noso{
+    height: 100%;
+    width: 40%;
+  }
+
+  .texto{
+    width: 60%;
+    height: 100%;
+    margin-left: 10%;
+    margin-right: 50px;
+  }
+  .titulo{
+    font-size: 48px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .beat{
+    color: var(--color-fondo);
+  }
+
+  .info{
+    font-size: 24px;
+  }
+
+  .perfil{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .perfil1{
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .perfil2{
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+
+  .sobre{
+    font-size: 36Px;
+  }
+  .info1, .info2{
+    width: 50%;
+    font-size: 20px;
+  }
+
+  .nombre{
+    color: var(--color-complemento);
+  }
+
+  .imag{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: end;
+    
+  }
+
+  .icon{
+    width: 30px;
+    height: 30px;
+  }
+
+  .alguien{
+    height: 80%;
+    margin-right: 150px;
+    border-radius: 10px;
+  }
