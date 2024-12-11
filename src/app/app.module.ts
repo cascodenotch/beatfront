@@ -22,6 +22,7 @@ import { CancionComponent } from './models/cancion/cancion.component';
 import { SetComponent } from './models/set/set.component';
 import { UserComponent } from './models/user/user.component';
 import { EditarSetVaciaComponent } from './pages/editar-set-vacia/editar-set-vacia.component';
+import { ValidacionEliminarCancionComponent } from './component/validacion-eliminar-cancion/validacion-eliminar-cancion.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EditarSetVaciaComponent } from './pages/editar-set-vacia/editar-set-vac
     CancionComponent,
     SetComponent,
     UserComponent,
-    EditarSetVaciaComponent
+    EditarSetVaciaComponent,
+    ValidacionEliminarCancionComponent
   ],
   imports: [
     BrowserModule,

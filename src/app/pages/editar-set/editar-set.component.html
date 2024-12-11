@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Configuración de los metadatos del documento -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar set</title>
-</head>
 <body>
-
     <!-- Botón de retroceso con imagen de ícono -->
-    <button>
+    <a routerLink="mis-sets">
         <img src="../../../assets/Iconos/back.png" class="back" alt="play" />
-    </button>
+    </a>
     
     <!-- Título del set seleccionado por el usuario -->
     <p class="title"><span>{{ titulo }}</span></p>
@@ -60,7 +51,7 @@
 
         <!-- Cuarto ícono en el menú (Guardar) -->
         <div class="menu-icon-box">
-            <a routerLink="#">
+            <a routerLink="#" (click)="onSave()">
                 <div class="menu-icon">
                     <!-- Icono de estado por defecto -->
                     <img class="default-icon" src="../../../assets/Iconos/save blue.png" alt="save blue">
@@ -75,9 +66,13 @@
 
     <!-- Contenedor donde se muestran las canciones del set -->
     <div class="canciones">
-        <!-- Componente de tarjeta de canción -->
-        <app-tarjeta-cancion-set></app-tarjeta-cancion-set>
+        <div *ngFor="let card of cards">
+            <app-tarjeta-cancion-set [card]="card"></app-tarjeta-cancion-set>
+        </div>
     </div>
     
+    <!-- Mostrar mensaje de validación si showValidation es verdadero -->
+    <app-validacion-guardar *ngIf="showValidation"></app-validacion-guardar>
+    
 </body>
-</html>
+
