@@ -5,12 +5,14 @@
     </div>
   
     <!-- Título del sitio -->
-    <div class="header-title">BeatCraft</div>
+    <div class="header-title">
+      <a routerLink="landing">BeatCraft</a>
+    </div>
   
     <!-- Sección para usuarios no conectados -->
     <ng-container *ngIf="logueado; else headerLogueado">
       <div class="header-menu">
-        <button class="menu-button">
+        <button class="btn-vincular-spotify" [routerLink]="'editar-set-vacia'">
           <img src="../../../assets/Iconos/spotify.png" alt="">
           <span>Vincular Spotify</span>
         </button>

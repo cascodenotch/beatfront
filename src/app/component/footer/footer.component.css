@@ -2,7 +2,7 @@
 footer {
     background-color: var(--color-secuandario);
     color: var(--color-fondo);
-    height: 10vh;
+    min-height: 10vh;
     width: 100%;
     display: flex;
     justify-content: space-between;
