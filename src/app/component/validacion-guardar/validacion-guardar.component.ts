@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-validacion-guardar',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class ValidacionGuardarComponent {
 
+  @Output() closeValidation = new EventEmitter<void>(); 
+
+  close(){
+    this.closeValidation.emit(); 
+  }
+  
 }

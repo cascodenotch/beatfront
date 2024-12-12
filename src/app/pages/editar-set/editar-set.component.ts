@@ -13,7 +13,9 @@ export class EditarSetComponent {
   onSave() {
       this.showValidation = true;  // Mostrar el componente de validación
   }
-
+  closeValidation(){
+    this.showValidation = false; 
+  }
   titulo: string = 'Prueba de título';
   
   cards = [

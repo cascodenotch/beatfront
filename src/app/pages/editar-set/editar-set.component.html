@@ -1,6 +1,6 @@
 <body>
     <!-- Botón de retroceso con imagen de ícono -->
-    <a routerLink="mis-sets">
+    <a routerLink="/mis-sets">
         <img src="../../../assets/Iconos/back.png" class="back" alt="play" />
     </a>
     
@@ -12,7 +12,7 @@
 
         <!-- Primer ícono en el menú (Analizar) -->
         <div class="menu-icon-box">
-            <a routerLink="analisis">
+            <a routerLink="/analisis">
                 <div class="menu-icon">
                     <!-- Icono de estado por defecto -->
                     <img class="default-icon" src="../../../assets/Iconos/analyze blue.png" alt="analyze blue">
@@ -25,7 +25,7 @@
 
         <!-- Segundo ícono en el menú (Recomendaciones) -->
         <div class="menu-icon-box">
-            <a routerLink="recomend">
+            <a routerLink="/recomend">
                 <div class="menu-icon">
                     <!-- Icono de estado por defecto -->
                     <img class="default-icon" src="../../../assets/Iconos/idea blue.png" alt="recommend blue">
@@ -38,7 +38,7 @@
 
         <!-- Tercer ícono en el menú (Añadir) -->
         <div class="menu-icon-box">
-            <a routerLink="canciones">
+            <a routerLink="/canciones">
                 <div class="menu-icon">
                     <!-- Icono de estado por defecto -->
                     <img class="default-icon" src="../../../assets/Iconos/add blue.png" alt="add blue">
@@ -72,7 +72,9 @@
     </div>
     
     <!-- Mostrar mensaje de validación si showValidation es verdadero -->
-    <app-validacion-guardar *ngIf="showValidation"></app-validacion-guardar>
+    <div *ngIf="showValidation">
+        <app-validacion-guardar (closeValidation)="closeValidation()"></app-validacion-guardar>
+      </div>
     
 </body>
 

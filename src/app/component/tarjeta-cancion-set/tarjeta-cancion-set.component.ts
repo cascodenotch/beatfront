@@ -18,4 +18,8 @@ export class TarjetaCancionSetComponent {
       this.showValidation = true;  
     }
   
+    closeValidation(){
+      this.showValidation = false; 
+    }
+  
 }

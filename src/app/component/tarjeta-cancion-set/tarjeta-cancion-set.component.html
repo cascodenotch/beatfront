@@ -49,7 +49,9 @@
     </div>
 
     <!-- Mostrar mensaje de validación si showValidation es verdadero -->
-    <app-validacion-eliminar-cancion *ngIf="showValidation"></app-validacion-eliminar-cancion>
+    <div *ngIf="showValidation">
+        <app-validacion-eliminar-cancion (closeValidation)="closeValidation()"></app-validacion-eliminar-cancion>
+      </div>
 
 </div>
 
