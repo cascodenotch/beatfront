@@ -23,6 +23,8 @@ import { SetComponent } from './models/set/set.component';
 import { UserComponent } from './models/user/user.component';
 import { EditarSetVaciaComponent } from './pages/editar-set-vacia/editar-set-vacia.component';
 import { ValidacionEliminarCancionComponent } from './component/validacion-eliminar-cancion/validacion-eliminar-cancion.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import{DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { ValidacionEliminarCancionComponent } from './component/validacion-elimi
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule,
+    BrowserAnimationsModule,
+    DragDropModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
