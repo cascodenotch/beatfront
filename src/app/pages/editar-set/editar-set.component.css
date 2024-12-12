@@ -61,12 +61,12 @@ body {
   opacity: 1; /* Aparece cuando se pasa el ratón */
 }
 
-/* Estilos para la etiqueta debajo de cada ícono */
+/* Estilos para la etiqueta de cada ícono */
 .etiqueta{
   display: none;
   position: absolute;
-  bottom: 20px;
-  left: 0;
+  bottom: 12px;
+  left: -1;
   transform: translate(50%, -50%); 
   background-color: rgba(0, 0, 0, 0.3);
   padding: 10px;
@@ -113,8 +113,30 @@ span {
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-  margin-top: 30px;
+  margin-top: 40px;
 }
+
+/* Estilos para drag and drop */
+
+.canciones div[cdkDrag] {
+  cursor: move;
+}
+
+
+.cdk-drag-preview {
+  background-color: var(--color-fondo);
+  color: white;
+  transform: rotate(5deg); 
+  border-radius: 10px;
+}
+
+
+.cdk-drag-placeholder {
+  border: 2px dashed #007bff;
+  border-radius: 10px;
+  height: 120px; 
+}
+
 
 /* Estilos para la barra de desplazamiento */
 .canciones::-webkit-scrollbar {
