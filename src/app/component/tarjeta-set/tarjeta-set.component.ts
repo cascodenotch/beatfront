@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tarjeta-set',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./tarjeta-set.component.css']
 })
 export class TarjetaSetComponent {
+  @Input() searchText: string = ''; 
   cards = [
     { title: 'Título Set 1' },
     { title: 'Título Set 2' },
@@ -26,5 +27,15 @@ export class TarjetaSetComponent {
 
   closeValidation(){
     this.showValidation = false; 
+  }
+
+  filteredCards = this.cards; 
+
+  ngOnChanges(): void {
+    this.filteredCards = this.cards.filter((card) => {
+      const matchesSearchText = this.searchText ? card.title.toLowerCase().includes(this.searchText.toLowerCase()) : true;
+
+      return matchesSearchText;
+    });
   }
 }

@@ -1,6 +1,5 @@
 /* Estilo general para el cuerpo de la página */
 main {
-  border: 0px solid red;
   background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
   color: white;
   display: flex;
@@ -61,6 +60,7 @@ main::before {
   .beat{
     color: var(--color-fondo);
     font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
   }
 
   .info{

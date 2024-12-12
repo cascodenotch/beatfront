@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./mis-sets.component.css']
 })
 export class MisSetsComponent {
-
+  searchText: string = '';
 }

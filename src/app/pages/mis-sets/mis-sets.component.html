@@ -2,11 +2,11 @@
     <p class="title">Mis <span>Sets</span></p>
 
     <div class="busc">
-        <input type="text" class="buscador" placeholder="Buscar Set...">
+        <input type="text" class="buscador" placeholder="Buscar Set..." [(ngModel)]="searchText">
         <img src="../../../assets/Iconos/search.png" class="lupa" alt="play" />
     </div>
 
-    <app-tarjeta-set></app-tarjeta-set>
+    <app-tarjeta-set [searchText]="searchText"></app-tarjeta-set>
 
 </body>
 

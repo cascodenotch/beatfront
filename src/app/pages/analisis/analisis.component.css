@@ -31,6 +31,7 @@ main {
   
   span {
     color: var(--color-complemento);
+    font-family: 'Montserrat', sans-serif;
   }
   
   .content {
@@ -129,6 +130,7 @@ main {
     color: white;
     font-size: 30px; 
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   }
   
   .grafic2 {
@@ -143,6 +145,7 @@ main {
     color: black;
     font-size: 30px; 
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   }
   
   
