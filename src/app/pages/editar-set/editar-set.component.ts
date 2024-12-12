@@ -8,19 +8,11 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class EditarSetComponent {
 
-  showValidation = false;
-
-  // Método para mostrar el mensaje de validación
-  onSave() {
-      this.showValidation = true;  // Mostrar el componente de validación
-  }
-
-  closeValidation(){
-    this.showValidation = false; 
-  }
-
+  // Propiedades
   titulo: string = 'Mi primer set';
-  
+  showValidation = false;
+  inputValue: string = '';
+
   cards = [
     { 
       title: 'Blinding Lights', 
@@ -64,10 +56,26 @@ export class EditarSetComponent {
     }
   ];
 
-  // Método para manejar el evento de arrastrar y soltar
+  // Métodos
+
+  // Maneja el evento de guardar
+  onSave() {
+    this.showValidation = true;  // Mostrar el componente de validación
+  }
+
+  // Cierra el mensaje de validación
+  closeValidation() {
+    this.showValidation = false; 
+  }
+
+  // Maneja el evento de arrastrar y soltar
   onDrop(event: CdkDragDrop<any[]>) {
-    // Cambiar el orden de las tarjetas en el arreglo
     moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
   }
 
+  // Maneja cambios en el valor del input
+  onInputChange(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    this.inputValue = inputElement.value; 
+  }
 }
