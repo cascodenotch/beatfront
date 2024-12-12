@@ -4,8 +4,11 @@
         <img src="../../../assets/Iconos/back.png" class="back" alt="play" />
     </a>
     
-    <!-- Título del set seleccionado por el usuario -->
-    <p class="title"><span>{{ titulo }}</span></p>
+     <!-- Campo de entrada para nombrar el set -->
+     <div class="input-container">
+        <input type="text" class="title-input" placeholder="" (input)="onInputChange($event)">
+        <span class="fake-placeholder">{{ titulo }}</span>
+    </div>
 
     <!-- Menú de íconos con enlaces -->
     <div class="menu">
