@@ -15,6 +15,10 @@ export class EditarSetComponent {
       this.showValidation = true;  // Mostrar el componente de validación
   }
 
+  closeValidation(){
+    this.showValidation = false; 
+  }
+
   titulo: string = 'Mi primer set';
   
   cards = [
