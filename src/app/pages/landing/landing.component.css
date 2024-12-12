@@ -53,6 +53,7 @@ main::before {
     text-align: center;
     font-family: 'Montserrat', sans-serif !important;
     font-size: 36px;
+    font-weight: 500;
 }
 
 /* Estilo de los párrafos */
@@ -142,6 +143,8 @@ p {
     align-items: center;
     padding: 5px 15px;
     font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
 /* Estilo del icono dentro del botón de vinculación de Spotify */

@@ -15,7 +15,7 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 66.66%;
+    width: 100%;
 }
 
 /* Elemento individual en los detalles del footer */
@@ -45,13 +45,11 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 33.33%;
 }
 
 .footer-logo img {
-    height: 130px;
+    height: 70px;
     width: auto;
-    margin-bottom: -15px;
 }
 
 /* Media queries para pantallas más pequeñas */
