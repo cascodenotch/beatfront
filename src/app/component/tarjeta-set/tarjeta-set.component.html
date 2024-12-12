@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="card2">
-    <div class="header2">Nuevo <span>Set</span> </div>
+  <div class="card2" *ngIf="showCard2">
+    <div class="header2">Nuevo <span>Set</span></div>
     <div class="content2">
       <a routerLink="/editar-set-vacia" routerLinkActive="active-link">
         <button class="add-btn">
@@ -9,6 +9,7 @@
       </a>
     </div>
   </div>
+  
 
   <div class="card" *ngFor="let card of filteredCards">
     <div class="header">{{ card.title }}</div>

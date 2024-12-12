@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class TarjetaSetComponent {
   @Input() searchText: string = ''; 
+  showCard2 = true; 
+
   cards = [
     { title: 'Título Set 1' },
     { title: 'Título Set 2' },
@@ -33,9 +35,13 @@ export class TarjetaSetComponent {
 
   ngOnChanges(): void {
     this.filteredCards = this.cards.filter((card) => {
-      const matchesSearchText = this.searchText ? card.title.toLowerCase().includes(this.searchText.toLowerCase()) : true;
-
+      const matchesSearchText = this.searchText
+        ? card.title.toLowerCase().includes(this.searchText.toLowerCase())
+        : true;
+  
       return matchesSearchText;
     });
+
+    this.showCard2 = !this.searchText;
   }
 }
