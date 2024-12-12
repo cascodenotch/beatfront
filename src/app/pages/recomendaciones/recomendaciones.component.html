@@ -7,7 +7,7 @@
   
     <p class="title"><span>Canciones</span> recomendadas</p>
 
-    <div class="busc">
+    <div>
         <button>
             <img src="../../../assets/Iconos/refresh.png" class="act" alt="buscar" />
           </button>
@@ -20,6 +20,19 @@
       </div>
       <div class="repro"></div>
 
+    </div>
+
+    <div class="container">
+
+      <div class="card" *ngFor="let card of cards">
+        <div class="header">
+  
+          <div class="datos">
+            {{ card.title }} <br />
+            {{ card.autor }}
+          </div>
+        </div>
+      </div>
     </div>
     
   </body>

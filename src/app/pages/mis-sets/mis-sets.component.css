@@ -1,28 +1,27 @@
 
-  body {
-    margin: 0;
-    height: 92vh;
-    background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 150px;
-  }
-  
-  p {
-    font-size: 48px;
-    position: absolute;
-    top: 150px;
-    left: 150px;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-  }
+body {
+  margin: 0;
+  height: 92vh;
+  background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 110px;
+}
+
+.title {
+  font-size: 48px;
+  position: absolute;
+  top: 115px;
+  left: 110px;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
   
   .busc {
     position: absolute;
-    top: 150px;
-    right: 150px;
+    top: 115px;
+    right: 110px;
     height: 50px;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 10px;

@@ -12,29 +12,29 @@ export class TarjetaCancionComponent {
   @Input() key: string = ''; 
   @Input() tempo: string = ''; 
 
-  cards = [
-    { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
-    { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '120' },
-    { title: 'Título 3', autor: 'Autor 3', danceability: 8, energy: 9, key: 'E', tempo: '140' },
-    { title: 'Título 4', autor: 'Autor 4', danceability: 5, energy: 6, key: 'F#', tempo: '100' },
-    { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
-    { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '110' },
-    { title: 'Título 3', autor: 'Autor 3', danceability: 8, energy: 9, key: 'E', tempo: '140' },
-    { title: 'Título 4', autor: 'Autor 4', danceability: 5, energy: 6, key: 'F#', tempo: '100' },
-    { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
-    { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '110' },
-    { title: 'Título 3', autor: 'Autor 3', danceability: 8, energy: 9, key: 'E', tempo: '120' },
-    { title: 'Título 4', autor: 'Autor 4', danceability: 5, energy: 6, key: 'F#', tempo: '100' },
-  ];
-
-  //   cards = [
+  // cards = [
   //   { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
   //   { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '120' },
   //   { title: 'Título 3', autor: 'Autor 3', danceability: 8, energy: 9, key: 'E', tempo: '140' },
   //   { title: 'Título 4', autor: 'Autor 4', danceability: 5, energy: 6, key: 'F#', tempo: '100' },
   //   { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
   //   { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '110' },
+  //   { title: 'Título 3', autor: 'Autor 3', danceability: 8, energy: 9, key: 'E', tempo: '140' },
+  //   { title: 'Título 4', autor: 'Autor 4', danceability: 5, energy: 6, key: 'F#', tempo: '100' },
+  //   { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
+  //   { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '110' },
+  //   { title: 'Título 3', autor: 'Autor 3', danceability: 8, energy: 9, key: 'E', tempo: '120' },
+  //   { title: 'Título 4', autor: 'Autor 4', danceability: 5, energy: 6, key: 'F#', tempo: '100' },
   // ];
+
+    cards = [
+    { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
+    { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '120' },
+    { title: 'Título 3', autor: 'Autor 3', danceability: 8, energy: 9, key: 'E', tempo: '140' },
+    { title: 'Título 4', autor: 'Autor 4', danceability: 5, energy: 6, key: 'F#', tempo: '100' },
+    { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
+    { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '110' },
+  ];
 
   filteredCards = this.cards; 
 

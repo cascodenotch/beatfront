@@ -1,43 +1,43 @@
 body {
-    margin: 0;
-    height: 92vh;
-    background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 150px;
-  }
+  margin: 0;
+  height: 92vh;
+  background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 110px;
+}
+
+.title {
+  font-size: 48px;
+  position: absolute;
+  top: 115px;
+  left: 110px;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.back{
+  position: absolute;
+  top: 130px;
+  left: 40px;
+  width: 30px;
+  height: 30px;
+}
+
+.act {
+  position: absolute;
+  top: 130px;
+  right: 110px;
+  width: 30px;
+  height: 30px;
+}
+
+
+img{
+  cursor: pointer;
+}
   
-  img {
- 
-    cursor: pointer;
-  }
-  
-  .title {
-    font-size: 48px;
-    position: absolute;
-    top: 150px;
-    left: 150px;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .back {
-    position: absolute;
-    top: 155px;
-    left: 40px;
-    width: 40px;
-    height: 40px;
-  }
-  
-  .act {
-    position: absolute;
-    top: 150px;
-    right: 150px;
-    width: 50px;
-    height: 50px;
-  }
   
   button {
     border: none;
@@ -71,5 +71,61 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-bottom: 10px;
+  }
+
+
+
+  /* ------------------------------ */
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 52px;
+    margin-top: 4%;
+    width: 60%;
+    opacity: 0.2;
   }
   
+  .card {
+    width: 260px;
+    height: 114px;
+    background-color: #d58b85;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    margin-top: -30px;
+  }
+  
+  .header {
+    background-color: var(--color-fondo);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .datos {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+ 

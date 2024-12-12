@@ -1,7 +1,7 @@
   .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 52px;
     margin-top: 4%;
   }
@@ -99,43 +99,53 @@
     border: none;
     background: none;
   }
+/* --------------Añadir set-------------------- */
 
+.card2 {
+  width: 260px;
+  height: 260px;
+  background-color: var(--color-fondo);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
 
-  .card2 {
-    width: 260px;
-    height: 260px;
-    background-color: var(--color-fondo); 
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-  }
+.header2 {
+  background-color: var(--color-fondo);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 20px;
+  transition: background-color 0.3s; 
+}
 
-  .content2 {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -40px; 
-    position: relative;
-    transition: opacity 0.3s;
-  }
+.content2 {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  position: relative;
+  transition: opacity 0.3s;
+}
 
-  .header2 {
-    background-color: var(--color-fondo); 
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 20px;
-  }
+.add {
+  width: 60px;
+  height: 60px;
+  margin-top: -40px;
+}
 
-  .add{
-    width: 60px;
-    height: 60px;
-  }
-  
+.card2:hover {
+  background-color: var(--color-terciario); 
+}
+
+.card2:hover .header2 {
+  background-color: var(--color-terciario); 
+}
+
