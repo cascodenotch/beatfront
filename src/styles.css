@@ -19,3 +19,5 @@
     --color-gradiant: #4877D2;
     --color-gris: #737373;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
