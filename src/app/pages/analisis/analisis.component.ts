@@ -85,22 +85,53 @@ export class AnalisisComponent implements AfterViewInit {
       new Chart(lineChart1Ctx, {
         type: 'line',
         data: {
-          labels: ['Punto 1', 'Punto 2', 'Punto 3', 'Punto 4'],
+          labels: [
+            'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4', 'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4', 
+            'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4', 'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4', 
+            'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4', 'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4', 
+            'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4', 'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4', 
+            'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4', 'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4', 
+            'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4', 'Punto 1', 'Punto 2', 'Punto 3', 'Punto 4'
+          ],
           datasets: [{
             label: ' Evolucion de la Energía',
-            data: [10, 20, 15, 30],
-            borderColor: '#FF6384',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            fill: true
+            data: [10, 20, 15, 30, 10, 20, 15, 30, 10, 20, 15, 30, 10, 20, 15, 30, 10, 20, 15, 30, 
+                   10, 20, 15, 30, 10, 20, 15, 30, 10, 20, 15, 30, 10, 20, 15, 30, 10, 20, 15, 30, 
+                   10, 20, 15, 30, 10, 20, 15, 30],
+                   borderColor: '#FF6384',
+                   backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            fill: true,
           }]
         },
         options: {
           responsive: true,
+          scales: {
+            x: {
+              ticks: {
+                color: '#D9D9D9',  
+                font: {
+                  size: 14,
+                  family: 'Roboto',
+                  weight: 'bold',
+                }
+              }
+            },
+            y: {
+              ticks: {
+                color: '#D9D9D9',  
+                font: {
+                  size: 14,
+                  family: 'Roboto',
+                  weight: 'bold',
+                }
+              }
+            }
+          },
           plugins: {
             legend: {
               display: true,
               labels: {
-                color: '#FFFFFF',  
+                color: '#D9D9D9',  
                 font: {
                   size: 18,
                   family: 'Roboto',
@@ -114,28 +145,53 @@ export class AnalisisComponent implements AfterViewInit {
     }
   }
   
+  
   initializeLineChart2(): void {
     const lineChart2Ctx = document.getElementById('lineChart2') as HTMLCanvasElement;
     if (lineChart2Ctx) {
       new Chart(lineChart2Ctx, {
         type: 'line',
         data: {
-          labels: ['Clave 1', 'Clave 2', 'Clave 3', 'Clave 4'],
+          labels: ['Clave 1', 'Clave 2', 'Clave 3', 'Clave 4','Clave 1', 'Clave 2', 'Clave 3', 'Clave 4',
+            'Clave 1', 'Clave 2', 'Clave 3', 'Clave 4','Clave 1', 'Clave 2', 'Clave 3', 'Clave 4'
+          ],
           datasets: [{
             label: 'Distribucion de la clave',
-            data: [5, 15, 10, 20],
-            borderColor: '#36A2EB',
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            fill: true
+            data: [5, 15, 10, 20, 5, 15, 10, 20, 5, 15, 10, 20, 5, 15, 10, 20],
+            borderColor: '#1A5276',  
+            backgroundColor: 'rgba(54, 162, 235, 0.1)',  
+            fill: true,
           }]
         },
         options: {
           responsive: true,
+          scales: {
+            x: {
+              ticks: {
+                color: '#2C3E50',  
+                font: {
+                  size: 14,
+                  family: 'Roboto',
+                  weight: 'bold',
+                }
+              }
+            },
+            y: {
+              ticks: {
+                color: '#2C3E50',  
+                font: {
+                  size: 14,
+                  family: 'Roboto',
+                  weight: 'bold',
+                }
+              }
+            }
+          },
           plugins: {
             legend: {
               display: true,
               labels: {
-                color: 'black', 
+                color: 'black',  
                 font: {
                   size: 18,
                   family: 'Roboto',
@@ -148,4 +204,4 @@ export class AnalisisComponent implements AfterViewInit {
       });
     }
   }
-}
+}  
