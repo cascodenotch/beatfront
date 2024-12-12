@@ -79,13 +79,51 @@ body {
 }
 
 /* Estilo del título principal de la página */
-.title {
-  font-size: 48px;
+.input-container {
+  position: relative;
+  display: inline-block;
   position: absolute;
   top: 115px;
   left: 110px;
+  width: 50%;
+  height: 60px;
+}
+
+input {
+  background-color: transparent;
+  border: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.title-input {
+  font-size: 48px;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.fake-placeholder{
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 48px;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  pointer-events: none;
+}
+
+.highlighted-text {
+  color: var(--color-complemento);
+  text-shadow: none;
+ font-family: 'Montserrat', sans-serif;
+}
+
+.title-input:focus + .fake-placeholder,
+.title-input:not(:placeholder-shown) + .fake-placeholder {
+  opacity: 0;
 }
 
 /* Estilo para el botón de retroceso */

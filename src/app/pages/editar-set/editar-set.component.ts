@@ -70,4 +70,11 @@ export class EditarSetComponent {
     moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
   }
 
+  inputValue: string = '';
+
+  onInputChange(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    this.inputValue = inputElement.value; 
+  }
+
 }
