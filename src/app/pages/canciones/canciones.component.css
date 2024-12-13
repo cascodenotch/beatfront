@@ -30,6 +30,7 @@
     top: 130px;
     right: 110px;
     height: 50px;
+    width: 18%;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     display: flex;
@@ -57,35 +58,46 @@
   .filtro{
     display: flex;
     flex-direction: row;
-    width: 60%;
+    width: 928px;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    margin-top: 20px;
+
   }
 
   .fil {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    width: 70%;
-    margin-right: 10px;
+    width: 50%;
+    margin-left: 40px;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.3);
     position: relative; 
 }
 
-.tem{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 70%;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: relative; 
-    
+.fil1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 60%;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: relative; 
 }
+
+.fil3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 40%;
+  margin-left: 40px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: relative; 
+}
+
 
 .fil::after {
     content: ""; 
@@ -93,17 +105,27 @@
     height: 100%; 
     width: 2px; 
     background-color: rgba(255, 255, 255, 0.3); 
-    right: 45px; 
+    right: 60px; 
     top: 0; 
 }
-.tem::after {
+.fil1::after {
     content: ""; 
     position: absolute;
     height: 100%; 
     width: 2px; 
     background-color: rgba(255, 255, 255, 0.3); 
-    right: 45px; 
+    right: 60px; 
     top: 0; 
+}
+
+.fil3::after {
+  content: ""; 
+  position: absolute;
+  height: 100%; 
+  width: 2px; 
+  background-color: rgba(255, 255, 255, 0.3); 
+  right: 60px; 
+  top: 0; 
 }
 
 
@@ -132,9 +154,21 @@
   }
 
   .subInp{
-    width: 24%;
-    margin-right: -5px;
-    
+    width: 30%;
+    margin-right: -100px;
+  }
+
+  .subInp1{
+    width: 28%;
+    margin-right: -100px;
+    margin-left: -2px;
+  }
+
+  .subInp3{
+    width: 40%;
+    margin-right: -130px;
+   margin-left: 4px;
+   
   }
 
   .subIcon{
@@ -179,10 +213,9 @@
 }
 
 .repro{
-    width: 36%;
+    width: 32%;
     height: 90%;
     margin-top: 10px;
-    margin-left: 50px;
     background-image: url("../../../assets/Img/reproductor.png");
 }
 
@@ -190,7 +223,7 @@
     width: 60%;
     height: calc(85vh - 200px); 
     overflow-y: auto; 
-    padding-right: 20px; 
+    padding-right: 40px; 
   }
   
   .canciones::-webkit-scrollbar {
@@ -209,6 +242,10 @@
   .canciones::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.1); 
   }
+
+
+  
+  
   
 
 

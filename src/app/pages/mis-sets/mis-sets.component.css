@@ -68,3 +68,31 @@ body {
     background-color: rgba(0, 0, 0, 0.3);
     padding: 8px ;
 }
+
+.set{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: calc(90vh - 200px); 
+  overflow-y: auto; 
+  margin-top: 3%;
+}
+
+
+.set::-webkit-scrollbar {
+  width: 5px; 
+}
+
+.set::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3); 
+  border-radius: 8px; 
+}
+
+.set::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5); 
+}
+
+.set::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); 
+}

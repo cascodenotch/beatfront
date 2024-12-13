@@ -2,8 +2,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 98px;
-    margin-top: 4%;
+    gap: 60px;
+    margin-top: 2%;
+  
   }
 
   span {
@@ -13,10 +14,6 @@
   .card {
     width: 260px;
     height: 260px;
-    background-color: #d58b85; 
-    /* background-image: ; */
-    background-size: cover;
-    background-position: center;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -30,9 +27,9 @@
     background-color: var(--color-fondo); 
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
     font-size: 20px;
-    
+    height: 35%;
   }
   
   .content {
@@ -40,13 +37,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url("../../../assets/Img/set.jpeg"); 
+    background-size: cover;
+    background-position: center;
     margin-top: -40px; 
     position: relative;
-    opacity: 0;
     transition: opacity 0.3s;
   }
-  
-  .card:hover .content {
+
+  .play-btn{
+    opacity: 0;
+  }
+
+  .card:hover .play-btn {
     opacity: 1; 
   }
   
@@ -62,7 +65,7 @@
   }
   
   .footer {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
     height: 20%; 
     display: flex;
     justify-content: space-around;

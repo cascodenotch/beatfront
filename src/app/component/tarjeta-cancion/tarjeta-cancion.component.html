@@ -4,7 +4,9 @@
       <div class="header">
 
         <div class="datos">
-          {{ card.title }} <br />
+          <div class="tit">
+            {{ card.title }} 
+          </div>
           {{ card.autor }}
         </div>
 
@@ -22,15 +24,15 @@
 
       <div class="footer">
         <img src="../../../assets/Iconos/danceability.png" class="subIcon" alt="play" /> :
-        <input type="text" [value]="card.danceability" readonly />
+        {{card.danceability}}
         <img src="../../../assets/Iconos/energy.png" class="subIcon" alt="play" /> :
-        <input type="text" [value]="card.energy" readonly />
+        {{card.energy}}
         <img src="../../../assets/Iconos/key.png" class="subIcon" alt="play" /> :
-        <input type="text" [value]="card.key" readonly />
+        {{card.key}}
         <img src="../../../assets/Iconos/tempo.png" class="subIcon" alt="play" /> :
-        <input type="text" [value]="card.tempo" readonly />
+        {{card.tempo}}
         <img src="../../../assets/Iconos/duracion.png" class="subIcon" alt="play" /> :
-        <input type="text" value="3:45" readonly />
+        {{card.duracion}}
       </div>
 
     </div>

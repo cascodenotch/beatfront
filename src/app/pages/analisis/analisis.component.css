@@ -43,14 +43,20 @@ main {
   }
   
   .head {
-    height: 30%; 
+    height: 35%; 
     width: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 30px;
     margin-top: 20px;
+  }
+
+  .barras{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 
   .graficos {
@@ -81,6 +87,7 @@ main {
     font-size: 30px;
     padding: 30px;
     text-align: center;
+    height: 40%;
   }
   
   .stat1 {
@@ -103,16 +110,15 @@ main {
     color: white;
   }
   
-  .circulo {
-    color: white;
-    width: auto; 
-    height: 450px;
-    position: relative; 
-    margin-right: 200px;
-    margin-top: -75px;
-  }
+
   
   canvas {
+    display: block; 
+    width: 80% !important; 
+    height: 100% !important; 
+  }
+
+  .graf{
     display: block; 
     width: 100% !important; 
     height: 100% !important; 

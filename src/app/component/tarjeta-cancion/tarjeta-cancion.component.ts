@@ -12,29 +12,30 @@ export class TarjetaCancionComponent {
   @Input() key: string = ''; 
   @Input() tempo: string = ''; 
 
-  // cards = [
-  //   { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
-  //   { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '120' },
-  //   { title: 'Título 3', autor: 'Autor 3', danceability: 8, energy: 9, key: 'E', tempo: '140' },
-  //   { title: 'Título 4', autor: 'Autor 4', danceability: 5, energy: 6, key: 'F#', tempo: '100' },
-  //   { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
-  //   { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '110' },
-  //   { title: 'Título 3', autor: 'Autor 3', danceability: 8, energy: 9, key: 'E', tempo: '140' },
-  //   { title: 'Título 4', autor: 'Autor 4', danceability: 5, energy: 6, key: 'F#', tempo: '100' },
-  //   { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
-  //   { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '110' },
-  //   { title: 'Título 3', autor: 'Autor 3', danceability: 8, energy: 9, key: 'E', tempo: '120' },
-  //   { title: 'Título 4', autor: 'Autor 4', danceability: 5, energy: 6, key: 'F#', tempo: '100' },
-  // ];
-
-    cards = [
-    { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
-    { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '120' },
-    { title: 'Título 3', autor: 'Autor 3', danceability: 8, energy: 9, key: 'E', tempo: '140' },
-    { title: 'Título 4', autor: 'Autor 4', danceability: 5, energy: 6, key: 'F#', tempo: '100' },
-    { title: 'Título 1', autor: 'Autor 1', danceability: 7, energy: 8, key: 'C#', tempo: '120' },
-    { title: 'Título 2', autor: 'Autor 2', danceability: 6, energy: 7, key: 'D', tempo: '110' },
+  cards = [
+    { title: 'Blinding Lights', autor: 'The Weeknd', danceability: 8, energy: 7, key: 'F#m', tempo: '171', duracion: '3:20' },
+    { title: 'Shape of You', autor: 'Ed Sheeran', danceability: 8, energy: 6, key: 'C#m', tempo: '96', duracion: '3:53' },
+    { title: 'Levitating', autor: 'Dua Lipa', danceability: 9, energy: 8, key: 'Bm', tempo: '103', duracion: '3:23' },
+    { title: 'Uptown Funk', autor: 'Mark Ronson ft. Bruno Mars', danceability: 8, energy: 9, key: 'Dm', tempo: '115', duracion: '4:30' },
+    { title: 'Sunflower', autor: 'Post Malone & Swae Lee', danceability: 9, energy: 7, key: 'A', tempo: '90', duracion: '2:38' },
+    { title: 'Happier Than Ever', autor: 'Billie Eilish', danceability: 5, energy: 6, key: 'E', tempo: '76', duracion: '4:58' },
+    { title: 'Blinding Lights', autor: 'The Weeknd', danceability: 8, energy: 7, key: 'F#m', tempo: '171', duracion: '3:20' },
+    { title: 'Shape of You', autor: 'Ed Sheeran', danceability: 8, energy: 6, key: 'C#m', tempo: '96', duracion: '3:53' },
+    { title: 'Levitating', autor: 'Dua Lipa', danceability: 9, energy: 8, key: 'Bm', tempo: '103', duracion: '3:23' },
+    { title: 'Uptown Funk', autor: 'Mark Ronson ft. Bruno Mars', danceability: 8, energy: 9, key: 'Dm', tempo: '115', duracion: '4:30' },
+    { title: 'Sunflower', autor: 'Post Malone & Swae Lee', danceability: 9, energy: 7, key: 'A', tempo: '90', duracion: '2:38' },
+    { title: 'Happier Than Ever', autor: 'Billie Eilish', danceability: 5, energy: 6, key: 'E', tempo: '76', duracion: '4:58' },
   ];
+
+//   cards = [
+//     { title: 'Blinding Lights', autor: 'The Weeknd', danceability: 8, energy: 7, key: 'F#m', tempo: '171', duracion: '3:20' },
+//     { title: 'Shape of You', autor: 'Ed Sheeran', danceability: 8, energy: 6, key: 'C#m', tempo: '96', duracion: '3:53' },
+//     { title: 'Levitating', autor: 'Dua Lipa', danceability: 9, energy: 8, key: 'Bm', tempo: '103', duracion: '3:23' },
+//     { title: 'Uptown Funk', autor: 'Mark Ronson ft. Bruno Mars', danceability: 8, energy: 9, key: 'Dm', tempo: '115', duracion: '4:30' },
+//     { title: 'Sunflower', autor: 'Post Malone & Swae Lee', danceability: 9, energy: 7, key: 'A', tempo: '90', duracion: '2:38' },
+//     { title: 'Happier Than Ever', autor: 'Billie Eilish', danceability: 5, energy: 6, key: 'E', tempo: '76', duracion: '4:58' },
+// ];
+
 
   filteredCards = this.cards; 
 
