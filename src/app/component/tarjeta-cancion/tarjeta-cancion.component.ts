@@ -12,6 +12,21 @@ export class TarjetaCancionComponent {
   @Input() key: string = ''; 
   @Input() tempo: string = ''; 
 
+  // cards = [
+  //   { title: 'Blinding Lights', autor: 'The Weeknd', danceability: 8, energy: 7, key: 'F#m', tempo: '171', duracion: '3:20' },
+  //   { title: 'Shape of You', autor: 'Ed Sheeran', danceability: 8, energy: 6, key: 'C#m', tempo: '96', duracion: '3:53' },
+  //   { title: 'Levitating', autor: 'Dua Lipa', danceability: 9, energy: 8, key: 'Bm', tempo: '103', duracion: '3:23' },
+  //   { title: 'Uptown Funk', autor: 'Mark Ronson ft. Bruno Mars', danceability: 8, energy: 9, key: 'Dm', tempo: '115', duracion: '4:30' },
+  //   { title: 'Sunflower', autor: 'Post Malone & Swae Lee', danceability: 9, energy: 7, key: 'A', tempo: '90', duracion: '2:38' },
+  //   { title: 'Happier Than Ever', autor: 'Billie Eilish', danceability: 5, energy: 6, key: 'E', tempo: '76', duracion: '4:58' },
+  //   { title: 'Blinding Lights', autor: 'The Weeknd', danceability: 8, energy: 7, key: 'F#m', tempo: '171', duracion: '3:20' },
+  //   { title: 'Shape of You', autor: 'Ed Sheeran', danceability: 8, energy: 6, key: 'C#m', tempo: '96', duracion: '3:53' },
+  //   { title: 'Levitating', autor: 'Dua Lipa', danceability: 9, energy: 8, key: 'Bm', tempo: '103', duracion: '3:23' },
+  //   { title: 'Uptown Funk', autor: 'Mark Ronson ft. Bruno Mars', danceability: 8, energy: 9, key: 'Dm', tempo: '115', duracion: '4:30' },
+  //   { title: 'Sunflower', autor: 'Post Malone & Swae Lee', danceability: 9, energy: 7, key: 'A', tempo: '90', duracion: '2:38' },
+  //   { title: 'Happier Than Ever', autor: 'Billie Eilish', danceability: 5, energy: 6, key: 'E', tempo: '76', duracion: '4:58' },
+  // ];
+
   cards = [
     { title: 'Blinding Lights', autor: 'The Weeknd', danceability: 8, energy: 7, key: 'F#m', tempo: '171', duracion: '3:20' },
     { title: 'Shape of You', autor: 'Ed Sheeran', danceability: 8, energy: 6, key: 'C#m', tempo: '96', duracion: '3:53' },
@@ -19,22 +34,7 @@ export class TarjetaCancionComponent {
     { title: 'Uptown Funk', autor: 'Mark Ronson ft. Bruno Mars', danceability: 8, energy: 9, key: 'Dm', tempo: '115', duracion: '4:30' },
     { title: 'Sunflower', autor: 'Post Malone & Swae Lee', danceability: 9, energy: 7, key: 'A', tempo: '90', duracion: '2:38' },
     { title: 'Happier Than Ever', autor: 'Billie Eilish', danceability: 5, energy: 6, key: 'E', tempo: '76', duracion: '4:58' },
-    { title: 'Blinding Lights', autor: 'The Weeknd', danceability: 8, energy: 7, key: 'F#m', tempo: '171', duracion: '3:20' },
-    { title: 'Shape of You', autor: 'Ed Sheeran', danceability: 8, energy: 6, key: 'C#m', tempo: '96', duracion: '3:53' },
-    { title: 'Levitating', autor: 'Dua Lipa', danceability: 9, energy: 8, key: 'Bm', tempo: '103', duracion: '3:23' },
-    { title: 'Uptown Funk', autor: 'Mark Ronson ft. Bruno Mars', danceability: 8, energy: 9, key: 'Dm', tempo: '115', duracion: '4:30' },
-    { title: 'Sunflower', autor: 'Post Malone & Swae Lee', danceability: 9, energy: 7, key: 'A', tempo: '90', duracion: '2:38' },
-    { title: 'Happier Than Ever', autor: 'Billie Eilish', danceability: 5, energy: 6, key: 'E', tempo: '76', duracion: '4:58' },
-  ];
-
-//   cards = [
-//     { title: 'Blinding Lights', autor: 'The Weeknd', danceability: 8, energy: 7, key: 'F#m', tempo: '171', duracion: '3:20' },
-//     { title: 'Shape of You', autor: 'Ed Sheeran', danceability: 8, energy: 6, key: 'C#m', tempo: '96', duracion: '3:53' },
-//     { title: 'Levitating', autor: 'Dua Lipa', danceability: 9, energy: 8, key: 'Bm', tempo: '103', duracion: '3:23' },
-//     { title: 'Uptown Funk', autor: 'Mark Ronson ft. Bruno Mars', danceability: 8, energy: 9, key: 'Dm', tempo: '115', duracion: '4:30' },
-//     { title: 'Sunflower', autor: 'Post Malone & Swae Lee', danceability: 9, energy: 7, key: 'A', tempo: '90', duracion: '2:38' },
-//     { title: 'Happier Than Ever', autor: 'Billie Eilish', danceability: 5, energy: 6, key: 'E', tempo: '76', duracion: '4:58' },
-// ];
+];
 
 
   filteredCards = this.cards; 

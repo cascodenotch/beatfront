@@ -31,12 +31,13 @@ main::before {
     height: 700px;
     display: flex;
     flex-direction: column;
-    margin-left: 70px;
+    justify-content: center;
+    align-items: center;
     margin-top: -10px;
   }
 
   .head{
-    width: 100%;
+    width: 90%;
     height: 40%;
     display: flex;
     flex-direction: row;
@@ -52,11 +53,11 @@ main::before {
     width: 60%;
     height: 100%;
     margin-left: 10%;
-    margin-right: 50px;
   }
   .titulo{
     font-size: 48px;
     font-family: 'Montserrat', sans-serif;
+    padding-right: 50px;
   }
   .beat{
     color: var(--color-fondo);
@@ -70,22 +71,28 @@ main::before {
 
   .perfil{
     height: 100%;
+    width: 90%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .perfil1{
-    width: 50%;
+    width: 45%;
     height: auto;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     flex-direction: row;
   }
 
   .perfil2{
-    width: 50%;
+    width: 45%;
     height: auto;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+  
   }
 
 
@@ -102,12 +109,11 @@ main::before {
   }
 
   .imag{
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
-    
   }
 
   .icon{
@@ -115,8 +121,3 @@ main::before {
     height: 30px;
   }
 
-  .alguien{
-    height: 80%;
-    margin-right: 150px;
-    border-radius: 10px;
-  }
