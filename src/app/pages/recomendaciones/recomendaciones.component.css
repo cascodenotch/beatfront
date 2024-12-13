@@ -53,26 +53,22 @@ img{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start; 
+    margin-top: -2%;
   }
   
   .repro {
-    width: 36%;
-    height: 90%;
-    margin-top: 50px;
-    margin-left: 50px;
+    margin-top: 2%;
+    width: 40%;
+    height: 95%;
+    margin-left: 8%;
     background-image: url("../../../assets/Img/reproductor.png");
   }
   
   .canciones {
-    width: 60%;
-    height: auto;
-    overflow-y: auto;
-    padding-right: 20px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding-bottom: 10px;
+    width: 60%;
   }
 
 
@@ -82,17 +78,17 @@ img{
   .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 52px;
+    justify-content: space-between;
     margin-top: 4%;
-    width: 60%;
-    opacity: 0.2;
+    width: 55%;
+    gap: 10px;
+    opacity: 0.1;
   }
   
   .card {
     width: 260px;
-    height: 114px;
-    background-color: #d58b85;
+    height: 126px;
+    background-image: url("../../../assets/Img/caratula cancion.png");
     background-size: cover;
     background-position: center;
     border-top-left-radius: 12px;
@@ -100,21 +96,21 @@ img{
     display: flex;
     flex-direction: column;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    margin-top: -30px;
+    margin-top: -17px;
   }
   
   .header {
     background-color: var(--color-fondo);
     color: white;
-    text-align: center;
     padding: 10px;
-    font-size: 20px;
+    font-size: 16px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    text-align: left;
+    height: 60px;
   }
   
   .datos {
@@ -128,5 +124,15 @@ img{
     justify-content: center;
     align-items: center;
     position: relative;
+  }
+
+  .add {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .tit{
+    margin-bottom: -14%;
   }
  

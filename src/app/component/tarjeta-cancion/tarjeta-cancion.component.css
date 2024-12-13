@@ -9,7 +9,7 @@
   .card {
     width: 260px;
     height: 260px;
-    background-color: #d58b85;
+    background-image: url("../../../assets/Img/caratula cancion.png");
     background-size: cover;
     background-position: center;
     border-radius: 12px;
@@ -17,20 +17,26 @@
     flex-direction: column;
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    
   }
   
   .header {
     background-color: var(--color-fondo);
     color: white;
-    text-align: center;
     padding: 10px;
-    font-size: 20px;
+    font-size: 16px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    text-align: left;
+    height: 60px;
+  }
+
+  .tit{
+    
+    margin-bottom: 4%;
   }
   
   .datos {
@@ -57,6 +63,7 @@
     border-bottom-right-radius: 10px;
     padding-left: 5px;
     padding-right: 5px;
+    font-size: 14px;
   }
 
   .subIcon{
@@ -98,8 +105,8 @@
   }
   
   img {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
   }
   

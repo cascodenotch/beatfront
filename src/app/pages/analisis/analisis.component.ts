@@ -13,7 +13,8 @@ import {
   Tooltip,
   Legend,
   DoughnutController,
-  LineController
+  LineController,
+  BarController
 } from 'chart.js';
 
 @Component({
@@ -36,46 +37,79 @@ export class AnalisisComponent implements AfterViewInit {
       Tooltip,
       Legend,
       DoughnutController,
-      LineController
+      LineController,
+      BarController
     );
   }
 
   ngAfterViewInit(): void {
-    this.initializeDoughnutChart();
+    this.initializeBarChart();
     this.initializeLineChart1();
     this.initializeLineChart2();
   }
 
-  initializeDoughnutChart(): void {
-    const doughnutCtx = document.getElementById('doughnutChart') as HTMLCanvasElement;
-    if (doughnutCtx) {
-      new Chart(doughnutCtx, {
-        type: 'doughnut',
+
+
+  initializeBarChart(): void {
+    const barCtx = document.getElementById('barChart') as HTMLCanvasElement;
+    if (barCtx) {
+      new Chart(barCtx, {
+        type: 'bar', 
         data: {
-          labels: ['Género 1', 'Género 2', 'Género 3', 'Género 4'],
+          labels: ['Género 1', 'Género 2', 'Género 3', 'Género 4'], 
           datasets: [{
+            label: 'Porcentaje por Género',
             data: [30, 20, 25, 25],
-            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'], 
+            borderWidth: 1, 
           }]
         },
         options: {
           responsive: true, 
           plugins: {
             legend: {
-              position: 'right', 
+              display: true,
               labels: {
-                font: {
-                  size: 18,  
-                  family: 'Roboto', 
-                  weight: 'bold', 
-                },
                 color: 'white', 
+                font: {
+                  size: 14,
+                  family: 'Roboto',
+                  weight: 'bold',
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: 'white',
+                font: {
+                  size: 14,
+                  family: 'Roboto',
+                  weight: 'bold',
+                }
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.0)',
+              }
+            },
+            y: {
+              ticks: {
+                color: 'white',
+                font: {
+                  size: 14,
+                  family: 'Roboto',
+                  weight: 'bold',
+                }
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.0)',
               }
             }
           }
         }
       });
-    }
+    } 
   }
   
 
@@ -114,6 +148,9 @@ export class AnalisisComponent implements AfterViewInit {
                   family: 'Roboto',
                   weight: 'bold',
                 }
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.0)',
               }
             },
             y: {
@@ -124,6 +161,9 @@ export class AnalisisComponent implements AfterViewInit {
                   family: 'Roboto',
                   weight: 'bold',
                 }
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.0)',
               }
             }
           },
@@ -174,6 +214,9 @@ export class AnalisisComponent implements AfterViewInit {
                   family: 'Roboto',
                   weight: 'bold',
                 }
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.0)',
               }
             },
             y: {
@@ -184,6 +227,9 @@ export class AnalisisComponent implements AfterViewInit {
                   family: 'Roboto',
                   weight: 'bold',
                 }
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.0)',
               }
             }
           },
