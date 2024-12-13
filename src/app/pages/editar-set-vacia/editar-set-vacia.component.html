@@ -10,10 +10,15 @@
         <span class="fake-placeholder">Nombra tu nuevo <span class="highlighted-text">Set</span></span>
     </div>
 
+    <!-- Flecha con animacion -->
+    <div class="arrow-container" *ngIf="!inputValue">
+        <img src="../../../assets/Iconos/flecha izquierda nueva.png" class="arrow" alt="Flecha apuntando al input" />
+    </div>
+
     <!-- Mensaje principal -->
     <div class="mensaje-principal">
         <p>Aún no tienes <span class="highlighted-text">Canciones</span></p>
-        <p>¡Nombra tu set y añade una con esté botón!</p>
+        <p>¡Nombra tu <span class="highlighted-text">Set</span> y añade una <span class="highlighted-text">Canción</span> con esté botón!</p>
         <button [disabled]="!inputValue" [ngClass]="{'active': inputValue, 'disabled': !inputValue}" (click)="navigateToSongs()">
             Añadir canción
         </button>
