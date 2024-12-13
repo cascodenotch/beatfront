@@ -150,14 +150,13 @@ header {
   border-radius: 8px;
   display: flex;
   align-items: center;
-  justify-content:flex-start;
+  justify-content:center;
   text-decoration: none;
   background-color: transparent;
   color: white;
   transition: background-color 0.3s, color 0.3s;
   width: 160px;
   height: 50px;
-  margin-left: 5px;
   padding: 10px 1px;
   border: 0px solid purple;
 }

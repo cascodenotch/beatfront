@@ -8,7 +8,7 @@
   
   .card {
     width: 260px;
-    height: 260px;
+    height: 280px;
     background-image: url("../../../assets/Img/caratula cancion.png");
     background-size: cover;
     background-position: center;
@@ -31,7 +31,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     text-align: left;
-    height: 60px;
+    height: 65px;
   }
 
   .tit{

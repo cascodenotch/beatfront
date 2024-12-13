@@ -35,8 +35,8 @@ export class EditarSetComponent {
       img: '../../../assets/Img/caratula cancion.png' 
     },
     { 
-      title: 'Bohemian Rhapsody', 
-      author: 'Queen', 
+      title: 'Uptown Funk', 
+      author: 'Mark Ronson ft. Bruno Mars', 
       danceability: 0.39, 
       energy: 0.40, 
       key: 'E', 

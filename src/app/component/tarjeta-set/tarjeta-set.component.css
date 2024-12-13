@@ -14,7 +14,7 @@
   .card {
     width: 260px;
     height: 260px;
-    border-radius: 10px;
+    border-radius: 11px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -37,12 +37,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../../../assets/Img/set.jpeg"); 
+    background-image: url("../../../assets/Img/disc.jpeg"); 
     background-size: cover;
     background-position: center;
     margin-top: -40px; 
     position: relative;
     transition: opacity 0.3s;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
 
   .play-btn{
@@ -65,7 +67,8 @@
   }
   
   .footer {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: var(--color-fondo);
+    opacity: 0.95;
     height: 20%; 
     display: flex;
     justify-content: space-around;
