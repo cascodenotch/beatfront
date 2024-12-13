@@ -6,8 +6,9 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     padding: 150px;
-    gap: 50px;
+    gap: 150px;
     margin: 0;
     min-height: auto;
     position: relative;
@@ -17,12 +18,12 @@ main {
 main::before {
     content: '';
     position: absolute;
-    top: -25%;
+    top: -230px;
     left: 0;
     width: 100%;
     height: 100%;
     background: url(../../../assets/Img/logo_1.png) center/cover no-repeat;
-    background-size: 50%;
+    background-size: 42%;
     opacity: 0.05;
     pointer-events: none; /* Permite que no interfiera con el hover*/
 }
@@ -34,9 +35,7 @@ main::before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 800px;
-    gap: 60px;
-    margin-top: 10px;
+    gap: 80px;
     font-family: 'Montserrat', sans-serif
 }
 
@@ -44,12 +43,12 @@ main::before {
 #titulo-bienvenida {
     font-family: 'Montserrat', sans-serif !important; 
     font-size: 46px;
-    margin-bottom: 50px;
+    margin-top: 100px;
 }
 
 /* Subtítulo de bienvenida */
 #subtitulo-bienvenida {
-    width: 50%;
+    width: 70%;
     text-align: center;
     font-family: 'Montserrat', sans-serif !important;
     font-size: 36px;
@@ -95,6 +94,7 @@ p {
     align-items: center;
     height: 350px;
     gap: 50px;
+    margin-top: 30px;
 }
 
 /* Estilo para las flechas */
@@ -145,6 +145,7 @@ p {
     font-size: 20px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    margin-top: -10px;
 }
 
 /* Estilo del icono dentro del botón de vinculación de Spotify */
