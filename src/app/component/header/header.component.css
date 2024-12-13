@@ -133,7 +133,7 @@ header {
   display: none; /* Oculto por defecto */
   position: absolute;
   top: 100%;
-  right: 30%;
+  right: 30px;
   background-color: var(--color-fondo);
   border-radius: 8px;
   color: white;
@@ -150,13 +150,16 @@ header {
   border-radius: 8px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px 15px;
+  justify-content:flex-start;
   text-decoration: none;
   background-color: transparent;
   color: white;
   transition: background-color 0.3s, color 0.3s;
-  width: 170px;
+  width: 160px;
+  height: 50px;
+  margin-left: 5px;
+  padding: 10px 1px;
+  border: 0px solid purple;
 }
 
 /* Efecto de hover en los enlaces del menú desplegable */
@@ -177,15 +180,15 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25px;
-  height: 25px;
+  width: 23px;
+  height: 23px;
   margin-right: 10px;
 }
 
 .menu-link-icon-cerrar-sesion img {
   border: 0px solid red;
-  width: 25px;
-  height: 25px;
+  width: 23px;
+  height: 23px;
 }
 
 /* Estilo del botón vincular Spotify */
