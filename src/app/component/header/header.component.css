@@ -170,6 +170,24 @@ header {
   color: #6fd861;
 }
 
+/* Tamaño especial para cerrar sesión */
+
+.menu-link-icon-cerrar-sesion {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.menu-link-icon-cerrar-sesion img {
+  border: 0px solid red;
+  width: 25px;
+  height: 25px;
+}
+
 /* Estilo del botón vincular Spotify */
 .menu-button {
   border: 1px solid transparent;
