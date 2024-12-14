@@ -10,12 +10,17 @@ import { Router } from '@angular/router';
 export class EditarSetVaciaComponent {
 
   inputValue: string = '';
+  showArrow: boolean = true; 
 
   constructor(private router: Router) {}
 
   onInputChange(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     this.inputValue = inputElement.value; 
+  }
+
+  onInputFocus(): void {
+    this.showArrow = false; 
   }
 
   navigateToSongs() {
