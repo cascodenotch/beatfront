@@ -112,6 +112,7 @@ export class AnalisisComponent implements AfterViewInit {
     } 
   }
   
+  
 
   initializeLineChart1(): void {
     const lineChart1Ctx = document.getElementById('lineChart1') as HTMLCanvasElement;
