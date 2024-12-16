@@ -25,6 +25,7 @@ import{DragDropModule} from '@angular/cdk/drag-drop';
 import { ValidacionAnadirComponent } from './component/validacion-anadir/validacion-anadir.component';
 import { ValidacionCambiarTituloComponent } from './component/validacion-cambiar-titulo/validacion-cambiar-titulo.component';
 import { ValidacionMoverCancionComponent } from './component/validacion-mover-cancion/validacion-mover-cancion.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ValidacionMoverCancionComponent } from './component/validacion-mover-ca
     FormsModule,
     BrowserAnimationsModule,
     DragDropModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
