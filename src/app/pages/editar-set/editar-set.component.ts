@@ -9,9 +9,14 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 export class EditarSetComponent {
 
   // Propiedades
-  titulo: string = 'Mi primer set';
-  showValidation = false;
+  title: string = 'prueba';
+  previousTitle: string = this.title;
   inputValue: string = '';
+  showTitleValidation = false;
+  showMoveValidation = false; 
+  previousCardsState: any[] = [];
+  previousIndex: number = 0;
+  currentIndex: number = 0;
 
   cards = [
     { 
@@ -58,24 +63,51 @@ export class EditarSetComponent {
 
   // Métodos
 
-  // Maneja el evento de guardar
-  onSave() {
-    this.showValidation = true;  // Mostrar el componente de validación
-  }
-
-  // Cierra el mensaje de validación
-  closeValidation() {
-    this.showValidation = false; 
-  }
-
   // Maneja el evento de arrastrar y soltar
   onDrop(event: CdkDragDrop<any[]>) {
+    this.previousCardsState = [...this.cards];
+    this.previousIndex = event.previousIndex;
+    this.currentIndex = event.currentIndex;
     moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
+    this.showMoveValidation = true;
   }
 
-  // Maneja cambios en el valor del input
+  // Maneja la desaparicion del fake placeholder
   onInputChange(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     this.inputValue = inputElement.value; 
   }
+
+  // Maneja el evento `blur` para la validación
+  onInputBlur(): void {
+  if (this.inputValue !== this.previousTitle) {
+    this.showTitleValidation = true; // Mostrar mensaje si hay cambios
+  } else {
+    this.showTitleValidation = false; // Ocultar mensaje si no hay cambios
+  }
+  }
+
+  // Confirma los mensajes de validación 
+  confirmMoveValidation (){
+    this.showTitleValidation = false; 
+    this.showMoveValidation = false;
+    }
+  
+  confirmTitleValidation (){
+    this.title = this.inputValue;
+    this.previousTitle = this.inputValue;
+    this.showTitleValidation = false; 
+    }
+  
+  // Cierra los mensajes de validación
+  closeMoveValidation() {
+    this.cards = [...this.previousCardsState];
+    this.showMoveValidation = false; 
+    }
+  
+  closeTitleValidation() {
+    this.inputValue = this.previousTitle;
+    this.showTitleValidation = false; 
+    }
+
 }

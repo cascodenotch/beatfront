@@ -26,6 +26,8 @@ import { ValidacionEliminarCancionComponent } from './component/validacion-elimi
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{DragDropModule} from '@angular/cdk/drag-drop';
 import { ValidacionAnadirComponent } from './component/validacion-anadir/validacion-anadir.component';
+import { ValidacionCambiarTituloComponent } from './component/validacion-cambiar-titulo/validacion-cambiar-titulo.component';
+import { ValidacionMoverCancionComponent } from './component/validacion-mover-cancion/validacion-mover-cancion.component';
 
 @NgModule({
   declarations: [
@@ -50,14 +52,16 @@ import { ValidacionAnadirComponent } from './component/validacion-anadir/validac
     UserComponent,
     EditarSetVaciaComponent,
     ValidacionEliminarCancionComponent,
-    ValidacionAnadirComponent
+    ValidacionAnadirComponent,
+    ValidacionCambiarTituloComponent,
+    ValidacionMoverCancionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    DragDropModule 
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
