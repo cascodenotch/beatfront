@@ -5,14 +5,13 @@
     </button>
   </a>
   
-    <p class="title">Mis <span>Canciones</span></p>
+    <p class="title">Añadir <span>Canciones</span></p>
   
-    <div class="busc">
-      <input type="text" class="buscador" placeholder="Buscar por título o autor..." [(ngModel)]="searchText"/>
-      <img src="../../../assets/Iconos/search.png" class="lupa" alt="buscar" />
-    </div>
+  
   
     <div class="filtro">
+
+      <div class="filt">
 
       <div class="fil1">
         <img src="../../../assets/Iconos/danceability.png" class="subIcon" alt="play" />
@@ -37,6 +36,18 @@
         <p class="temp">Tempo&nbsp;&nbsp;&nbsp;&nbsp;</p>
         <input type="text" class="subInp" [(ngModel)]="tempo" />
       </div>
+
+    </div>
+
+
+    <div class="busca">
+
+      <div class="busc">
+        <input type="text" class="buscador" placeholder="Buscar por título o autor..." [(ngModel)]="searchText"/>
+      </div>
+      <img src="../../../assets/Iconos/search.png" class="lupa" alt="buscar" />
+
+    </div>
 
     </div>
   
