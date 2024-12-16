@@ -19,7 +19,7 @@
     <div class="mensaje-principal">
         <p>Aún no tienes <span class="highlighted-text">Canciones</span></p>
         <p>¡Nombra tu <span class="highlighted-text">Set</span> y añade una <span class="highlighted-text">Canción</span> con esté botón!</p>
-        <button [disabled]="!inputValue" [ngClass]="{'active': inputValue, 'disabled': !inputValue}" (click)="navigateToSongs()">
+        <button [disabled]="!inputValue" [ngClass]="{'active': inputValue, 'disabled': !inputValue}" (click)="navigateToSongs()" (click)="addSet()">
             Añadir canción
         </button>
     </div>
