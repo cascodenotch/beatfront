@@ -10,9 +10,9 @@
           {{ card.autor }}
           </div>
         </div>
-        <a routerLink="/editar-set" routerLinkActive="active-link">
-          <img src="../../../assets/Iconos/add white.png" class="add" alt="edit"/>
-        </a>
+        <button (click)="onclickDel(card)">
+            <img src="../../../assets/Iconos/add white.png" class="add" alt="edit"/>
+        </button>
       </div>
 
       <div class="content">
@@ -37,5 +37,9 @@
       </div>
 
     </div>
+  </div>
+
+  <div *ngIf="showValidation">
+    <app-validacion-anadir (closeValidation)="closeValidation()"></app-validacion-anadir>
   </div>
   

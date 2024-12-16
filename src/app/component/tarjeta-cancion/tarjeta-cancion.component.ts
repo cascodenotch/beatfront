@@ -56,4 +56,14 @@ export class TarjetaCancionComponent {
       return matchesSearchText && matchesDanceability && matchesEnergy && matchesKey && matchesTempo;
     });
   }
+
+  showValidation = false; 
+
+  onclickDel(card: any){
+    this.showValidation = true; 
+  }
+
+  closeValidation(){
+    this.showValidation = false; 
+  }
 }
