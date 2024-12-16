@@ -18,9 +18,6 @@ import { TarjetaCancionComponent } from './component/tarjeta-cancion/tarjeta-can
 import { ValidacionGuardarComponent } from './component/validacion-guardar/validacion-guardar.component';
 import { ValidacionEliminarComponent } from './component/validacion-eliminar/validacion-eliminar.component';
 import { ValidacionLogOutComponent } from './component/validacion-log-out/validacion-log-out.component';
-import { CancionComponent } from './models/cancion/cancion.component';
-import { SetComponent } from './models/set/set.component';
-import { UserComponent } from './models/user/user.component';
 import { EditarSetVaciaComponent } from './pages/editar-set-vacia/editar-set-vacia.component';
 import { ValidacionEliminarCancionComponent } from './component/validacion-eliminar-cancion/validacion-eliminar-cancion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -47,9 +44,6 @@ import { ValidacionMoverCancionComponent } from './component/validacion-mover-ca
     ValidacionGuardarComponent,
     ValidacionEliminarComponent,
     ValidacionLogOutComponent,
-    CancionComponent,
-    SetComponent,
-    UserComponent,
     EditarSetVaciaComponent,
     ValidacionEliminarCancionComponent,
     ValidacionAnadirComponent,
