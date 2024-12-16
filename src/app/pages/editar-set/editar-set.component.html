@@ -6,8 +6,11 @@
     
      <!-- Campo de entrada para nombrar el set -->
      <div class="input-container">
-        <input type="text" class="title-input" placeholder="" (input)="onInputChange($event)">
-        <span class="fake-placeholder">{{ titulo }}</span>
+        <input type="text" class="title-input" placeholder="" 
+        (input)="onInputChange($event)"
+        (blur)="onInputBlur()"
+        [(ngModel)]="inputValue">
+        <span class="fake-placeholder">{{ title }}</span>
     </div>
 
     <!-- Menú de íconos con enlaces -->
@@ -53,17 +56,15 @@
         </div>
 
         <!-- Cuarto ícono en el menú (Guardar) -->
-        <div class="menu-icon-box">
+        <!-- <div class="menu-icon-box">
             <a routerLink="#" (click)="onSave()">
                 <div class="menu-icon">
-                    <!-- Icono de estado por defecto -->
                     <img class="default-icon" src="../../../assets/Iconos/save blue.png" alt="save blue">
-                    <!-- Icono que aparece cuando se pasa el ratón por encima -->
                     <img class="hover-icon" src="../../../assets/Iconos/save white.png" alt="save white">
                 </div>
             </a>
-            <p class="etiqueta">Guardar</p> <!-- Texto descriptivo del ícono -->
-        </div>
+            <p class="etiqueta">Guardar</p> 
+        </div> -->
 
     </div>
 
@@ -75,9 +76,15 @@
     </div>
     
     <!-- Mostrar mensaje de validación si showValidation es verdadero -->
-    <div *ngIf="showValidation">
-        <app-validacion-guardar (closeValidation)="closeValidation()"></app-validacion-guardar>
-      </div>
+    <div *ngIf="showTitleValidation">
+        <app-validacion-cambiar-titulo (closeValidation)="closeTitleValidation()"
+        (confirmValidation)="confirmTitleValidation()"></app-validacion-cambiar-titulo>
+    </div>
+
+    <div *ngIf="showMoveValidation">
+        <app-validacion-mover-cancion (closeValidation)="closeMoveValidation()" 
+        (confirmValidation)="confirmMoveValidation()"></app-validacion-mover-cancion>
+    </div>
     
 </body>
 

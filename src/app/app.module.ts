@@ -25,6 +25,8 @@ import { EditarSetVaciaComponent } from './pages/editar-set-vacia/editar-set-vac
 import { ValidacionEliminarCancionComponent } from './component/validacion-eliminar-cancion/validacion-eliminar-cancion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{DragDropModule} from '@angular/cdk/drag-drop';
+import { ValidacionCambiarTituloComponent } from './component/validacion-cambiar-titulo/validacion-cambiar-titulo.component';
+import { ValidacionMoverCancionComponent } from './component/validacion-mover-cancion/validacion-mover-cancion.component';
 
 @NgModule({
   declarations: [
@@ -48,14 +50,16 @@ import{DragDropModule} from '@angular/cdk/drag-drop';
     SetComponent,
     UserComponent,
     EditarSetVaciaComponent,
-    ValidacionEliminarCancionComponent
+    ValidacionEliminarCancionComponent,
+    ValidacionCambiarTituloComponent,
+    ValidacionMoverCancionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    DragDropModule 
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
