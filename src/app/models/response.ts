@@ -1,4 +1,4 @@
-import { DjSet } from "./djset";
+import { DjSet } from "./dj-set";
 import { Song } from "./song";
 import { User } from "./user";
 

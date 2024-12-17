@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SetsService } from 'src/app/shared/sets.service';
-import { DjSet } from 'src/app/models/djset';
+import { DjSet } from 'src/app/models/dj-set';
 import { Response } from 'src/app/models/response';
 
 @Component({
