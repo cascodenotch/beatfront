@@ -1,8 +1,8 @@
 import { Song } from "./song";
 
-export class Set {
+export class DjSet {
 
-    constructor(public id_set: number = 0,
+    constructor(public id_set: number | null,
         public id_user: number = 0,
         public titulo: string,
         public imagen: string,

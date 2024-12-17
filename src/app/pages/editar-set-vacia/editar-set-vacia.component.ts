@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SetsService } from 'src/app/shared/sets.service';
-import { Set } from 'src/app/models/set';
+import { DjSet } from 'src/app/models/djset';
 import { Response } from 'src/app/models/response';
 
 @Component({
@@ -13,7 +13,6 @@ export class EditarSetVaciaComponent {
 
   inputValue: string = '';
   showArrow: boolean = true; 
-  public set : Set = {id_set:0, id_user:0, titulo:"", imagen:"", songs:[]};
 
   constructor(private router: Router, public setService: SetsService) {}
 
@@ -33,9 +32,19 @@ export class EditarSetVaciaComponent {
   }
 
   addSet (){
-
-    this.setService.addSet(this.set).subscribe(()=>{
-      console.log("ok");
+    let set: DjSet = new DjSet (null, 1, this.inputValue, "assets/Img/disc.jpeg", []);
+    this.setService.addSet(set).subscribe((response: Response)=>{
+      set.id_set = Number(response.id_set);
+      this.setService.arraySets.push(set);
+      this.navigateToSongs();
+    },
+    (error) => {
+      console.error('Error al añadir el set:', error);
     })
   }
+
+  onAddSongAndSet() {
+    this.addSet();
+  }
+
 }
