@@ -26,6 +26,8 @@ import { ValidacionAnadirComponent } from './component/validacion-anadir/validac
 import { ValidacionCambiarTituloComponent } from './component/validacion-cambiar-titulo/validacion-cambiar-titulo.component';
 import { ValidacionMoverCancionComponent } from './component/validacion-mover-cancion/validacion-mover-cancion.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UsersService } from './shared/users.service';
+import { SpotifyLinkComponent } from './component/spotify-link/spotify-link.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { HttpClientModule } from '@angular/common/http';
     ValidacionEliminarCancionComponent,
     ValidacionAnadirComponent,
     ValidacionCambiarTituloComponent,
-    ValidacionMoverCancionComponent
+    ValidacionMoverCancionComponent,
+    SpotifyLinkComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,7 @@ import { HttpClientModule } from '@angular/common/http';
     DragDropModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [UsersService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
