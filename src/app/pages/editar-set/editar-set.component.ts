@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { SetsService } from 'src/app/shared/sets.service';
+import { DjSet } from 'src/app/models/dj-set';
+import { Response } from 'src/app/models/response';
 
 @Component({
   selector: 'app-editar-set',
@@ -9,15 +12,16 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 export class EditarSetComponent {
 
   // Propiedades
-  title: string = 'prueba';
-  previousTitle: string = this.title;
+  djSet = new DjSet(0, 0, '', '', []);
+  title: string = '';
+  previousTitle: string = '';
   inputValue: string = '';
   showTitleValidation = false;
   showMoveValidation = false; 
   previousCardsState: any[] = [];
   previousIndex: number = 0;
   currentIndex: number = 0;
-
+  
   cards = [
     { 
       title: 'Blinding Lights', 
@@ -60,8 +64,23 @@ export class EditarSetComponent {
       img: '../../../assets/Img/caratula cancion.png'
     }
   ];
+  
 
-  // Métodos
+  constructor(public setsService: SetsService){
+    this.setsService.getSet(2).subscribe((response:Response)=>{
+      console.log('Respuesta del servicio:', response);
+      if (response.set) {
+        this.djSet = response.set;
+        console.log('Set recibido:', this.djSet);
+        this.title = this.djSet.titulo;  
+        this.previousTitle = this.title;
+        this.inputValue = this.title;
+        console.log('Título recibido:', this.title); 
+      } else {
+        console.error('No se encontró el set.');
+      }
+    })
+  }
 
   // Maneja el evento de arrastrar y soltar
   onDrop(event: CdkDragDrop<any[]>) {
@@ -97,6 +116,20 @@ export class EditarSetComponent {
     this.title = this.inputValue;
     this.previousTitle = this.inputValue;
     this.showTitleValidation = false; 
+
+    this.setsService.changeTitle(this.djSet.id_set, this.title).subscribe(
+      (response: Response) => {
+        if (response.error) {
+          console.error('Error al cambiar el título:', response.mensaje);
+        } else {
+          console.log('Título cambiado con éxito:', response.djset_title);
+        }
+      },
+      (error) => {
+        console.error('Error en la solicitud HTTP:', error);
+      }
+    );
+
     }
   
   // Cierra los mensajes de validación

@@ -59,7 +59,7 @@ export class EditarSetVaciaComponent {
   }
 
   addSet (){
-    let set: DjSet = new DjSet (null, 1, this.inputValue, "assets/Img/disc.jpeg", []);
+    let set: DjSet = new DjSet (0, 1, this.inputValue, "assets/Img/disc.jpeg", []);
     this.setService.addSet(set).subscribe((response: Response)=>{
       set.id_set = Number(response.id_set);
       this.setService.arraySets.push(set);

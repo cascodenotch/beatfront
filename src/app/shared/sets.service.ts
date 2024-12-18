@@ -17,4 +17,17 @@ export class SetsService {
     return this.http.post(this.apiUrl, set);
   }
   
+  changeTitle(id_set: number, titulo: string){
+    return this.http.put(`${this.apiUrl}/title`, { titulo: titulo, id_set: id_set });
+  }
+
+  getSet(id_set: number) {
+    const httpOptions = {
+      params: {
+        id_set: id_set.toString(),
+      }
+    };
+    return this.http.get(this.apiUrl, httpOptions);
+  }
+  
 }
