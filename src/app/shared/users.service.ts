@@ -11,28 +11,17 @@ export class UsersService {
 
   public logueado: boolean = false; // Indica si el usuario está logueado
   public user: User | null = null; // Datos del usuario logueado
-  public id_user: number | null = null; // ID del usuario logueado
 
   constructor(private http: HttpClient) {}
-
-  // Método para registrar un nuevo usuario
-  public register(user: User): Observable<any> {
-    return this.http.post(`${this.url}/registro`, user);
-  }
 
   // Método para iniciar sesión con un usuario
   public login(user: User): Observable<any> {
     return this.http.post(`${this.url}/login`, user);
   }
 
-  // Método para modificar los datos del usuario
-  public modUser(user: User): Observable<any> {
-    return this.http.put(`${this.url}/user`, user);
+  // Método PUT para obtener los datos del usuario usando el token
+  public putUser(token: string): Observable<any> {
+    return this.http.put(`${this.url}/user`, { token });
   }
-
-  // Método para obtener datos del usuario
-public getUser(spotifyId: string): Observable<User> {
-  return this.http.get<User>(`${this.url}/user?spotifyId=${spotifyId}`);
-}
 
 }
