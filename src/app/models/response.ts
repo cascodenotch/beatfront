@@ -10,6 +10,7 @@ export class Response {
     public set ?: DjSet,
     public song ?: Song,
     public user ?: User,
-    public id_set ? :number
+    public id_set ? :number,
+    public djset_title ?:string
   ) {}
 }
