@@ -6,6 +6,7 @@ import { Response } from 'src/app/models/response';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UsersService } from 'src/app/shared/users.service';
+import { SongsService } from 'src/app/shared/songs.service';
 
 @Component({
   selector: 'app-editar-set-vacia',
@@ -16,15 +17,22 @@ export class EditarSetVaciaComponent {
   token: string | null = null;
   inputValue: string = '';
   showArrow: boolean = true; 
-  
 
-  constructor(private router: Router, public setService: SetsService, private route: ActivatedRoute,  private userService: UsersService) {}
+  constructor(private router: Router, 
+    public setService: SetsService, 
+    private route: ActivatedRoute,  
+    private userService: UsersService, 
+    private songService: SongsService) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.token = params['token']; 
       console.log("Token recibido:", this.token);
+  
       if (this.token) {
+        // Guardar el token en el servicio para usarlo en otras partes de la app
+        this.songService.setToken(this.token);  // Almacenar el token en el servicio SongsService
+
         this.userService.putUser(this.token).subscribe(
           (response) => {
             if (response.error) {
@@ -38,6 +46,8 @@ export class EditarSetVaciaComponent {
             console.error("Error al obtener los datos del usuario:", error);
           }
         );
+      } else {
+        console.error("Token no recibido");
       }
     });
   }
@@ -52,26 +62,18 @@ export class EditarSetVaciaComponent {
     this.showArrow = false; 
   }
 
-  navigateToSongs() {
-    if (this.inputValue) {
-      this.router.navigate(['canciones']);
-    }
-  }
 
-  addSet (){
-    let set: DjSet = new DjSet (0, 1, this.inputValue, "assets/Img/disc.jpeg", []);
+  onAddSongAndSet() {
+    let set: DjSet = new DjSet (1, this.userService.user?.id_user, this.inputValue, "assets/Img/disc.jpeg", []);
+    console.log(set);
+    console.log(this.userService.user);
     this.setService.addSet(set).subscribe((response: Response)=>{
       set.id_set = Number(response.id_set);
       this.setService.arraySets.push(set);
-      this.navigateToSongs();
-    },
-    (error) => {
-      console.error('Error al añadir el set:', error);
+      if (this.inputValue) {
+        this.router.navigate(['canciones']);
+      }
     })
-  }
-
-  onAddSongAndSet() {
-    this.addSet();
   }
 
 }
