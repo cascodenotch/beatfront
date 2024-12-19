@@ -9,7 +9,6 @@
   .card {
     width: 260px;
     height: 280px;
-    background-image: url("../../../assets/Img/caratula cancion.png");
     background-size: cover;
     background-position: center;
     border-radius: 12px;
@@ -17,8 +16,8 @@
     flex-direction: column;
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
-    
   }
+  
   
   .header {
     background-color: var(--color-fondo);
@@ -58,6 +57,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-size: cover;
+    background-position: center;
     position: relative;
   }
   

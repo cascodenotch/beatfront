@@ -1,36 +1,34 @@
-<body>
+<main>
   <a routerLink="/editar-set" routerLinkActive="active-link">
     <button>
       <img src="../../../assets/Iconos/back.png" class="back" alt="play" />
     </button>
   </a>
-  
-    <p class="title">Añadir <span>Canciones</span></p>
-  
-  
-  
-    <div class="filtro">
 
-      <div class="filt">
+  <p class="title">Añadir <span>Canciones</span></p>
+
+  <div class="filtro">
+
+    <div class="filt">
 
       <div class="fil1">
         <img src="../../../assets/Iconos/danceability.png" class="subIcon" alt="play" />
         <p class="dance">Danceability&nbsp;&nbsp;</p>
         <input type="text" class="subInp1" [(ngModel)]="danceability" />
       </div>
-  
+
       <div class="fil">
         <img src="../../../assets/Iconos/energy.png" class="subIcon" alt="play" />
         <p class="ener">Energía&nbsp;&nbsp;&nbsp;</p>
         <input type="text" class="subInp" [(ngModel)]="energy" />
       </div>
-  
+
       <div class="fil3">
         <img src="../../../assets/Iconos/key.png" class="subIcon" alt="play" />
         <p class="key">Key&nbsp;&nbsp;</p>
         <input type="text" class="subInp3" [(ngModel)]="key" />
       </div>
-  
+
       <div class="fil">
         <img src="../../../assets/Iconos/tempo.png" class="subIcon" alt="play" />
         <p class="temp">Tempo&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -39,27 +37,30 @@
 
     </div>
 
-
     <div class="busca">
-
       <div class="busc">
-        <input type="text" class="buscador" placeholder="Buscar por título o autor..." [(ngModel)]="searchText"/>
+        <input
+          type="text"
+          class="buscador"
+          placeholder="Buscar por título o autor..."
+          [(ngModel)]="searchText" />
       </div>
-      <img src="../../../assets/Iconos/search.png" class="lupa" alt="buscar" />
-
+      <button (click)="search()">
+        <img src="../../../assets/Iconos/search.png" class="lupa" alt="buscar" />
+      </button>
     </div>
 
-    </div>
-  
-    <div class="content">
-      <div class="canciones">
-        <app-tarjeta-cancion [searchText]="searchText" [danceability]="danceability" [energy]="energy" [key]="key" [tempo]="tempo"></app-tarjeta-cancion>
-      </div>
+  </div>
 
-      <div class="repro"></div>
-
+  <div class="content">
+    <div class="canciones">
+      <!-- Iterar sobre las canciones y pasarlas al componente tarjeta-cancion -->
+      <app-tarjeta-cancion 
+        *ngFor="let song of songs"
+        [song]="song">
+      </app-tarjeta-cancion>
     </div>
-    
-  </body>
-  
-  
+
+    <div class="repro"></div>
+  </div>
+</main>
