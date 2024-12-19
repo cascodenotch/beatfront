@@ -1,4 +1,4 @@
-  body {
+  main {
     margin: 0;
     height: 92vh;
     background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
@@ -239,6 +239,10 @@
     height: calc(85vh - 200px); 
     overflow-y: auto; 
     padding-right: 40px; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 52px;
   }
   
   .canciones::-webkit-scrollbar {
