@@ -35,12 +35,12 @@ export class TarjetaCancionSetComponent {
   
     confirmDelete (song : Song){
       this.showValidation = false; 
-      this.setService.deleteSongfromSet(song.songI, 64).subscribe(
+      this.setService.deleteSongfromSet(song.songId, 64).subscribe(
             (response: Response) => {
               if (response.error) {
                 console.error('Error al eliminar cancion:', response.mensaje);
               } else {
-                console.log('Canción eliminada con éxito:', response.song?.songI);
+                console.log('Canción eliminada con éxito:', response.song?.songId);
               }
             },
             (error) => {
