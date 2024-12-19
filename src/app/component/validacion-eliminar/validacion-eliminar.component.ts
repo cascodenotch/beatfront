@@ -8,9 +8,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class ValidacionEliminarComponent {
 
   @Output() closeValidation = new EventEmitter<void>(); 
+  @Output() confirmDelete = new EventEmitter<void>();
 
   close(){
     this.closeValidation.emit(); 
+  }
+  confirm() {
+    this.confirmDelete.emit();
   }
   
 }

@@ -1,7 +1,7 @@
 <div class="card-container">
     <!-- Contenedor de la imagen -->
     <div class="card-image-container">
-        <img id="song-image" [src]="card.img" alt="song image">
+        <img id="song-image" [src]="song.albumImage" alt="song image">
     </div>
 
     <!-- Contenedor de la información principal -->
@@ -10,31 +10,31 @@
         <div class="title-author-container">
             <div class="title-author-item" style="color:var(--color-complemento)">
                 <img src="../../../assets/Iconos/title-color.png" alt="title">
-                <p class="subtitle" id="song-title">{{ card.title }}</p>
+                <p class="subtitle" id="song-title">{{ song.songName }}</p>
             </div>
             <p> - </p>
             <div class="title-author-item" style="color:var(--color-terciario)">
                 <img src="../../../assets/Iconos/author-color.png" alt="author">
-                <p class="subtitle" id="song-author">{{ card.author }}</p>
+                <p class="subtitle" id="song-author">{{ song.artistName }}</p>
             </div>
         </div>
 
         <!-- Contenedor de las características de la canción -->
         <div class="song-features-container">
             <div class="song-feature song-feature-danceability">
-                <p>Danceability: <span id="danceability">{{ card.danceability }}</span></p>
+                <p>Danceability: <span id="danceability"></span></p>
             </div>
             <div class="song-feature song-feature-energy">
-                <p>Energía: <span id="energy">{{ card.energy }}</span></p>
+                <p>Energía: <span id="energy"></span></p>
             </div>
             <div class="song-feature song-feature-key">
-                <p>Clave: <span id="key">{{ card.key }}</span></p>
+                <p>Clave: <span id="key"></span></p>
             </div>
             <div class="song-feature song-feature-tempo">
-                <p>Tempo: <span id="tempo">{{ card.tempo }}</span></p>
+                <p>Tempo: <span id="tempo"></span></p>
             </div>
             <div class="song-feature song-feature-duration">
-                <p>Duración: <span id="duration">{{ card.duration }} min</span></p>
+                <p>Duración: <span id="duration">{{ song.durationMs }} min</span></p>
             </div>
         </div>
     </div>
@@ -44,14 +44,14 @@
         <a routerLink="#">
             <img class="btn-icon" src="../../../assets/Iconos/play 2.png" alt="play">
         </a>
-        <button (click)="onDelete(card)">
+        <button (click)="onDelete(song)">
             <img class="btn-icon" src="../../../assets/Iconos/delete.png" alt="delete">
         </button>
     </div>
 
     <!-- Mostrar mensaje de validación si showValidation es verdadero -->
     <div *ngIf="showValidation">
-        <app-validacion-eliminar-cancion (closeValidation)="closeValidation()"></app-validacion-eliminar-cancion>
+        <app-validacion-eliminar-cancion (closeValidation)="closeValidation()" (confirmDelete)="confirmDelete(song)"></app-validacion-eliminar-cancion>
       </div>
 
 </div>

@@ -67,7 +67,7 @@ export class EditarSetComponent {
   
 
   constructor(public setsService: SetsService){
-    this.setsService.getSet(2).subscribe((response:Response)=>{
+    this.setsService.getSet(this.setsService.set.id_set).subscribe((response:Response)=>{
       console.log('Respuesta del servicio:', response);
       if (response.set) {
         this.djSet = response.set;

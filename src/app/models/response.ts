@@ -11,6 +11,7 @@ export class Response {
     public song ?: Song,
     public user ?: User,
     public id_set ? :number,
-    public djset_title ?:string
+    public djset_title ?:string,
+    public songs ?: Song[]
   ) {}
 }
