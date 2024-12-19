@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { Song } from '../../models/song';
 
 @Component({
@@ -7,20 +7,21 @@ import { Song } from '../../models/song';
   styleUrls: ['./tarjeta-cancion.component.css']
 })
 export class TarjetaCancionComponent {
-  @Input() song!: Song;  // Recibimos el objeto song
+  @Output() addSongToSet = new EventEmitter<string>();
+  @Output() closeValidation = new EventEmitter<void>();
+  @Input() song!: Song;  
   @Input() searchText: string = ''; 
   @Input() danceability: string = ''; 
   @Input() energy: string = ''; 
   @Input() key: string = ''; 
   @Input() tempo: string = ''; 
+  selectedSongId: string = ""; 
 
-  showValidation = false;
-
-  onclickDel(card: any) {
-    this.showValidation = true; 
-  }
-
-  closeValidation() {
-    this.showValidation = false; 
+  onclickAdd(card: any) {
+    this.selectedSongId = this.song.songId; 
+    console.log("Song ID: ", this.selectedSongId);
+    this.addSongToSet.emit(this.selectedSongId);
+    this.closeValidation.emit(); 
   }
 }
+

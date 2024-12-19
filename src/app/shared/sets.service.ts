@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DjSet } from '../models/dj-set';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,12 @@ export class SetsService {
       }
     };
     return this.http.get(this.apiUrl, httpOptions);
+  }
+
+  addSongToSet(setId: number, songId: string) {
+    const body = { setId, songId };
+    console.log("haciendo solicitud a la api");
+    return this.http.post(`${this.apiUrl}/song`, body);  // Hacemos la solicitud POST
   }
   
 }

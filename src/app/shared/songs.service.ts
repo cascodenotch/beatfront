@@ -14,15 +14,21 @@ export class SongsService {
 
   constructor(private http: HttpClient) { }
 
-  getSavedSongs(token: string): Observable<Song[]> {
+  getSavedSongs(token: string, setId: number): Observable<Song[]> {
     if (!token) {
       throw new Error('Token no proporcionado');
     }
-
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);  // Pasar el token como Authorization header
-    return this.http.get<any>(this.apiUrl, { headers }).pipe(
-      map((data: any[]) => {  // Especifica el tipo de 'data' como arreglo de objetos
-        return data.map((item: any) => new Song(  // Especifica el tipo de 'item'
+  
+    if (!setId) {
+      throw new Error('Set ID no proporcionado');
+    }
+  
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); // Pasar el token como Authorization header
+    const url = `${this.apiUrl}?setId=${setId}`; // Agregar el setId como parámetro de consulta
+  
+    return this.http.get<any[]>(url, { headers }).pipe(
+      map((data: any[]) => { // Procesar el arreglo de canciones
+        return data.map((item: any) => new Song(
           item.albumImage,      // Imagen del álbum
           item.artistName,      // Nombre del artista
           this.formatDuration(item.durationMs),  // Formato de duración
@@ -32,6 +38,7 @@ export class SongsService {
       })
     );
   }
+  
 
   // Función para formatear la duración en milisegundos a un formato adecuado (minutos:segundos)
   private formatDuration(durationMs: number): string {
@@ -45,9 +52,13 @@ export class SongsService {
     this.tokenUser = token;
   }
 
-  searchSongs(query: string, token: string, filters: any = {}): Observable<Song[]> {
+  searchSongs(query: string, token: string, setId: number, filters: any = {}): Observable<Song[]> {
+    if (!query || !token || !setId) {
+      throw new Error('Query, token o setId no proporcionados');
+    }
+  
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    let url = `${this.apiUrl}/search?query=${encodeURIComponent(query)}`;
+    let url = `${this.apiUrl}/search?query=${encodeURIComponent(query)}&setId=${setId}`;
   
     // Agregar filtros opcionales a la URL
     Object.keys(filters).forEach(key => {
@@ -56,15 +67,16 @@ export class SongsService {
       }
     });
   
-    return this.http.get<any>(url, { headers }).pipe(
+    return this.http.get<any[]>(url, { headers }).pipe(
       map((data: any[]) => data.map(item => new Song(
-        item.albumImage,
-        item.artistName,
-        this.formatDuration(item.durationMs),
-        item.songId,
-        item.songName
+        item.albumImage,       // Imagen del álbum
+        item.artistName,       // Nombre del artista
+        this.formatDuration(item.durationMs), // Formato de duración
+        item.songId,           // ID de la canción
+        item.songName          // Nombre de la canción
       )))
     );
   }
+  
   
 }
