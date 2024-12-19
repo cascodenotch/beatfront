@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { SetsService } from 'src/app/shared/sets.service';
 import { Response } from 'src/app/models/response';
 import { Song } from 'src/app/models/song';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tarjeta-cancion-set',
@@ -17,14 +18,15 @@ export class TarjetaCancionSetComponent {
   @Input() key: string = ''; 
   @Input() tempo: string = ''; 
 
+  @Output() cerrarTarjeta = new EventEmitter<Song>();
+
     // Propiedades
     showValidation = false;
 
     constructor(public setService: SetsService){}
 
     // Método para mostrar el mensaje de validación
-    onDelete(song:Song) {
-      console.log('Eliminar tarjeta:', song);
+    onDelete() {
       this.showValidation = true;  
     }
   
@@ -35,18 +37,8 @@ export class TarjetaCancionSetComponent {
   
     confirmDelete (song : Song){
       this.showValidation = false; 
-      this.setService.deleteSongfromSet(song.songI, 64).subscribe(
-            (response: Response) => {
-              if (response.error) {
-                console.error('Error al eliminar cancion:', response.mensaje);
-              } else {
-                console.log('Canción eliminada con éxito:', response.song?.songI);
-              }
-            },
-            (error) => {
-              console.error('Error en la solicitud HTTP:', error);
-            }
-          );
-      
+      this.cerrarTarjeta.emit(this.song);
+      console.log('Eliminar tarjeta:', song);
     }
+
 }

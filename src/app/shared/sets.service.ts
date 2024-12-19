@@ -33,6 +33,15 @@ export class SetsService {
     return this.http.get(this.apiUrl, httpOptions);
   }
 
+  getSetSongs (id_set: number){
+    const httpOptions = {
+      params: {
+        id_set: id_set.toString(),
+      }
+    };
+    return this.http.get(`${this.apiUrl}/songs`, httpOptions);
+  }
+
   deleteSongfromSet(id_song: string, id_set: number){
     const httpOptions = {body: {id_song: id_song, id_set: id_set}}
     return this.http.delete(`${this.apiUrl}/song`, httpOptions);

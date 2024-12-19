@@ -3,6 +3,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { SetsService } from 'src/app/shared/sets.service';
 import { DjSet } from 'src/app/models/dj-set';
 import { Response } from 'src/app/models/response';
+import { Song } from 'src/app/models/song';
 
 @Component({
   selector: 'app-editar-set',
@@ -22,50 +23,6 @@ export class EditarSetComponent {
   previousIndex: number = 0;
   currentIndex: number = 0;
   
-  // cards = [
-  //   { 
-  //     title: 'Blinding Lights', 
-  //     author: 'The Weeknd', 
-  //     danceability: 0.51, 
-  //     energy: 0.73, 
-  //     key: 'C#', 
-  //     tempo: 171, 
-  //     duration: 3.20, 
-  //     img: '../../../assets/Img/caratula cancion.png' 
-  //   },
-  //   { 
-  //     title: 'Shape of You', 
-  //     author: 'Ed Sheeran', 
-  //     danceability: 0.65, 
-  //     energy: 0.77, 
-  //     key: 'D', 
-  //     tempo: 96, 
-  //     duration: 4.23, 
-  //     img: '../../../assets/Img/caratula cancion.png' 
-  //   },
-  //   { 
-  //     title: 'Uptown Funk', 
-  //     author: 'Mark Ronson ft. Bruno Mars', 
-  //     danceability: 0.39, 
-  //     energy: 0.40, 
-  //     key: 'E', 
-  //     tempo: 144, 
-  //     duration: 5.55, 
-  //     img: '../../../assets/Img/caratula cancion.png' 
-  //   },
-  //   {
-  //     title: 'Levitating',
-  //     author: 'Dua Lipa',
-  //     danceability: 0.80,
-  //     energy: 0.78,
-  //     key: 'B',
-  //     tempo: 103,
-  //     duration: 3.23,
-  //     img: '../../../assets/Img/caratula cancion.png'
-  //   }
-  // ];
-  
-
   constructor(public setsService: SetsService){
     this.setsService.getSet(this.setsService.set.id_set).subscribe((response:Response)=>{
       console.log('Respuesta del servicio:', response);
@@ -78,6 +35,15 @@ export class EditarSetComponent {
         console.log('Título recibido:', this.title); 
       } else {
         console.error('No se encontró el set.');
+      }
+    })
+
+    this.setsService.getSetSongs(this.setsService.set.id_set).subscribe((response:Response)=>{
+      console.log('Respuesta del servicio:', response);
+      if (response.songs) {
+        this.djSet.songs = response.songs;
+      } else {
+        console.error('No se encontraron canciones.');
       }
     })
   }
@@ -143,4 +109,29 @@ export class EditarSetComponent {
     this.showTitleValidation = false; 
     }
 
+  // Método para eliminar canción
+  confirmDelete (song:Song){
+
+    const updatedSongs = this.djSet.songs.filter(s => s.songId !== song.songId);
+    const previousSongs = [...this.djSet.songs]; // Copia de seguridad para restaurar en caso de error
+    this.djSet.songs = updatedSongs;
+
+    this.setsService.deleteSongfromSet(song.songId, this.djSet.id_set).subscribe(
+          (response: Response) => {
+            if (response.error) {
+              console.error('Error al eliminar cancion:', response.mensaje);
+              this.djSet.songs = previousSongs; 
+            } else {
+              console.log('Canción eliminada con éxito');
+            }
+          },
+          (error) => {
+            console.error('Error en la solicitud HTTP:', error);
+          }
+        );
+    
+    }
+
 }
+
+
