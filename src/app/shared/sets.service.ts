@@ -12,7 +12,7 @@ export class SetsService {
   public arraySets: DjSet[] = [];
   
   // eugenio:
-  public set: DjSet = new DjSet (64,7,"1sp","assets/Img/disc.jpeg",[]); 
+  public set: DjSet = new DjSet (142,7,"1sp","assets/Img/disc.jpeg",[]); 
 
   constructor(private http: HttpClient) {}
 
