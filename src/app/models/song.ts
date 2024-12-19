@@ -3,7 +3,7 @@ export class Song {
         public albumImage: string,
         public artistName: string,
         public durationMs: string,
-        public songI: string,
+        public songId: string,
         public songName: string,
       ) {}
 

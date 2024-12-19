@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { SetsService } from 'src/app/shared/sets.service';
 import { DjSet } from 'src/app/models/dj-set';
@@ -141,6 +141,24 @@ export class EditarSetComponent {
   closeTitleValidation() {
     this.inputValue = this.previousTitle;
     this.showTitleValidation = false; 
+    }
+
+    ngOnInit(): void {
+      const setId = 2;  // Deberías obtener el ID del set actual de alguna manera, tal vez de la URL
+  
+      // Cargar el set con las canciones
+      this.setsService.getSet(setId).subscribe(
+        (response: any) => {
+          if (response.set) {
+            this.djSet = response.set;
+          } else {
+            console.error('No se encontró el set');
+          }
+        },
+        (error) => {
+          console.error('Error al cargar el set:', error);
+        }
+      );
     }
 
 }

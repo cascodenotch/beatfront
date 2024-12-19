@@ -5,9 +5,7 @@
         <p>¿Seguro que quieres añadir la cancion al Set?</p>
       </div>
       <div class="actions">
-        <a routerLink="/editar-set" routerLinkActive="active-link" class="con">
-        <button class="btn confirm">Confirmar</button>
-      </a>
+        <button class="btn confirm" (click)="confirm()">Confirmar</button>
         <button class="btn cancel" (click)="close()">Cancelar</button> 
       </div>
     </div>

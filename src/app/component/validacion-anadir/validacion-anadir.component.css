@@ -21,7 +21,6 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     max-width: 520px;
     width: 90%;
-
   }
   
   .box p {
@@ -66,17 +65,13 @@
   }
   
   .btn.confirm {
-    width: 100%;
+    width: 45%;
     background-color: rgba(0, 0, 0, 0.3);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
-  .con {
-    width: 45%;
-    color: white;
-  }
-  
+
   .btn.confirm:hover {
     background-color: var(--color-terciario);
   }

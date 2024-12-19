@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-validacion-anadir',
@@ -7,9 +7,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ValidacionAnadirComponent {
   @Output() closeValidation = new EventEmitter<void>(); 
+  @Output() confirmAdd = new EventEmitter<string>(); 
+  @Input() songId: string = ""; 
 
-  close(){
+  close() {
     this.closeValidation.emit(); 
   }
-  
+
+  confirm() {
+    this.confirmAdd.emit(this.songId);
+    console.log(this.songId);
+  }
 }

@@ -54,13 +54,23 @@
 
   <div class="content">
     <div class="canciones">
-      <!-- Iterar sobre las canciones y pasarlas al componente tarjeta-cancion -->
       <app-tarjeta-cancion 
-        *ngFor="let song of songs"
-        [song]="song">
+      *ngFor="let song of songs"
+      [song]="song"
+      (addSongToSet)="onAddSongToSet($event)">
       </app-tarjeta-cancion>
     </div>
 
     <div class="repro"></div>
   </div>
+
+  <div *ngIf="showValidation">
+    <app-validacion-anadir 
+      [songId]="selectedSongId"
+      (closeValidation)="closeVal()" 
+      (confirmAdd)="onConfirmAdd($event)">
+    </app-validacion-anadir>
+  </div>
+  
+
 </main>
