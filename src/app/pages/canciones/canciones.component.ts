@@ -17,6 +17,7 @@ export class CancionesComponent implements OnInit {
   songs: any[] = [];  // Arreglo de canciones
   selectedSongId: string = "";
   showValidation = false; // Controla si se muestra el modal
+  spotifyUrl: string | null = null;  // Agrega esta propiedad
 
   constructor(private songService: SongsService, private setsService: SetsService, private router: Router) {}
 
@@ -111,6 +112,21 @@ export class CancionesComponent implements OnInit {
     } else {
       console.error("Token, texto de búsqueda o setId no proporcionados");
     }
+  }
+  
+  onPlaySong(songId: string) {
+    console.log("Reproduciendo canción con ID: ", songId);
+    
+    // Llama a la API de tu backend para obtener la URL de reproducción de la canción
+    this.songService.getSpotifyTrackUrl(songId).subscribe(
+      (data: any) => {
+        console.log('URL de la canción:', data.url);
+        this.spotifyUrl = data.url;  // Guardar la URL de la canción para reproducirla
+      },
+      (error) => {
+        console.error('Error al obtener la URL de la canción:', error);
+      }
+    );
   }
   
 }

@@ -9,6 +9,8 @@ import { Song } from '../../models/song';
 export class TarjetaCancionComponent {
   @Output() addSongToSet = new EventEmitter<string>();
   @Output() closeValidation = new EventEmitter<void>();
+  @Output() playSong = new EventEmitter<string>();
+
   @Input() song!: Song;  
   @Input() searchText: string = ''; 
   @Input() danceability: string = ''; 
@@ -23,5 +25,12 @@ export class TarjetaCancionComponent {
     this.addSongToSet.emit(this.selectedSongId);
     this.closeValidation.emit(); 
   }
+
+  onclickPlay() {
+    this.selectedSongId = this.song.songId;  // Obtener el ID de la canción
+    console.log("Reproduciendo canción con ID: ", this.selectedSongId);
+    this.playSong.emit(this.selectedSongId);  // Emitir evento para reproducir la canción
+  }
+  
 }
 

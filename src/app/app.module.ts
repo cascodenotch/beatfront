@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './shared/users.service';
 import { SpotifyLinkComponent } from './component/spotify-link/spotify-link.component';
 import { LimitPipe } from './limit.pipe';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { LimitPipe } from './limit.pipe';
     ValidacionCambiarTituloComponent,
     ValidacionMoverCancionComponent,
     SpotifyLinkComponent,
-    LimitPipe
+    LimitPipe,
+    SafePipe
   ],
   imports: [
     BrowserModule,

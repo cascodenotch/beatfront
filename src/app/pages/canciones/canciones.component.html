@@ -57,11 +57,15 @@
       <app-tarjeta-cancion 
       *ngFor="let song of songs"
       [song]="song"
-      (addSongToSet)="onAddSongToSet($event)">
+      (addSongToSet)="onAddSongToSet($event)"
+      (playSong)="onPlaySong($event)">
       </app-tarjeta-cancion>
     </div>
 
-    <div class="repro"></div>
+    <div *ngIf="spotifyUrl" class="repro">
+      <iframe [src]="spotifyUrl | safe" width="550" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+    
   </div>
 
   <div *ngIf="showValidation">

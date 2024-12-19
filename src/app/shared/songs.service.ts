@@ -39,6 +39,13 @@ export class SongsService {
     );
   }
   
+  getSpotifyTrackUrl(songId: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.tokenUser}`);  // Usar el token guardado
+    const url = `http://localhost:3000/songs/track/${songId}`;  // URL de tu API backend que maneja la integración con Spotify
+
+    return this.http.get<any>(url, { headers });
+  }
+
 
   // Función para formatear la duración en milisegundos a un formato adecuado (minutos:segundos)
   private formatDuration(durationMs: number): string {
@@ -77,6 +84,4 @@ export class SongsService {
       )))
     );
   }
-  
-  
 }

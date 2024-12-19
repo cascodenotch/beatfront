@@ -16,7 +16,7 @@
     <div class="content" [ngStyle]="{'background-image': 'url(' + song.albumImage + ')'}">
       <div class="overlay"></div>
 
-      <button class="play-btn">
+      <button class="play-btn" (click)="onclickPlay()">
         <img src="../../../assets/Iconos/play-circle.png" alt="play" />
       </button>
     </div>
