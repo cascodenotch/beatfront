@@ -52,26 +52,16 @@ export class EditarSetVaciaComponent {
     this.showArrow = false; 
   }
 
-  navigateToSongs() {
-    if (this.inputValue) {
-      this.router.navigate(['canciones']);
-    }
-  }
-
-  addSet (){
-    let set: DjSet = new DjSet (0, 1, this.inputValue, "assets/Img/disc.jpeg", []);
+  onAddSongAndSet() {
+    let set: DjSet = new DjSet (1, this.userService.user?.id_user, this.inputValue, "assets/Img/disc.jpeg", []);
+    console.log(set);
+    console.log(this.userService.user);
     this.setService.addSet(set).subscribe((response: Response)=>{
       set.id_set = Number(response.id_set);
       this.setService.arraySets.push(set);
-      this.navigateToSongs();
-    },
-    (error) => {
-      console.error('Error al añadir el set:', error);
+      if (this.inputValue) {
+        this.router.navigate(['canciones']);
+      }
     })
   }
-
-  onAddSongAndSet() {
-    this.addSet();
-  }
-
 }

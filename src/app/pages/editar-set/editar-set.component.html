@@ -70,8 +70,8 @@
 
     <!-- Contenedor donde se muestran las canciones del set -->
     <div class="canciones" cdkDropList (cdkDropListDropped)="onDrop($event)">
-        <div *ngFor="let card of cards" cdkDrag>
-            <app-tarjeta-cancion-set [card]="card"></app-tarjeta-cancion-set>
+        <div *ngFor="let song of djSet.songs" cdkDrag>
+            <app-tarjeta-cancion-set [card]="song"></app-tarjeta-cancion-set>
         </div>
     </div>
     
