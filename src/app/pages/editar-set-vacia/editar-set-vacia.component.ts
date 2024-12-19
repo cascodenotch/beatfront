@@ -62,7 +62,6 @@ export class EditarSetVaciaComponent {
     this.showArrow = false; 
   }
 
-
   onAddSongAndSet() {
     let set: DjSet = new DjSet (1, this.userService.user?.id_user, this.inputValue, "assets/Img/disc.jpeg", []);
     console.log(set);
@@ -75,5 +74,4 @@ export class EditarSetVaciaComponent {
       }
     })
   }
-
 }
