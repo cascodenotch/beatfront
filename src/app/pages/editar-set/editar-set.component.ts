@@ -132,26 +132,22 @@ export class EditarSetComponent {
     
     }
 
-}
-
-
-
-    ngOnInit(): void {
-      const setId = 2;  // Deberías obtener el ID del set actual de alguna manera, tal vez de la URL
+    // ngOnInit(): void {
+    //   const setId = 2;  // Deberías obtener el ID del set actual de alguna manera, tal vez de la URL
   
-      // Cargar el set con las canciones
-      this.setsService.getSet(setId).subscribe(
-        (response: any) => {
-          if (response.set) {
-            this.djSet = response.set;
-          } else {
-            console.error('No se encontró el set');
-          }
-        },
-        (error) => {
-          console.error('Error al cargar el set:', error);
-        }
-      );
-    }
+    //   // Cargar el set con las canciones
+    //   this.setsService.getSet(setId).subscribe(
+    //     (response: any) => {
+    //       if (response.set) {
+    //         this.djSet = response.set;
+    //       } else {
+    //         console.error('No se encontró el set');
+    //       }
+    //     },
+    //     (error) => {
+    //       console.error('Error al cargar el set:', error);
+    //     }
+    //   );
+    // }
 
 }
