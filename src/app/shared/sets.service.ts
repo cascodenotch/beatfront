@@ -13,7 +13,7 @@ export class SetsService {
   public arraySets: DjSet[] = [];
   
   // eugenio:
-  public set: DjSet = new DjSet (64,7,"1sp","assets/Img/disc.jpeg",[]); 
+  public set: DjSet = new DjSet (142,7,"1sp","assets/Img/disc.jpeg",[]); 
 
   constructor(private http: HttpClient) {}
 
@@ -32,6 +32,15 @@ export class SetsService {
       }
     };
     return this.http.get(this.apiUrl, httpOptions);
+  }
+
+  getSetSongs (id_set: number){
+    const httpOptions = {
+      params: {
+        id_set: id_set.toString(),
+      }
+    };
+    return this.http.get(`${this.apiUrl}/songs`, httpOptions);
   }
 
   deleteSongfromSet(id_song: string, id_set: number){
