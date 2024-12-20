@@ -1,15 +1,45 @@
+<!-- mis-sets.component.html -->
 <body>
     <p class="title">Mis <span>Sets</span></p>
-
+  
     <div class="busc">
-        <input type="text" class="buscador" placeholder="Buscar Set..." [(ngModel)]="searchText">
-        <img src="../../../assets/Iconos/search.png" class="lupa" alt="play" />
+      <input type="text" 
+             class="buscador" 
+             placeholder="Buscar Set..." 
+             [(ngModel)]="searchText" 
+             (input)="searchSets()"> <!-- Llamamos a searchSets() en cada entrada -->
+      <img src="../../../assets/Iconos/search.png" class="lupa" alt="search" />
     </div>
-
+    
+  
     <div class="set">
-        <app-tarjeta-set [searchText]="searchText"></app-tarjeta-set>
+      <div class="card2">
+        <div class="header2">Nuevo <span>Set</span></div>
+        <div class="content2">
+          <a routerLink="/editar-set-vacia" routerLinkActive="active-link">
+            <button class="add-btn">
+              <img src="../../../assets/Iconos/add white.png" class="add" alt="añadir" />
+            </button>
+          </a>
+        </div>
+      </div>
+  
+      <!-- Usamos *ngFor para mostrar los sets -->
+      <app-tarjeta-set 
+      *ngFor="let card of filteredCards" 
+      [djset]="card"
+      (deleteCard)="openValidation($event)">
+      </app-tarjeta-set>
     </div>
 
-</body>
+    <div *ngIf="showValidation">
+      <app-validacion-eliminar
+        [setId]="selectedSetId"
+        (closeValidation)="closeVal()"
+        (confirmDelete)="deleteSet($event)">
+      </app-validacion-eliminar>
+    </div>
+    
+  </body>
 
-
+  

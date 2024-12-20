@@ -1,37 +1,22 @@
-<div class="container">
-  <div class="card2" *ngIf="showCard2">
-    <div class="header2">Nuevo <span>Set</span></div>
-    <div class="content2">
-      <a routerLink="/editar-set-vacia" routerLinkActive="active-link">
-        <button class="add-btn">
-          <img src="../../../assets/Iconos/add white.png" class="add" alt="añadir" />
-        </button>
-      </a>
-    </div>
-  </div>
-  
 
-  <div class="card" *ngFor="let card of filteredCards">
-    <div class="header">{{ card.title }}</div>
-    <div class="content">
+<div class="container">
+  <div class="card">
+    <div class="header">{{ djset.titulo }}</div> 
+    <div class="content"
+      [ngStyle]="{ 'background-image': 'url(' + djset.imagen + ')', 'background-size': 'cover', 'background-position': 'center' }">
       <button class="play-btn">
         <img src="../../../assets/Iconos/play-circle.png" alt="play" />
       </button>
     </div>
     <div class="footer">
-      <button class="icon" (click)="onclickDel(card)">
+      <button class="icon" (click)="onclickDel()">
         <img src="../../../assets/Iconos/delete.png" alt="Eliminar" />
       </button>
-
-      <a routerLink="/editar-set" routerLinkActive="active-link">
-      <button class="icon">
+      <button class="icon" (click)="onclickEdit()">
         <img src="../../../assets/Iconos/edit.png" alt="Editar" />
       </button>
-    </a>
     </div>
   </div>
 </div>
 
-<div *ngIf="showValidation">
-  <app-validacion-eliminar (closeValidation)="closeValidation()"></app-validacion-eliminar>
-</div>
+

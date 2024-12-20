@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-validacion-eliminar',
@@ -6,15 +6,16 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./validacion-eliminar.component.css']
 })
 export class ValidacionEliminarComponent {
+  @Output() closeValidation = new EventEmitter<void>();
+  @Output() confirmDelete = new EventEmitter<number>();
+  @Input() setId: number = 0;
 
-  @Output() closeValidation = new EventEmitter<void>(); 
-  @Output() confirmDelete = new EventEmitter<void>();
-
-  close(){
-    this.closeValidation.emit(); 
+  close() {
+    this.closeValidation.emit();
   }
+
   confirm() {
-    this.confirmDelete.emit();
+    this.confirmDelete.emit(this.setId);
+    console.log('Set ID eliminado:', this.setId);
   }
-  
 }

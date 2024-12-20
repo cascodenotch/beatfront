@@ -3,13 +3,14 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { SetsService } from 'src/app/shared/sets.service';
 import { DjSet } from 'src/app/models/dj-set';
 import { Response } from 'src/app/models/response';
+import { ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-editar-set',
   templateUrl: './editar-set.component.html',
   styleUrls: ['./editar-set.component.css']
 })
-export class EditarSetComponent {
+export class EditarSetComponent implements OnInit {
 
   // Propiedades
   djSet = new DjSet(0, 0, '', '', []);
@@ -22,51 +23,8 @@ export class EditarSetComponent {
   previousIndex: number = 0;
   currentIndex: number = 0;
   
-  // cards = [
-  //   { 
-  //     title: 'Blinding Lights', 
-  //     author: 'The Weeknd', 
-  //     danceability: 0.51, 
-  //     energy: 0.73, 
-  //     key: 'C#', 
-  //     tempo: 171, 
-  //     duration: 3.20, 
-  //     img: '../../../assets/Img/caratula cancion.png' 
-  //   },
-  //   { 
-  //     title: 'Shape of You', 
-  //     author: 'Ed Sheeran', 
-  //     danceability: 0.65, 
-  //     energy: 0.77, 
-  //     key: 'D', 
-  //     tempo: 96, 
-  //     duration: 4.23, 
-  //     img: '../../../assets/Img/caratula cancion.png' 
-  //   },
-  //   { 
-  //     title: 'Uptown Funk', 
-  //     author: 'Mark Ronson ft. Bruno Mars', 
-  //     danceability: 0.39, 
-  //     energy: 0.40, 
-  //     key: 'E', 
-  //     tempo: 144, 
-  //     duration: 5.55, 
-  //     img: '../../../assets/Img/caratula cancion.png' 
-  //   },
-  //   {
-  //     title: 'Levitating',
-  //     author: 'Dua Lipa',
-  //     danceability: 0.80,
-  //     energy: 0.78,
-  //     key: 'B',
-  //     tempo: 103,
-  //     duration: 3.23,
-  //     img: '../../../assets/Img/caratula cancion.png'
-  //   }
-  // ];
-  
 
-  constructor(public setsService: SetsService){
+  constructor(public setsService: SetsService,   private route: ActivatedRoute){
     this.setsService.getSet(this.setsService.set.id_set).subscribe((response:Response)=>{
       console.log('Respuesta del servicio:', response);
       if (response.set) {
@@ -81,6 +39,7 @@ export class EditarSetComponent {
       }
     })
   }
+
 
   // Maneja el evento de arrastrar y soltar
   onDrop(event: CdkDragDrop<any[]>) {
@@ -144,21 +103,21 @@ export class EditarSetComponent {
     }
 
     ngOnInit(): void {
-      const setId = 2;  // Deberías obtener el ID del set actual de alguna manera, tal vez de la URL
-  
-      // Cargar el set con las canciones
-      this.setsService.getSet(setId).subscribe(
-        (response: any) => {
+      const setId = this.route.snapshot.paramMap.get('id_set');  // Obtenemos el id_set desde la URL
+      if (setId) {
+        this.setsService.getSet(Number(setId)).subscribe((response: Response) => {
+          console.log('Respuesta del servicio:', response);
           if (response.set) {
             this.djSet = response.set;
+            this.title = this.djSet.titulo;  
+            this.previousTitle = this.title;
+            this.inputValue = this.title;
+            console.log('Título recibido:', this.title);
           } else {
-            console.error('No se encontró el set');
+            console.error('No se encontró el set.');
           }
-        },
-        (error) => {
-          console.error('Error al cargar el set:', error);
-        }
-      );
+        });
+      }
     }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SongsService } from '../../shared/songs.service';
 import { SetsService } from 'src/app/shared/sets.service';
 import { Router } from '@angular/router';
+import { DjSet } from 'src/app/models/dj-set';
 
 @Component({
   selector: 'app-canciones',
@@ -18,12 +19,14 @@ export class CancionesComponent implements OnInit {
   selectedSongId: string = "";
   showValidation = false; // Controla si se muestra el modal
   spotifyUrl: string | null = null;  // Agrega esta propiedad
+  djSet = new DjSet(0, 0, '', '', []);
 
   constructor(private songService: SongsService, private setsService: SetsService, private router: Router) {}
 
   ngOnInit(): void {
     const token = this.songService.tokenUser;
-    const currentSetId = 2; // Aquí debes obtener dinámicamente el ID del set actual (ejemplo estático)
+    this.djSet = this.setsService.set;
+    const currentSetId = this.djSet.id_set; // Aquí debes obtener dinámicamente el ID del set actual (ejemplo estático)
   
     if (token) {
       console.log("Token recibido en canciones:", token);
@@ -65,7 +68,8 @@ export class CancionesComponent implements OnInit {
   // Llamada al servicio para añadir la canción al set
   confirmAddSongToSet(songId: string): void {
     if (songId !== null) {
-      const setId = 2; // Aquí debes obtener el setId desde la página o un servicio
+      this.djSet = this.setsService.set;
+      const setId = this.djSet.id_set// Aquí debes obtener el setId desde la página o un servicio
       this.setsService.addSongToSet(setId, songId).subscribe(
         response => {
           console.log('Canción añadida con éxito:', response);
@@ -83,7 +87,8 @@ export class CancionesComponent implements OnInit {
 
   search(): void {
     const token = this.songService.tokenUser;
-    const setId = 2; // Reemplaza con el setId actual desde un servicio o una variable
+    this.djSet = this.setsService.set;
+    const setId = this.djSet.id_set // Reemplaza con el setId actual desde un servicio o una variable
   
     if (token && setId) {
       // Si no hay texto en el campo de búsqueda, se obtienen las canciones guardadas

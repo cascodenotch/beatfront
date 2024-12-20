@@ -24,4 +24,8 @@ export class UsersService {
     return this.http.put(`${this.url}/user`, { token });
   }
 
+  public getCurrentUserId(): number | null {
+    return this.user ? this.user.id_user : null;
+  }
+
 }
