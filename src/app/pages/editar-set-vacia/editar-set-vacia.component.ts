@@ -69,7 +69,7 @@ export class EditarSetVaciaComponent {
     console.log(set);
     console.log(this.userService.user);
     this.setService.addSet(set).subscribe((response: Response)=>{
-      set.id_set = Number(response.id_set);
+      this.setService.set.id_set= Number(response.id_set);
       this.setService.arraySets.push(set);
       if (this.inputValue) {
         this.router.navigate(['canciones']);
