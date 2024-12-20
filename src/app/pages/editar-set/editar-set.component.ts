@@ -4,6 +4,7 @@ import { SetsService } from 'src/app/shared/sets.service';
 import { DjSet } from 'src/app/models/dj-set';
 import { Response } from 'src/app/models/response';
 import { Song } from 'src/app/models/song';
+import { ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-editar-set',
@@ -23,7 +24,8 @@ export class EditarSetComponent {
   previousIndex: number = 0;
   currentIndex: number = 0;
   
-  constructor(public setsService: SetsService){
+
+  constructor(public setsService: SetsService,   private route: ActivatedRoute){
     this.setsService.getSet(this.setsService.set.id_set).subscribe((response:Response)=>{
       console.log('Respuesta del servicio:', response);
       if (response.set) {
@@ -47,6 +49,7 @@ export class EditarSetComponent {
       }
     })
   }
+
 
   // Maneja el evento de arrastrar y soltar
   onDrop(event: CdkDragDrop<any[]>) {
@@ -130,24 +133,25 @@ export class EditarSetComponent {
           }
         );
     
-    }
-
     // ngOnInit(): void {
-    //   const setId = 2;  // Deberías obtener el ID del set actual de alguna manera, tal vez de la URL
-  
-    //   // Cargar el set con las canciones
-    //   this.setsService.getSet(setId).subscribe(
-    //     (response: any) => {
+    //   const setId = this.route.snapshot.paramMap.get('id_set');  // Obtenemos el id_set desde la URL
+    //   if (setId) {
+    //     this.setsService.getSet(Number(setId)).subscribe((response: Response) => {
+    //       console.log('Respuesta del servicio:', response);
     //       if (response.set) {
     //         this.djSet = response.set;
+    //         this.title = this.djSet.titulo;  
+    //         this.previousTitle = this.title;
+    //         this.inputValue = this.title;
+    //         console.log('Título recibido:', this.title);
     //       } else {
-    //         console.error('No se encontró el set');
+    //         console.error('No se encontró el set.');
     //       }
-    //     },
-    //     (error) => {
-    //       console.error('Error al cargar el set:', error);
-    //     }
-    //   );
+    //     });
+    //   }
     // }
 
+
+
+}
 }

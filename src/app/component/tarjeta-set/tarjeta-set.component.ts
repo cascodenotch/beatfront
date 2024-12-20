@@ -1,4 +1,8 @@
-import { Component, Input } from '@angular/core';
+// tarjeta-set.component.ts
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { DjSet } from '../../models/dj-set';
+import { Router } from '@angular/router';  // Importamos Router para redirigir
+import { SetsService } from 'src/app/shared/sets.service';
 
 @Component({
   selector: 'app-tarjeta-set',
@@ -6,48 +10,29 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./tarjeta-set.component.css']
 })
 export class TarjetaSetComponent {
-  @Input() searchText: string = ''; 
-  showCard2 = true; 
+  @Input() djset!: DjSet;
+  @Output() deleteCard = new EventEmitter<DjSet>();  // Emite un evento cuando se elimina una tarjeta
+  @Output() editCard = new EventEmitter<number>();  // Evento para la edición, emite el ID del set
+  @Output() closeValidation = new EventEmitter<void>();
 
-  cards = [
-    { title: 'Dance Revolution' },
-    { title: 'Electro Beats' },
-    { title: 'Groove Night' },
-    { title: 'Bass in Motion' },
-    { title: 'Rhythm Pulse' },
-    { title: 'Club Fever' },
-    { title: 'Funky Waves' },
-    { title: 'Neon Vibes' },
-    { title: 'Soundscape Journey' },
-    { title: 'Rhythm Pulse' },
-    { title: 'Club Fever' },
-    { title: 'Funky Waves' },
-    { title: 'Neon Vibes' },
-    { title: 'Soundscape Journey' },
-  ];
-  
+  selectedSetId: number = 0;
 
-  showValidation = false; 
+  constructor(private router: Router, private setsService: SetsService) {}
 
-  onclickDel(card: any){
-    this.showValidation = true; 
+  onclickDel() {
+    this.selectedSetId = this.djset.id_set; 
+    console.log("Set ID: ", this.selectedSetId);
+    this.deleteCard.emit(this.djset);  // Emitimos el evento de eliminación
+    this.closeValidation.emit(); 
   }
 
-  closeValidation(){
-    this.showValidation = false; 
-  }
-
-  filteredCards = this.cards; 
-
-  ngOnChanges(): void {
-    this.filteredCards = this.cards.filter((card) => {
-      const matchesSearchText = this.searchText
-        ? card.title.toLowerCase().includes(this.searchText.toLowerCase())
-        : true;
-  
-      return matchesSearchText;
-    });
-
-    this.showCard2 = !this.searchText;
+  onclickEdit() {
+    this.setsService.set = { ...this.djset }; 
+    console.log("Set guardado para editar:", this.setsService.set);
+    this.selectedSetId = this.djset.id_set; 
+    console.log("Edit Set ID: ", this.selectedSetId);
+    this.editCard.emit(this.selectedSetId);  // Emitimos el evento para editar
+    this.router.navigate(['/editar-set', this.selectedSetId]);  // Navegar al componente de edición con el ID del set
   }
 }
+

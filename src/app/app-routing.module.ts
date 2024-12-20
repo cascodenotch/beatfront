@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: "recomend", component:RecomendacionesComponent},
   { path: "editar-set-vacia", component: EditarSetVaciaComponent},
   { path: "editar-set", component: EditarSetComponent},
+  { path: 'editar-set/:id_set', component: EditarSetComponent },
 ];
 
 @NgModule({

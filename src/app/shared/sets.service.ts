@@ -12,8 +12,7 @@ export class SetsService {
 
   public arraySets: DjSet[] = [];
   
-  // eugenio:
-  public set: DjSet = new DjSet (142,7,"1sp","assets/Img/disc.jpeg",[]); 
+  public set: DjSet = new DjSet (0,0,"","assets/Img/disc.jpeg",[]); 
 
   constructor(private http: HttpClient) {}
 
@@ -24,13 +23,8 @@ export class SetsService {
   changeTitle(id_set: number, titulo: string){
     return this.http.put(`${this.apiUrl}/title`, { titulo: titulo, id_set: id_set });
   }
-
   getSet(id_set: number) {
-    const httpOptions = {
-      params: {
-        id_set: id_set.toString(),
-      }
-    };
+    const httpOptions = { params: { id_set: id_set.toString() } };
     return this.http.get(this.apiUrl, httpOptions);
   }
 
@@ -42,6 +36,10 @@ export class SetsService {
     };
     return this.http.get(`${this.apiUrl}/songs`, httpOptions);
   }
+  getSetsByUser(id_user: number) {
+    return this.http.get(`${this.apiUrl}/${id_user}`);
+  }
+  
 
   deleteSongfromSet(id_song: string, id_set: number){
     const httpOptions = {body: {id_song: id_song, id_set: id_set}}
@@ -53,5 +51,10 @@ export class SetsService {
     console.log("haciendo solicitud a la api");
     return this.http.post(`${this.apiUrl}/song`, body);  // Hacemos la solicitud POST
   }
+
+  deleteSet(id_set: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id_set}`);
+  }
+  
   
 }
