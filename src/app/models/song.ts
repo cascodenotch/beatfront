@@ -5,6 +5,9 @@ export class Song {
         public durationMs: string,
         public songId: string,
         public songName: string,
+        public danceability : number,
+        public energy: number, 
+        public tempo: number,
+        public key: number
       ) {}
-
 }

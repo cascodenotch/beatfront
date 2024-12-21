@@ -13,10 +13,6 @@ export class TarjetaCancionComponent {
 
   @Input() song!: Song;  
   @Input() searchText: string = ''; 
-  @Input() danceability: string = ''; 
-  @Input() energy: string = ''; 
-  @Input() key: string = ''; 
-  @Input() tempo: string = ''; 
   selectedSongId: string = ""; 
 
   onclickAdd(card: any) {

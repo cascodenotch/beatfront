@@ -13,10 +13,6 @@ export class TarjetaCancionSetComponent {
 
   @Input() song!: Song;  // Recibimos el objeto song
   @Input() searchText: string = ''; 
-  @Input() danceability: string = ''; 
-  @Input() energy: string = ''; 
-  @Input() key: string = ''; 
-  @Input() tempo: string = ''; 
 
   @Output() cerrarTarjeta = new EventEmitter<Song>();
 

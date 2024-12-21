@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';  // Importa el operador 'map'
-import { Song } from '../models/song';  // Asegúrate de importar el modelo
+import { Song } from '../models/song';  
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +33,11 @@ export class SongsService {
           item.artistName,      // Nombre del artista
           this.formatDuration(item.durationMs),  // Formato de duración
           item.songId,          // ID de la canción
-          item.songName         // Nombre de la canción
+          item.songName,        // Nombre de la canción
+          item.danceability,
+          item.energy, 
+          item.tempo, 
+          item.key
         ));
       })
     );
@@ -76,11 +80,15 @@ export class SongsService {
   
     return this.http.get<any[]>(url, { headers }).pipe(
       map((data: any[]) => data.map(item => new Song(
-        item.albumImage,       // Imagen del álbum
-        item.artistName,       // Nombre del artista
-        this.formatDuration(item.durationMs), // Formato de duración
-        item.songId,           // ID de la canción
-        item.songName          // Nombre de la canción
+        item.albumImage,       
+        item.artistName,       
+        this.formatDuration(item.durationMs), 
+        item.songId,           
+        item.songName,
+        item.danceability,
+        item.energy, 
+        item.tempo, 
+        item.key         
       )))
     );
   }

@@ -22,16 +22,16 @@
         <!-- Contenedor de las características de la canción -->
         <div class="song-features-container">
             <div class="song-feature song-feature-danceability">
-                <p>Danceability: <span id="danceability"></span></p>
+                <p>Danceability: <span id="danceability">{{ song.danceability }}</span></p>
             </div>
             <div class="song-feature song-feature-energy">
-                <p>Energía: <span id="energy"></span></p>
+                <p>Energía: <span id="energy"></span>{{ song.energy }}</p>
             </div>
             <div class="song-feature song-feature-key">
-                <p>Clave: <span id="key"></span></p>
+                <p>Clave: <span id="key"></span>{{ song.key }}</p>
             </div>
             <div class="song-feature song-feature-tempo">
-                <p>Tempo: <span id="tempo"></span></p>
+                <p>Tempo: <span id="tempo"></span>{{ song.tempo }}</p>
             </div>
             <div class="song-feature song-feature-duration">
                 <p>Duración: <span id="duration">{{ song.durationMs }} min</span></p>
