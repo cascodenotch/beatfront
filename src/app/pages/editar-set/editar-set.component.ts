@@ -54,10 +54,26 @@ export class EditarSetComponent {
   // Maneja el evento de arrastrar y soltar
   onDrop(event: CdkDragDrop<any[]>) {
     this.previousCardsState = [...this.djSet.songs];
-    this.previousIndex = event.previousIndex;
-    this.currentIndex = event.currentIndex;
-    moveItemInArray(this.djSet.songs, event.previousIndex, event.currentIndex);
+    const rangeStart = event.previousIndex;
+    const insertBefore = event.currentIndex;
+
+    // Reorganizar las canciones localmente en el frontend
+  moveItemInArray(this.djSet.songs, rangeStart, insertBefore);
+
+    // Obtener los track_id en el nuevo orden
+    const orderedSongIds = this.djSet.songs.map(song => song.songId);
+
+    this.setsService.reorderSongs(this.djSet.id_set, rangeStart, insertBefore, orderedSongIds).subscribe(
+      (response:Response)=> {
+        console.log('Orden de las canciones actualizado:', response);
+    },
+    error => {
+        console.error('Error al reordenar canciones:', error);
+    }
+    )
+
     this.showMoveValidation = true;
+
   }
 
   // Maneja la desaparicion del fake placeholder
@@ -77,7 +93,6 @@ export class EditarSetComponent {
 
   // Confirma los mensajes de validación 
   confirmMoveValidation (){
-    this.showTitleValidation = false; 
     this.showMoveValidation = false;
     }
   

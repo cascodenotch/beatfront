@@ -49,12 +49,16 @@ export class SetsService {
   addSongToSet(setId: number, songId: string) {
     const body = { setId, songId };
     console.log("haciendo solicitud a la api");
-    return this.http.post(`${this.apiUrl}/song`, body);  // Hacemos la solicitud POST
+    return this.http.post(`${this.apiUrl}/song`, body);  
   }
 
   deleteSet(id_set: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id_set}`);
   }
   
+  reorderSongs(id_set: number, rangeStart: number, insertBefore: number, orderedSongIds: string []) {
+    const body = { id_set: id_set.toString(), rangeStart: rangeStart, insertBefore: insertBefore, songs: orderedSongIds };
+    return this.http.put(`${this.apiUrl}/songs`, body);
+}
   
 }
