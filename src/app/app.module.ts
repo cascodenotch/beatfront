@@ -30,6 +30,7 @@ import { UsersService } from './shared/users.service';
 import { SpotifyLinkComponent } from './component/spotify-link/spotify-link.component';
 import { LimitPipe } from './limit.pipe';
 import { SafePipe } from './safe.pipe';
+import { FormatSongDataPipe } from './format-song-data.pipe';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { SafePipe } from './safe.pipe';
     ValidacionMoverCancionComponent,
     SpotifyLinkComponent,
     LimitPipe,
-    SafePipe
+    SafePipe,
+    FormatSongDataPipe
   ],
   imports: [
     BrowserModule,

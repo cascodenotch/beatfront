@@ -28,13 +28,13 @@
                 <p>Energía: <span id="energy"></span>{{ song.energy }}</p>
             </div>
             <div class="song-feature song-feature-key">
-                <p>Clave: <span id="key"></span>{{ song.key }}</p>
+                <p>Clave: <span id="key"></span>{{ song.key | formatSongData: 'key' }}</p>
             </div>
             <div class="song-feature song-feature-tempo">
-                <p>Tempo: <span id="tempo"></span>{{ song.tempo }}</p>
+                <p>Tempo: <span id="tempo"></span>{{ song.tempo | formatSongData: 'tempo' }}</p>
             </div>
             <div class="song-feature song-feature-duration">
-                <p>Duración: <span id="duration">{{ song.durationMs }} min</span></p>
+                <p>Duración: <span id="duration">{{ song.durationMs | formatSongData: 'duration' }} min</span></p>
             </div>
         </div>
     </div>
