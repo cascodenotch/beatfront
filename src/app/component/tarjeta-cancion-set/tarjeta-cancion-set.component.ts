@@ -3,6 +3,7 @@ import { SetsService } from 'src/app/shared/sets.service';
 import { Response } from 'src/app/models/response';
 import { Song } from 'src/app/models/song';
 import { EventEmitter } from '@angular/core';
+import { SongsService } from 'src/app/shared/songs.service';
 
 @Component({
   selector: 'app-tarjeta-cancion-set',
@@ -15,18 +16,20 @@ export class TarjetaCancionSetComponent {
   @Input() searchText: string = ''; 
 
   @Output() cerrarTarjeta = new EventEmitter<Song>();
+  @Output() playSong = new EventEmitter<string>();
 
     // Propiedades
     showValidation = false;
+    selectedSongId: string = ""; 
+    isPlaying = false; 
+    spotifyUrl: string =""; 
 
-    constructor(public setService: SetsService){}
+    constructor(public setService: SetsService, public songService: SongsService){}
 
-    // Método para mostrar el mensaje de validación
     onDelete() {
       this.showValidation = true;  
     }
   
-    // Métodods para los botones del mensaje de validación 
     closeValidation(){
       this.showValidation = false; 
     }
@@ -37,4 +40,22 @@ export class TarjetaCancionSetComponent {
       console.log('Eliminar tarjeta:', song);
     }
 
+    onclickPlay() {
+      this.selectedSongId = this.song.songId; 
+      this.isPlaying = true; 
+      this.songService.getSpotifyTrackUrl(this.selectedSongId).subscribe(
+        (data: any) => {
+          console.log('URL de la canción:', data.url);
+          this.spotifyUrl = data.url;
+        },
+        (error) => {
+          console.error('Error al obtener la URL de la canción:', error);
+        }
+      );
+    }
+
+    closeModal() {
+      this.isPlaying = false; // Cierra el modal
+    }
+    
 }

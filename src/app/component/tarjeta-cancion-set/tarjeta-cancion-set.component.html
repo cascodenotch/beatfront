@@ -1,8 +1,10 @@
 <div class="card-container">
-    <!-- Contenedor de la imagen -->
+    <!-- Contenedor de la imagen y reproductor Spotify-->
     <div class="card-image-container">
-        <img id="song-image" [src]="song.albumImage" alt="song image">
+        <!-- Mostrar imagen del álbum cuando no se está reproduciendo -->
+        <img *ngIf="!isPlaying" id="song-image" [src]="song.albumImage" alt="song image">
     </div>
+    
 
     <!-- Contenedor de la información principal -->
     <div class="card-info-container">
@@ -41,9 +43,9 @@
 
     <!-- Contenedor de los botones -->
     <div class="buttons-container">
-        <a routerLink="#">
+        <button (click)="onclickPlay()">
             <img class="btn-icon" src="../../../assets/Iconos/play 2.png" alt="play">
-        </a>
+        </button>
         <button (click)="onDelete()">
             <img class="btn-icon" src="../../../assets/Iconos/delete.png" alt="delete">
         </button>
@@ -52,7 +54,22 @@
     <!-- Mostrar mensaje de validación si showValidation es verdadero -->
     <div *ngIf="showValidation">
         <app-validacion-eliminar-cancion (closeValidation)="closeValidation()" (confirmDelete)="confirmDelete(song)"></app-validacion-eliminar-cancion>
-      </div>
+    </div>
+
+<!-- Modal para el reproductor de Spotify -->
+<div class="modal" *ngIf="isPlaying">
+    <div class="modal-content">
+        <iframe 
+            [src]="spotifyUrl | safe" 
+            width="300" 
+            height="380" 
+            frameborder="0" 
+            allowtransparency="true" 
+            allow="encrypted-media">
+        </iframe>
+        <button (click)="closeModal()">Cerrar</button>
+    </div>
+</div>
 
 </div>
 

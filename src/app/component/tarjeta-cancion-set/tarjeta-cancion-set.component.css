@@ -26,6 +26,15 @@
     border-bottom-right-radius: 0;
 }
 
+.card-image-container iframe {
+    width: 300px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 /* Contenedor de la información principal (título y autor) */
 .card-info-container {
     position: absolute;
@@ -146,3 +155,41 @@ button {
     border: none;
 }
 
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .modal-content iframe {
+    margin-bottom: 20px;
+  }
+  
+  .modal-content button {
+    background-color: var(--color-complemento);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modal-content button:hover {
+    background-color: var(--color-terciario);
+  }
+  
