@@ -1,11 +1,9 @@
 <div class="card-container">
     <!-- Contenedor de la imagen y reproductor Spotify-->
     <div class="card-image-container">
-        <!-- Mostrar imagen del álbum cuando no se está reproduciendo -->
-        <img *ngIf="!isPlaying" id="song-image" [src]="song.albumImage" alt="song image">
+        <img id="song-image" [src]="song.albumImage" alt="song image">
     </div>
     
-
     <!-- Contenedor de la información principal -->
     <div class="card-info-container">
         <!-- Título y autor -->
@@ -59,15 +57,15 @@
 <!-- Modal para el reproductor de Spotify -->
 <div class="modal" *ngIf="isPlaying">
     <div class="modal-content">
+        <button id="close-btn" (click)="closeModal()">
+             <img src="../../../assets/Iconos/close xmark.png" alt="close">
+        </button>
         <iframe 
             [src]="spotifyUrl | safe" 
-            width="300" 
-            height="380" 
             frameborder="0" 
             allowtransparency="true" 
             allow="encrypted-media">
         </iframe>
-        <button (click)="closeModal()">Cerrar</button>
     </div>
 </div>
 
