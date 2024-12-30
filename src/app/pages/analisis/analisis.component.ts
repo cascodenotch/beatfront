@@ -14,8 +14,11 @@ import {
   Legend,
   DoughnutController,
   LineController,
-  BarController
+  BarController, 
+  Filler
 } from 'chart.js';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
+import { SetsService } from 'src/app/shared/sets.service';
 
 @Component({
   selector: 'app-analisis',
@@ -24,8 +27,10 @@ import {
 })
 export class AnalisisComponent implements AfterViewInit {
 
-  constructor() {
-    
+  setAnalysisData: any = {}; 
+
+  constructor(public setService : SetsService) {
+
     Chart.register(
       ArcElement,
       LineElement,
@@ -38,17 +43,32 @@ export class AnalisisComponent implements AfterViewInit {
       Legend,
       DoughnutController,
       LineController,
-      BarController
+      BarController,
+      Filler
     );
   }
+
+ngOnInit(): void {
+    this.setAnalysis(); 
+  }
+
+setAnalysis (): void{
+
+  this.setService.setAnalysis(this.setService.set.id_set).subscribe({
+    next: (response: any) => {
+    this.setAnalysisData = response.data;
+    },
+    error: (err) => {
+      console.error('Error al obtener el análisis del set', err);
+    }
+  });
+}
 
   ngAfterViewInit(): void {
     this.initializeBarChart();
     this.initializeLineChart1();
     this.initializeLineChart2();
   }
-
-
 
   initializeBarChart(): void {
     const barCtx = document.getElementById('barChart') as HTMLCanvasElement;

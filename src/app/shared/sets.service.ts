@@ -60,5 +60,10 @@ export class SetsService {
     const body = { id_set: id_set.toString(), rangeStart: rangeStart, insertBefore: insertBefore, songs: orderedSongIds };
     return this.http.put(`${this.apiUrl}/songs`, body);
 }
+
+setAnalysis(id_set: number) {
+  const httpOptions = { params: { id_set: id_set.toString() } };
+  return this.http.get(`${this.apiUrl}/analisis`, httpOptions);
+}
   
 }

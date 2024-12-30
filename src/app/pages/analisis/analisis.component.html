@@ -2,7 +2,7 @@
 
     <a routerLink="/editar-set" routerLinkActive="active"><img src="../../../assets/Iconos/back.png" class="back" alt="play" /></a>
   
-    <p class="title">Analisis del <span>Set</span></p>
+    <p class="title">Análisis del <span>Set</span></p>
   
     <div class="content">
 
@@ -10,10 +10,10 @@
 
         <div class="stats">
 
-          <div class="stat stat1">30 <br>Canciones</div>
-          <div class="stat stat2">230 <br>Minutos</div>
-          <div class="stat stat3">0.7 <br>Avg Danceability</div>
-          <div class="stat stat4">180 <br>Avg Tempo</div>
+          <div class="stat stat1">{{setAnalysisData.totalSongs}} <br>Canciones</div>
+          <div class="stat stat2">{{setAnalysisData.totalDuration | formatSongData: 'duration'}} <br>Minutos</div>
+          <div class="stat stat3">{{ setAnalysisData.averageDanceability }} <br>Avg Danceability</div>
+          <div class="stat stat4">{{ setAnalysisData.averageTempo | formatSongData: 'tempo'  }} <br>Avg Tempo</div>
 
         </div>
 
