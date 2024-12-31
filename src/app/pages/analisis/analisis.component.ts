@@ -27,9 +27,12 @@ import { SetsService } from 'src/app/shared/sets.service';
 })
 export class AnalisisComponent implements AfterViewInit {
 
+
+  // Propiedades
   setAnalysisData: any = {}; 
   energyData: number[] = [];
   keyData: number[]=[];
+  valenceData: number []=[];
 
   constructor(public setService : SetsService) {
 
@@ -61,6 +64,8 @@ setAnalysis (): void{
     this.setAnalysisData = response.data;
     this.energyData = response.data.arrayEnergy;
     this.keyData = response.data.arrayKey;
+    this.valenceData = response.data.arrayValence;
+    this.initializeBarChart();
     this.initializeLineChart1();
     this.initializeLineChart2();
     },
@@ -71,7 +76,9 @@ setAnalysis (): void{
 }
 
 ngAfterViewInit(): void {
-  this.initializeBarChart();
+  // this.initializeBarChart();
+  // this.initializeLineChart1();
+  // this.initializeLineChart2();
 }
 
 initializeBarChart(): void {
@@ -80,10 +87,10 @@ initializeBarChart(): void {
     new Chart(barCtx, {
       type: 'bar', 
       data: {
-        labels: ['Género 1', 'Género 2', 'Género 3', 'Género 4'], 
+        labels: ['Muy negativo', 'Negativo', 'Neutro', 'Positivo', 'Muy postivo'], 
         datasets: [{
-          label: 'Porcentaje por Género',
-          data: [30, 20, 25, 25],
+          label: 'Número de Canciones por Cualidad Emocional',
+          data: this.valenceData,
           backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'], 
           borderWidth: 1, 
         }]
@@ -124,7 +131,8 @@ initializeBarChart(): void {
                 size: 14,
                 family: 'Roboto',
                 weight: 'bold',
-              }
+              },
+              callback: (value) => Number.isInteger(value) ? value : null,
             },
             grid: {
               color: 'rgba(255, 255, 255, 0.0)',
@@ -208,7 +216,7 @@ initializeLineChart2(): void {
       data: {
         labels: this.keyData.map((_, index) => `Canción ${index + 1}`),
         datasets: [{
-          label: 'Distribucion de la clave',
+          label: 'Evolución de la Clave',
           data: this.keyData,
           borderColor: '#1A5276',  
           backgroundColor: 'rgba(54, 162, 235, 0.1)',  
