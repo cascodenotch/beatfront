@@ -1,72 +1,75 @@
 <header>
-    <!-- Logo del sitio -->
-    <div class="header-logo">
-      <img src="../../../assets/Img/logo.png" alt="logo">
+  <!-- Logo del sitio -->
+  <div class="header-logo">
+    <img src="../../../assets/Img/logo.png" alt="logo">
+  </div>
+
+  <!-- Título del sitio -->
+  <div class="header-title">
+    <a routerLink="landing">BeatCraft</a>
+  </div>
+
+  <!-- Sección para usuarios no conectados -->
+  <ng-container *ngIf="!userService.logueado; else headerLogueado">
+    <div class="header-menu">
+      <app-spotify-link></app-spotify-link>
     </div>
-  
-    <!-- Título del sitio -->
-    <div class="header-title">
-      <a routerLink="landing">BeatCraft</a>
-    </div>
-  
-    <!-- Sección para usuarios no conectados -->
-    <ng-container *ngIf="logueado; else headerLogueado">
-      <div class="header-menu">
-        <button class="btn-vincular-spotify" [routerLink]="'editar-set-vacia'">
-          <img src="../../../assets/Iconos/spotify.png" alt="">
-          <span>Vincular Spotify</span>
-        </button>
+  </ng-container>
+
+  <!-- Sección para usuarios conectados -->
+  <ng-template #headerLogueado>
+    <div class="header-menu">
+      <!-- Enlace "Sets" -->
+      <div class="menu-link">
+        <a routerLink="mis-sets" routerLinkActive="active-link">
+          <div class="menu-link-icon">
+            <img class="default-icon" src="../../../assets/Iconos/set blue.png" alt="set blue">
+            <img class="hover-icon" src="../../../assets/Iconos/set white.png" alt="set white">
+          </div>
+          <span>Sets</span>
+        </a>
       </div>
-    </ng-container>
-  
-    <!-- Sección para usuarios conectados -->
-    <ng-template #headerLogueado>
-      <div class="header-menu">
-        <!-- Enlace "Sets" -->
-        <div class="menu-link">
-          <a routerLink="mis-sets" routerLinkActive="active-link">
-            <div class="menu-link-icon">
-              <img class="default-icon" src="../../../assets/Iconos/set blue.png" alt="set blue">
-              <img class="hover-icon" src="../../../assets/Iconos/set white.png" alt="set white">
-            </div>
-            <span>Sets</span>
-          </a>
-        </div>
-  
-        <!-- Enlace "Nosotros" -->
-        <div class="menu-link">
-          <a routerLink="nosotros" routerLinkActive="active-link">
-            <div class="menu-link-icon">
-              <img class="default-icon" src="../../../assets/Iconos/nosotros blue.png" alt="nosotros blue">
-              <img class="hover-icon" src="../../../assets/Iconos/nosotros white.png" alt="nosotros white">
-            </div>
-            <span>Nosotros</span>
-          </a>
-        </div>
-  
-        <!-- Imagen de perfil y menú desplegable -->
-        <div class="profile">
-          <img class="profile-picture" src="../../../assets/Img/perfil.jpg" alt="foto de perfil">
-          <div class="dropdown">
-            <div class="dropdown-link">
-              <a href="#">
-                <div class="menu-link-icon" style="margin-left: -12px;">
-                  <img class="default-icon" src="../../../assets/Iconos/spoti verde.png" alt="spotify">
-                </div>
-                <span class="edit-profile">Editar Perfil</span>
-              </a>
-            </div>
-            <div class="dropdown-link">
-              <a href="#">
-                <div class="menu-link-icon-cerrar-sesion">
-                  <img class="default-icon" src="../../../assets/Iconos/cerrar sesion.png" alt="cerrar sesion">
-                </div>
-                <span style="margin-left: 4px;">Cerrar sesión</span>
-              </a>
-            </div>
+
+      <!-- Enlace "Nosotros" -->
+      <div class="menu-link">
+        <a routerLink="nosotros" routerLinkActive="active-link">
+          <div class="menu-link-icon">
+            <img class="default-icon" src="../../../assets/Iconos/nosotros blue.png" alt="nosotros blue">
+            <img class="hover-icon" src="../../../assets/Iconos/nosotros white.png" alt="nosotros white">
+          </div>
+          <span>Nosotros</span>
+        </a>
+      </div>
+
+      <!-- Imagen de perfil y menú desplegable -->
+      <div class="profile">
+        <img class="profile-picture" [src]="profilePicture" alt="foto de perfil">
+
+        <div class="dropdown">
+          <div class="dropdown-link">
+            <a href="#">
+              <div class="menu-link-icon" style="margin-left: -12px;">
+                <img class="default-icon" src="../../../assets/Iconos/spoti verde.png" alt="spotify">
+              </div>
+              <span class="edit-profile">Editar Perfil</span>
+            </a>
+          </div>
+          <div class="dropdown-link">
+            <button class="menuButton" (click)="openValidation()">
+              <div class="menu-link-icon-cerrar-sesion">
+                <img class="default-icon" src="../../../assets/Iconos/cerrar sesion.png" alt="cerrar sesion">
+              </div>
+              <span style="margin-left: 4px;">Cerrar sesión</span>
+            </button>
           </div>
         </div>
       </div>
-    </ng-template>
-  </header>
-  
+    </div>
+  </ng-template>
+</header>
+
+<app-validacion-log-out
+  *ngIf="showValidation"
+  (confirmEvent)="confirmLogout()"
+  (cancelEvent)="closeValidation()">
+</app-validacion-log-out>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { SetsService } from '../../shared/sets.service';
 import { UsersService } from 'src/app/shared/users.service';
 import { DjSet } from '../../models/dj-set';
+import { SongsService } from 'src/app/shared/songs.service';
 
 @Component({
   selector: 'app-mis-sets',
@@ -14,10 +16,49 @@ export class MisSetsComponent implements OnInit {
   allSets: DjSet[] = [];
   showValidation = false;
   selectedSetId: number = 0; // Cambiar a 'number'
+  token: string | null = null;
 
-  constructor(private setsService: SetsService, private usersService: UsersService) {}
+  constructor(
+    private setsService: SetsService,
+    private usersService: UsersService,
+    private route: ActivatedRoute,
+    private songService: SongsService
+  ) {}
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.token = params['token'] || localStorage.getItem('token'); // Recupera el token
+  
+      if (this.token) {
+        localStorage.setItem('token', this.token); // Guarda el token si viene de la URL
+        this.songService.setToken(this.token); // Establece el token en el servicio SongsService
+  
+        // Obtener los datos del usuario usando el token
+        this.usersService.putUser(this.token).subscribe(
+          (response) => {
+            if (response.error) {
+              console.error(response.mensaje);
+            } else {
+              this.usersService.user = response.data;
+              console.log("Datos del usuario obtenidos:", this.usersService.user);
+  
+              // Cargar los sets del usuario
+              this.loadUserSets();
+            }
+          },
+          (error) => {
+            console.error("Error al obtener los datos del usuario:", error);
+          }
+        );
+      } else {
+        console.error("Token no disponible");
+      }
+    });
+  }
+  
+
+  loadUserSets(): void {
+    // Obtener el ID del usuario
     const currentUserId = this.usersService.getCurrentUserId();
 
     if (currentUserId !== null) {
@@ -63,5 +104,4 @@ export class MisSetsComponent implements OnInit {
       error: (err) => console.error('Error al eliminar el set:', err),
     });
   }
-  
 }

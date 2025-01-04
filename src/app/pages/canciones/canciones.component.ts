@@ -19,7 +19,7 @@ export class CancionesComponent implements OnInit {
   selectedSongId: string = "";
   showValidation = false; // Controla si se muestra el modal
   spotifyUrl: string | null = null;  // Agrega esta propiedad
-  djSet = new DjSet(0, 0, '', '', []);
+  djSet = new DjSet(0, 0, '', '', [],'');
 
   constructor(private songService: SongsService, private setsService: SetsService, private router: Router) {}
 
@@ -126,12 +126,18 @@ export class CancionesComponent implements OnInit {
     this.songService.getSpotifyTrackUrl(songId).subscribe(
       (data: any) => {
         console.log('URL de la canción:', data.url);
-        this.spotifyUrl = data.url;  // Guardar la URL de la canción para reproducirla
+        
+        // Agregar el parámetro autoplay=true a la URL para habilitar la reproducción automática
+        this.spotifyUrl = data.url + '?autoplay=true';  // Añadir el parámetro de autoplay
+        
+        // Guardar la URL de la canción para reproducirla automáticamente
       },
       (error) => {
         console.error('Error al obtener la URL de la canción:', error);
       }
     );
   }
+  
+  
   
 }

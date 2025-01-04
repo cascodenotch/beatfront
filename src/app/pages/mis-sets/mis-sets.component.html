@@ -13,7 +13,7 @@
     
   
     <div class="set">
-      <div class="card2">
+      <div class="card2" *ngIf="searchText === ''">
         <div class="header2">Nuevo <span>Set</span></div>
         <div class="content2">
           <a routerLink="/editar-set-vacia" routerLinkActive="active-link">

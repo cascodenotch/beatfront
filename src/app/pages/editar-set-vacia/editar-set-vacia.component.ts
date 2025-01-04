@@ -17,7 +17,7 @@ export class EditarSetVaciaComponent {
   token: string | null = null;
   inputValue: string = '';
   showArrow: boolean = true; 
-  djSet = new DjSet(0, 0, '', '', []);
+  djSet = new DjSet(0, 0, '', '', [],'');
 
   constructor(private router: Router, 
     public setService: SetsService, 
@@ -65,7 +65,7 @@ export class EditarSetVaciaComponent {
 
   onAddSongAndSet() {
    
-    let set: DjSet = new DjSet (0, this.userService.user?.id_user, this.inputValue, "assets/Img/disc.jpeg", []);
+    let set: DjSet = new DjSet (0, this.userService.user?.id_user, this.inputValue, "", [],'');
     console.log(set);
     console.log(this.userService.user);
     this.setService.addSet(set).subscribe((response: Response)=>{
