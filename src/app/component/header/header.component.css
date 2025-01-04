@@ -56,6 +56,7 @@ header {
   height: 100%;
   width: 33.33%;
   gap: 20px;
+  padding-right: 50px;
 }
 
 /* Estilo de los enlaces del menú */
@@ -145,12 +146,13 @@ header {
   flex-direction: column;
 }
 
-/* Estilo de los enlaces dentro del menú desplegable */
+.menuButton,
 .dropdown-link a {
+  font-size: large;
   border-radius: 8px;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   text-decoration: none;
   background-color: transparent;
   color: white;
@@ -161,11 +163,13 @@ header {
   border: 0px solid purple;
 }
 
-/* Efecto de hover en los enlaces del menú desplegable */
+/* Hover común para los botones y enlaces */
+.menuButton:hover,
 .dropdown-link a:hover {
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
 }
+
 
 /* Color especial para el enlace de "Editar Perfil" */
 .edit-profile {

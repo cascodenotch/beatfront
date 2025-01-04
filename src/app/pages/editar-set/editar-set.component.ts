@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EditarSetComponent {
 
   // Propiedades
-  djSet = new DjSet(0, 0, '', '', []);
+  djSet = new DjSet(0, 0, '', '', [],'');
   title: string = '';
   previousTitle: string = '';
   inputValue: string = '';

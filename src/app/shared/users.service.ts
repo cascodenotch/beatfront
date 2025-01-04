@@ -9,10 +9,30 @@ import { User } from '../models/user';
 export class UsersService {
   private url: string = 'http://localhost:3000'; // URL base de tu backend
 
-  public logueado: boolean = false; // Indica si el usuario está logueado
-  public user: User | null = null; // Datos del usuario logueado
+  private _logueado: boolean = false
+  private _user: User | null = null; // Datos del usuario logueado
 
   constructor(private http: HttpClient) {}
+
+  // Getter y setter para logueado
+  get logueado(): boolean {
+    return this._logueado;
+  }
+
+  set logueado(value: boolean) {
+    this._logueado = value;
+    localStorage.setItem('logueado', value.toString()); // Guardar en localStorage
+  }
+
+  // Getter y setter para user
+  get user(): User | null {
+    return this._user;
+  }
+
+  set user(value: User | null) {
+    this._user = value;
+    this.logueado = value !== null; // Cambiar logueado según el estado de user
+  }
 
   // Método para iniciar sesión con un usuario
   public login(user: User): Observable<any> {
@@ -27,5 +47,4 @@ export class UsersService {
   public getCurrentUserId(): number | null {
     return this.user ? this.user.id_user : null;
   }
-
 }

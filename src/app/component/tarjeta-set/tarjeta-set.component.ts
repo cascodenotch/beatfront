@@ -16,15 +16,19 @@ export class TarjetaSetComponent {
   @Output() closeValidation = new EventEmitter<void>();
 
   selectedSetId: number = 0;
+  selectedListId: string = '';
 
   constructor(private router: Router, private setsService: SetsService) {}
 
   onclickDel() {
     this.selectedSetId = this.djset.id_set; 
+    this.selectedListId = this.djset.id_playlist;
     console.log("Set ID: ", this.selectedSetId);
-    this.deleteCard.emit(this.djset);  // Emitimos el evento de eliminación
+    console.log("id_spotify: ", this.djset.id_playlist); // id_spotify es el id de la lista de Spotify
+    this.deleteCard.emit(this.djset);
     this.closeValidation.emit(); 
-  }
+}
+
 
   onclickEdit() {
     this.setsService.set = { ...this.djset }; 
