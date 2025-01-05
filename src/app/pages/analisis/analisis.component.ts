@@ -33,6 +33,8 @@ export class AnalisisComponent implements AfterViewInit {
   energyData: number[] = [];
   keyData: number[]=[];
   valenceData: number []=[];
+  isLoading: boolean = true; 
+  errorMessage: boolean = false; 
 
   constructor(public setService : SetsService) {
 
@@ -57,28 +59,43 @@ ngOnInit(): void {
     this.setAnalysis(); 
   }
 
-setAnalysis (): void{
-
+setAnalysis(): void {
   this.setService.setAnalysis(this.setService.set.id_set).subscribe({
     next: (response: any) => {
-    this.setAnalysisData = response.data;
-    this.energyData = response.data.arrayEnergy;
-    this.keyData = response.data.arrayKey;
-    this.valenceData = response.data.arrayValence;
-    this.initializeBarChart();
-    this.initializeLineChart1();
-    this.initializeLineChart2();
+      if (response.error) {
+        this.isLoading = false;
+        this.errorMessage = true;  
+      } else {
+        this.setAnalysisData = response.data;
+        this.energyData = response.data.arrayEnergy;
+        this.keyData = response.data.arrayKey;
+        this.valenceData = response.data.arrayValence;
+        this.isLoading = false; 
+        this.initializeCharts();
+      }
     },
     error: (err) => {
       console.error('Error al obtener el análisis del set', err);
+      this.isLoading = false;
     }
   });
 }
 
 ngAfterViewInit(): void {
-  // this.initializeBarChart();
-  // this.initializeLineChart1();
-  // this.initializeLineChart2();
+}
+
+ngAfterViewChecked(): void {
+  if (!this.isLoading) {
+    setTimeout(() => {
+      this.initializeCharts();
+    }, 0);
+  }
+}
+
+initializeCharts(): void {
+  this.initializeBarChart();
+  this.initializeLineChart1();
+  this.initializeLineChart2();
 }
 
 initializeBarChart(): void {
@@ -87,9 +104,9 @@ initializeBarChart(): void {
     new Chart(barCtx, {
       type: 'bar', 
       data: {
-        labels: ['Muy negativo', 'Negativo', 'Neutro', 'Positivo', 'Muy postivo'], 
+        labels: ['Triste', 'Melancólico', 'Neutro', 'Alegre', 'Eufórico'], 
         datasets: [{
-          label: 'Número de Canciones por Cualidad Emocional',
+          label: 'Distribución Emocional de las Canciones',
           data: this.valenceData,
           backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'], 
           borderWidth: 1, 
@@ -101,6 +118,7 @@ initializeBarChart(): void {
           legend: {
             display: true,
             labels: {
+              boxWidth: 0, 
               color: 'white', 
               font: {
                 size: 14,
@@ -193,6 +211,7 @@ initializeLineChart1(): void {
           legend: {
             display: true,
             labels: {
+              boxWidth: 0, 
               color: '#D9D9D9',  
               font: {
                 size: 18,
@@ -216,7 +235,7 @@ initializeLineChart2(): void {
       data: {
         labels: this.keyData.map((_, index) => `Canción ${index + 1}`),
         datasets: [{
-          label: 'Evolución de la Clave',
+          label: 'Variación de la Clave',
           data: this.keyData,
           borderColor: '#1A5276',  
           backgroundColor: 'rgba(54, 162, 235, 0.1)',  
@@ -261,6 +280,7 @@ initializeLineChart2(): void {
           legend: {
             display: true,
             labels: {
+              boxWidth: 0, 
               color: 'black',  
               font: {
                 size: 18,

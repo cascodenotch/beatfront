@@ -70,6 +70,9 @@
 
     <!-- Contenedor donde se muestran las canciones del set -->
     <div class="canciones" cdkDropList (cdkDropListDropped)="onDrop($event)">
+        <div *ngIf="isLoading" class="loading-container">
+            <p>Cargando las canciones del set...</p>
+        </div>
         <div *ngFor="let song of djSet.songs" cdkDrag>
             <app-tarjeta-cancion-set [song]="song" (cerrarTarjeta)="confirmDelete($event)"></app-tarjeta-cancion-set>
         </div>
