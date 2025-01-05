@@ -5,11 +5,11 @@
     <p class="title">Análisis del <span>Set</span></p>
 
     <div *ngIf="isLoading" class="loading-container">
-      <p>Cargando los datos...</p>
+      <p>Cargango información del set...</p>
     </div>
 
     <div *ngIf="errorMessage" class="loading-container">
-      <p>No existen datos para las canciones de tu set</p>
+      <p>No hay datos disponibles para las canciones de este set.</p>
     </div>
   
     <div class="content" *ngIf="!isLoading">
