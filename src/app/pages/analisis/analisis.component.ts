@@ -62,7 +62,7 @@ ngOnInit(): void {
 setAnalysis(): void {
   this.setService.setAnalysis(this.setService.set.id_set).subscribe({
     next: (response: any) => {
-      if (response.error) {
+      if (response.codigo == 404) {
         this.errorMessage = true;  
         this.isLoading =false;
       } else {
@@ -170,7 +170,7 @@ initializeLineChart1(): void {
       data: {
         labels: this.energyData.map((_, index) => `Canción ${index + 1}`),
         datasets: [{
-          label: ' Evolucion de la Energía',
+          label: ' Evolución de la Energía',
           data:  this.energyData,
                   borderColor: '#FF6384',
                   backgroundColor: 'rgba(255, 99, 132, 0.2)',
