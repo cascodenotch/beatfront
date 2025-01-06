@@ -23,6 +23,7 @@ export class EditarSetComponent {
   previousCardsState: any[] = [];
   previousIndex: number = 0;
   currentIndex: number = 0;
+  isLoading: boolean = true;
   
 
   constructor(public setsService: SetsService,   private route: ActivatedRoute){
@@ -47,6 +48,7 @@ export class EditarSetComponent {
       } else {
         console.error('No se encontraron canciones.');
       }
+      this.isLoading = false;
     })
   }
 

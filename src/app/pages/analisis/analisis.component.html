@@ -2,18 +2,26 @@
 
     <a routerLink="/editar-set" routerLinkActive="active"><img src="../../../assets/Iconos/back.png" class="back" alt="play" /></a>
   
-    <p class="title">Analisis del <span>Set</span></p>
+    <p class="title">Análisis del <span>Set</span></p>
+
+    <div *ngIf="isLoading" class="loading-container">
+      <p>Cargando información del set...</p>
+    </div>
+
+    <div *ngIf="errorMessage" class="loading-container">
+      <p>No hay datos disponibles para las canciones de este set.</p>
+    </div>
   
-    <div class="content">
+    <div class="content" *ngIf="!isLoading && !errorMessage">
 
       <div class="head">
 
         <div class="stats">
 
-          <div class="stat stat1">30 <br>Canciones</div>
-          <div class="stat stat2">230 <br>Minutos</div>
-          <div class="stat stat3">0.7 <br>Avg Danceability</div>
-          <div class="stat stat4">180 <br>Avg Tempo</div>
+          <div class="stat stat1">{{setAnalysisData.totalSongs}} <br>Canciones</div>
+          <div class="stat stat2">{{setAnalysisData.totalDuration | formatSongData: 'duration'}} <br>Minutos</div>
+          <div class="stat stat3">{{ setAnalysisData.averageDanceability | formatSongData: 'decimal' }} <br>Avg Danceability</div>
+          <div class="stat stat4">{{ setAnalysisData.averageTempo | formatSongData: 'tempo'  }} <br>Avg Tempo</div>
 
         </div>
 
