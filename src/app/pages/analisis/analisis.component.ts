@@ -62,9 +62,9 @@ ngOnInit(): void {
 setAnalysis(): void {
   this.setService.setAnalysis(this.setService.set.id_set).subscribe({
     next: (response: any) => {
-      if (response.codigo == 404) {
-        this.isLoading = false;
+      if (response.error) {
         this.errorMessage = true;  
+        this.isLoading =false;
       } else {
         this.setAnalysisData = response.data;
         this.energyData = response.data.arrayEnergy;
