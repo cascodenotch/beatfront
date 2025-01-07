@@ -269,7 +269,8 @@ initializeLineChart2(): void {
                 size: 14,
                 family: 'Roboto',
                 weight: 'bold',
-              }
+              },
+              crossAlign: 'center',
             },
             grid: {
               color: 'rgba(255, 255, 255, 0.0)',
