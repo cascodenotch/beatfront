@@ -1,4 +1,4 @@
-body {
+main {
   margin: 0;
   height: 92vh;
   background: linear-gradient(90deg, var(--color-fondo), var(--color-gradiant));
@@ -49,90 +49,30 @@ img{
     font-family: 'Montserrat', sans-serif;
   }
   
-  .content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: -2%;
-  }
-  
-  .repro {
-    margin-top: 2%;
-    width: 40%;
-    height: 95%;
-    margin-left: 8%;
-    background-image: url("../../../assets/Img/reproductor.png");
-  }
-  
-  .canciones {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-  }
-
-
-
   /* ------------------------------ */
   
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 4%;
-    width: 55%;
-    gap: 10px;
-    opacity: 0.1;
-  }
-  
-  .card {
-    width: 260px;
-    height: 126px;
-    background-image: url("../../../assets/Img/caratula cancion.png");
-    background-size: cover;
-    background-position: center;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-top: -17px;
-  }
-  
-  .header {
-    background-color: var(--color-fondo);
-    color: white;
-    padding: 10px;
-    font-size: 16px;
+  .content{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    text-align: left;
-    height: 60px;
-  }
-  
-  .datos {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .content {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    position: relative;
-  }
+}
 
-  .add {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  }
+.canciones {
+  width: 60%;
+  
+  overflow-y: auto; 
+  padding-right: 40px; 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 52px;
+}
 
-  .tit{
-    margin-bottom: -14%;
-  }
+.repro{
+    width: 37%;
+    height: 90%;
+    margin-top: 10px;
+}
+  
  
