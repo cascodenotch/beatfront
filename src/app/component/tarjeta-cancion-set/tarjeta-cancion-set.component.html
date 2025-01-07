@@ -57,9 +57,6 @@
 <!-- Modal para el reproductor de Spotify -->
 <div class="modal" *ngIf="isPlaying">
     <div class="modal-content">
-        <button id="close-btn" (click)="closeModal()">
-             <img src="../../../assets/Iconos/close xmark.png" alt="close">
-        </button>
         <iframe 
             [src]="spotifyUrl | safe" 
             frameborder="0" 
