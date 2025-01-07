@@ -92,4 +92,57 @@ export class SongsService {
       )))
     );
   }
+
+  getRecommendations(setId: number): Observable<Song[]> {
+    if (!setId) {
+      throw new Error('Set ID no proporcionado');
+    }
+  
+    if (!this.tokenUser) {
+      throw new Error('Token no disponible');
+    }
+  
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.tokenUser}`);
+    const url = `http://localhost:3000/songs/recomend/${setId}`;
+  
+    return this.http.get<any[]>(url, { headers }).pipe(
+      map((data: any[]) =>
+        data.map(item => new Song(
+          item.albumImage,       
+          item.artistName,       
+          this.formatDuration(item.durationMs), 
+          item.songId,           
+          item.songName,
+          item.danceability,
+          item.energy, 
+          item.tempo, 
+          item.key         
+        ))
+      )
+    );
+  }
+
+    refreshRecommendations(setId: number): Observable<any[]> {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.tokenUser}`);
+      const url = `http://localhost:3000/songs/refresh/${setId}`;
+    
+
+    return this.http.get<any[]>(url, { headers }).pipe(
+      map((data: any[]) =>
+        data.map(item => new Song(
+          item.albumImage,       
+          item.artistName,       
+          this.formatDuration(item.durationMs), 
+          item.songId,           
+          item.songName,
+          item.danceability,
+          item.energy, 
+          item.tempo, 
+          item.key         
+        ))
+      )
+    );
+  }
+  
+
 }
