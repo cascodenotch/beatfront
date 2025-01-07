@@ -116,6 +116,11 @@ main::before {
     align-items: flex-end;
   }
 
+  .imag img{
+    width: 100%;
+    height: auto;
+  }
+
   .icon{
     width: 30px;
     height: 30px;
