@@ -13,11 +13,11 @@ export class RecomendacionesComponent {
 
   constructor(private songService: SongsService, private setsService: SetsService, private router: Router) {}
 
-  songs: any[] = [];  // Arreglo de canciones
-  selectedSongId: string = "";
+  songs: any[] = [];  // Arreglo de canciones en el set actual
+  selectedSongId: string = ""; // ID de la canción seleccionada
   showValidation = false; // Controla si se muestra el modal
-  spotifyUrl: string | null = null;  // Agrega esta propiedad
-  djSet = new DjSet(0, 0, '', '', [],'');
+  spotifyUrl: string | null = null; // URL de reproducción de Spotify
+  djSet = new DjSet(0, 0, '', '', [], ''); // Instancia del set actual
   recommendations: any[] = []; // Almacena las canciones recomendadas
 
   ngOnInit(): void {
@@ -43,85 +43,78 @@ export class RecomendacionesComponent {
   }
 
   getRecommendations(setId: number): void {
-    this.songService.refreshRecommendations(setId).subscribe(
+    this.songService.getRecommendations(setId).subscribe(
       (data: any[]) => {
-        console.log('Recomendaciones frescas:', data);  // Asegúrate de que los datos sean diferentes
-        this.recommendations = data;  // Asigna las nuevas recomendaciones
+        console.log('Recomendaciones obtenidas:', data);
+        this.recommendations = data; // Asigna las recomendaciones
       },
       (error) => {
         console.error('Error al obtener recomendaciones:', error);
       }
     );
   }
-  
 
-  onAddSongToSet(songId: string) {
-    this.selectedSongId = songId; // Asignamos el songId cuando se hace clic en "Añadir"
-    this.showValidation = true; // Mostramos el modal de validación
+  onAddSongToSet(songId: string): void {
+    this.selectedSongId = songId; // Asigna el ID de la canción seleccionada
+    this.showValidation = true; // Muestra el modal de validación
     console.log("Song ID recibido:", songId);
   }
 
-    // Recibe el evento de cierre del modal
-    closeVal() {
-      this.showValidation = false; // Cerrar el modal
-      console.log("Modal cerrado");
-    }
-  
-    // Confirmar y añadir la canción al set
-    onConfirmAdd(songId: string) {
-      console.log('Añadiendo canción con ID:', songId);
-      this.confirmAddSongToSet(songId); // Llamar a la función que maneja la adición de la canción al set
-      //this.router.navigate(['/editar-set']); 
-    }
-  
-    // Llamada al servicio para añadir la canción al set
-    confirmAddSongToSet(songId: string): void {
-      if (songId !== null) {
-        this.djSet = this.setsService.set;
-        const setId = this.djSet.id_set// Aquí debes obtener el setId desde la página o un servicio
-        this.setsService.addSongToSet(setId, songId).subscribe(
-          response => {
-            console.log('Canción añadida con éxito:', response);
-            // Eliminar la canción del arreglo 'songs'
-            this.songs = this.songs.filter(song => song.songId !== songId);
-            console.log('Canción eliminada de la lista');
-            this.showValidation = false; // Cerrar el modal
-          },
-          error => {
-            console.error('Error al añadir la canción:', error);
-          }
-        );
-      }
-    }
+  closeVal(): void {
+    this.showValidation = false; // Cierra el modal
+    console.log("Modal cerrado");
+  }
 
-    onPlaySong(songId: string) {
-      console.log("Reproduciendo canción con ID: ", songId);
-      
-      // Llama a la API de tu backend para obtener la URL de reproducción de la canción
-      this.songService.getSpotifyTrackUrl(songId).subscribe(
-        (data: any) => {
-          console.log('URL de la canción:', data.url);
-          
-          // Agregar el parámetro autoplay=true a la URL para habilitar la reproducción automática
-          this.spotifyUrl = data.url + '?autoplay=true';  // Añadir el parámetro de autoplay
-          
-          // Guardar la URL de la canción para reproducirla automáticamente
+  onConfirmAdd(songId: string): void {
+    console.log('Añadiendo canción con ID:', songId);
+    this.confirmAddSongToSet(songId); // Llama a la función para añadir la canción al set
+  }
+
+  confirmAddSongToSet(songId: string): void {
+    if (songId) {
+      this.djSet = this.setsService.set;
+      const setId = this.djSet.id_set;
+
+      this.setsService.addSongToSet(setId, songId).subscribe(
+        response => {
+          console.log('Canción añadida con éxito:', response);
+
+          // Elimina la canción de las recomendaciones
+          this.recommendations = this.recommendations.filter(song => song.songId !== songId);
+
+          this.showValidation = false; // Cierra el modal
         },
-        (error) => {
-          console.error('Error al obtener la URL de la canción:', error);
+        error => {
+          console.error('Error al añadir la canción:', error);
         }
       );
     }
+  }
 
-    onRefreshRecommendations(): void {
-      const currentSetId = this.setsService.set.id_set;
-  
-      if (currentSetId) {
-        // Volver a obtener las recomendaciones
-        this.getRecommendations(currentSetId);
-      } else {
-        console.error('ID del set no encontrado para refrescar las recomendaciones');
+  onPlaySong(songId: string): void {
+    console.log("Reproduciendo canción con ID:", songId);
+
+    this.songService.getSpotifyTrackUrl(songId).subscribe(
+      (data: any) => {
+        console.log('URL de la canción:', data.url);
+
+        // Agrega el parámetro autoplay=true para habilitar la reproducción automática
+        this.spotifyUrl = `${data.url}?autoplay=true`;
+      },
+      (error) => {
+        console.error('Error al obtener la URL de la canción:', error);
       }
+    );
+  }
+
+  onRefreshRecommendations(): void {
+    const currentSetId = this.setsService.set.id_set;
+
+    if (currentSetId) {
+      // Obtener nuevas recomendaciones
+      this.getRecommendations(currentSetId);
+    } else {
+      console.error('ID del set no encontrado para refrescar las recomendaciones');
     }
-    
+  }
 }

@@ -26,26 +26,37 @@ export class CancionesComponent implements OnInit {
   ngOnInit(): void {
     const token = this.songService.tokenUser;
     this.djSet = this.setsService.set;
-    const currentSetId = this.djSet.id_set; // Aquí debes obtener dinámicamente el ID del set actual (ejemplo estático)
+    const currentSetId = this.djSet.id_set; // Obtener dinámicamente el ID del set actual
   
     if (token) {
       console.log("Token recibido en canciones:", token);
   
       // Llamar al servicio con el token y el setId
-      this.songService.getSavedSongs(token, currentSetId).subscribe(
-        (data: any) => {
-          console.log('Canciones obtenidas:', data);
-          this.songs = data; // Asignar las canciones al arreglo 'songs'
-        },
-        (error) => {
-          console.error('Error al obtener canciones:', error);
-        }
-      );
+      this.fetchSongs(token, currentSetId);
     } else {
       console.error("Token no encontrado");
     }
   }
-  
+
+  fetchSongs(token: string, setId: number): void {
+    const filters = {
+      danceability: this.danceability,
+      energy: this.energy,
+      key: this.key,
+      tempo: this.tempo
+    };
+    
+    this.songService.getTracks(token, setId, this.searchText, filters).subscribe(
+      (data: any) => {
+        console.log('Canciones obtenidas:', data);
+        this.songs = data; // Asignar las canciones al arreglo 'songs'
+      },
+      (error) => {
+        console.error('Error al obtener canciones:', error);
+      }
+    );
+  }
+
   onAddSongToSet(songId: string) {
     this.selectedSongId = songId; // Asignamos el songId cuando se hace clic en "Añadir"
     this.showValidation = true; // Mostramos el modal de validación
@@ -69,7 +80,7 @@ export class CancionesComponent implements OnInit {
   confirmAddSongToSet(songId: string): void {
     if (songId !== null) {
       this.djSet = this.setsService.set;
-      const setId = this.djSet.id_set// Aquí debes obtener el setId desde la página o un servicio
+      const setId = this.djSet.id_set;
       this.setsService.addSongToSet(setId, songId).subscribe(
         response => {
           console.log('Canción añadida con éxito:', response);
@@ -88,57 +99,15 @@ export class CancionesComponent implements OnInit {
   search(): void {
     const token = this.songService.tokenUser;
     this.djSet = this.setsService.set;
-    const setId = this.djSet.id_set; // Reemplaza con el setId actual desde un servicio o una variable
+    const setId = this.djSet.id_set; // Obtener el setId desde un servicio o una variable
   
     if (token && setId) {
-      if (!this.searchText) {
-        // Obtener todas las canciones si no hay búsqueda activa
-        this.songService.getSavedSongs(token, setId).subscribe(
-          (data: any) => {
-            console.log('Canciones obtenidas al no buscar:', data);
-            this.songs = this.applyFilters(data); // Aplicar filtros a las canciones obtenidas
-          },
-          (error) => {
-            console.error('Error al obtener las canciones:', error);
-          }
-        );
-      } else {
-        // Buscar canciones si hay texto en el buscador
-        this.songService.searchSongs(this.searchText, token, setId).subscribe(
-          (data: any) => {
-            console.log('Resultados de la búsqueda:', data);
-            this.songs = this.applyFilters(data); // Aplicar filtros a los resultados de la búsqueda
-          },
-          (error) => {
-            console.error('Error al realizar la búsqueda:', error);
-          }
-        );
-      }
+      this.fetchSongs(token, setId); // Llamar al método de búsqueda con los filtros
     } else {
       console.error("Token, texto de búsqueda o setId no proporcionados");
     }
   }
-  
-  // Función para aplicar filtros de danceability, energy, key, y tempo
-  applyFilters(songs: any[]): any[] {
-    return songs.filter(song => {
-      const matchesDanceability = this.danceability
-        ? parseFloat(song.danceability) >= parseFloat(this.danceability)
-        : true;
-      const matchesEnergy = this.energy
-        ? parseFloat(song.energy) >= parseFloat(this.energy)
-        : true;
-      const matchesKey = this.key
-        ? song.key.toString() === this.key
-        : true;
-      const matchesTempo = this.tempo
-        ? parseFloat(song.tempo) >= parseFloat(this.tempo)
-        : true;
-  
-      return matchesDanceability && matchesEnergy && matchesKey && matchesTempo;
-    });
-  }
-  
+
   onPlaySong(songId: string) {
     console.log("Reproduciendo canción con ID: ", songId);
     
@@ -157,5 +126,4 @@ export class CancionesComponent implements OnInit {
       }
     );
   }
-  
 }

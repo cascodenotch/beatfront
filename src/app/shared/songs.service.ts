@@ -14,7 +14,12 @@ export class SongsService {
 
   constructor(private http: HttpClient) { }
 
-  getSavedSongs(token: string, setId: number): Observable<Song[]> {
+  getTracks(
+    token: string,
+    setId: number,
+    query: string = '',
+    filters: any = {}
+  ): Observable<Song[]> {
     if (!token) {
       throw new Error('Token no proporcionado');
     }
@@ -23,29 +28,46 @@ export class SongsService {
       throw new Error('Set ID no proporcionado');
     }
   
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); // Pasar el token como Authorization header
-    const url = `${this.apiUrl}?setId=${setId}`; // Agregar el setId como parámetro de consulta
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    let url = `${this.apiUrl}/tracks?setId=${setId}`;
+  
+    // Agregar el término de búsqueda si está presente
+    if (query) {
+      url += `&query=${encodeURIComponent(query)}`;
+    }
+  
+    // Agregar filtros opcionales a la URL
+    Object.keys(filters).forEach((key) => {
+      if (filters[key]) {
+        url += `&${key}=${encodeURIComponent(filters[key])}`;
+      }
+    });
   
     return this.http.get<any[]>(url, { headers }).pipe(
-      map((data: any[]) => { // Procesar el arreglo de canciones
-        return data.map((item: any) => new Song(
-          item.albumImage,      // Imagen del álbum
-          item.artistName,      // Nombre del artista
-          this.formatDuration(item.durationMs),  // Formato de duración
-          item.songId,          // ID de la canción
-          item.songName,        // Nombre de la canción
-          item.danceability,
-          item.energy, 
-          item.tempo, 
-          item.key
-        ));
-      })
+      map((data: any[]) =>
+        data.map(
+          (item: any) =>
+            new Song(
+              item.albumImage,       // Imagen del álbum
+              item.artistName,       // Nombre del artista
+              this.formatDuration(item.durationMs), // Formato de duración
+              item.songId,           // ID de la canción
+              item.songName,         // Nombre de la canción
+              item.danceability,     // Danceability
+              item.energy,           // Energía
+              item.tempo,            // Tempo
+              item.key               // Key
+            )
+        )
+      )
     );
   }
   
+
+  
   getSpotifyTrackUrl(songId: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.tokenUser}`);  // Usar el token guardado
-    const url = `http://localhost:3000/songs/track/${songId}`;  // URL de tu API backend que maneja la integración con Spotify
+    const url = `${this.apiUrl}/track/${songId}`;  // URL de tu API backend que maneja la integración con Spotify
 
     return this.http.get<any>(url, { headers });
   }
@@ -63,36 +85,6 @@ export class SongsService {
     this.tokenUser = token;
   }
 
-  searchSongs(query: string, token: string, setId: number, filters: any = {}): Observable<Song[]> {
-    if (!query || !token || !setId) {
-      throw new Error('Query, token o setId no proporcionados');
-    }
-  
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    let url = `${this.apiUrl}/search?query=${encodeURIComponent(query)}&setId=${setId}`;
-  
-    // Agregar filtros opcionales a la URL
-    Object.keys(filters).forEach(key => {
-      if (filters[key]) {
-        url += `&${key}=${encodeURIComponent(filters[key])}`;
-      }
-    });
-  
-    return this.http.get<any[]>(url, { headers }).pipe(
-      map((data: any[]) => data.map(item => new Song(
-        item.albumImage,       
-        item.artistName,       
-        this.formatDuration(item.durationMs), 
-        item.songId,           
-        item.songName,
-        item.danceability,
-        item.energy, 
-        item.tempo, 
-        item.key         
-      )))
-    );
-  }
-
   getRecommendations(setId: number): Observable<Song[]> {
     if (!setId) {
       throw new Error('Set ID no proporcionado');
@@ -103,42 +95,20 @@ export class SongsService {
     }
   
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.tokenUser}`);
-    const url = `http://localhost:3000/songs/recomend/${setId}`;
+    const url = `${this.apiUrl}/recomend/${setId}`; // Único endpoint para recomendaciones
   
     return this.http.get<any[]>(url, { headers }).pipe(
       map((data: any[]) =>
         data.map(item => new Song(
-          item.albumImage,       
-          item.artistName,       
-          this.formatDuration(item.durationMs), 
-          item.songId,           
-          item.songName,
-          item.danceability,
-          item.energy, 
-          item.tempo, 
-          item.key         
-        ))
-      )
-    );
-  }
-
-    refreshRecommendations(setId: number): Observable<any[]> {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.tokenUser}`);
-      const url = `http://localhost:3000/songs/refresh/${setId}`;
-    
-
-    return this.http.get<any[]>(url, { headers }).pipe(
-      map((data: any[]) =>
-        data.map(item => new Song(
-          item.albumImage,       
-          item.artistName,       
-          this.formatDuration(item.durationMs), 
-          item.songId,           
-          item.songName,
-          item.danceability,
-          item.energy, 
-          item.tempo, 
-          item.key         
+          item.albumImage,        // Imagen del álbum
+          item.artistName,        // Nombre del artista
+          this.formatDuration(item.durationMs), // Duración formateada
+          item.songId,            // ID de la canción
+          item.songName,          // Nombre de la canción
+          item.danceability,      // Danceabilidad
+          item.energy,            // Energía
+          item.tempo,             // Tempo
+          item.key                // Key
         ))
       )
     );
