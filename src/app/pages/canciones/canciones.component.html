@@ -54,6 +54,9 @@
 
   <div class="content">
     <div class="canciones">
+      <div *ngIf="isLoading" class="loading-container">
+        <p>Cargando tus canciones guardadas...</p>
+    </div>
       <app-tarjeta-cancion 
       *ngFor="let song of songs"
       [song]="song"

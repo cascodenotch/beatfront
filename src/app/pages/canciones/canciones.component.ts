@@ -20,6 +20,7 @@ export class CancionesComponent implements OnInit {
   showValidation = false; // Controla si se muestra el modal
   spotifyUrl: string | null = null;  // Agrega esta propiedad
   djSet = new DjSet(0, 0, '', '', [],'');
+  isLoading: boolean = true;
 
   constructor(private songService: SongsService, private setsService: SetsService, private router: Router) {}
 
@@ -50,6 +51,7 @@ export class CancionesComponent implements OnInit {
       (data: any) => {
         console.log('Canciones obtenidas:', data);
         this.songs = data; // Asignar las canciones al arreglo 'songs'
+        this.isLoading = false;
       },
       (error) => {
         console.error('Error al obtener canciones:', error);
