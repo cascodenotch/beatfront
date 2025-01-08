@@ -1,7 +1,6 @@
-// tarjeta-set.component.ts
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DjSet } from '../../models/dj-set';
-import { Router } from '@angular/router';  // Importamos Router para redirigir
+import { Router } from '@angular/router';  
 import { SetsService } from 'src/app/shared/sets.service';
 
 @Component({
@@ -11,8 +10,8 @@ import { SetsService } from 'src/app/shared/sets.service';
 })
 export class TarjetaSetComponent {
   @Input() djset!: DjSet;
-  @Output() deleteCard = new EventEmitter<DjSet>();  // Emite un evento cuando se elimina una tarjeta
-  @Output() editCard = new EventEmitter<number>();  // Evento para la edición, emite el ID del set
+  @Output() deleteCard = new EventEmitter<DjSet>();
+  @Output() editCard = new EventEmitter<number>();
   @Output() closeValidation = new EventEmitter<void>();
 
   selectedSetId: number = 0;
@@ -23,20 +22,23 @@ export class TarjetaSetComponent {
   onclickDel() {
     this.selectedSetId = this.djset.id_set; 
     this.selectedListId = this.djset.id_playlist;
-    console.log("Set ID: ", this.selectedSetId);
-    console.log("id_spotify: ", this.djset.id_playlist); // id_spotify es el id de la lista de Spotify
     this.deleteCard.emit(this.djset);
     this.closeValidation.emit(); 
-}
-
+  }
 
   onclickEdit() {
-    this.setsService.set = { ...this.djset }; 
-    console.log("Set guardado para editar:", this.setsService.set);
+    this.setsService.set = { ...this.djset };
     this.selectedSetId = this.djset.id_set; 
-    console.log("Edit Set ID: ", this.selectedSetId);
-    this.editCard.emit(this.selectedSetId);  // Emitimos el evento para editar
-    this.router.navigate(['/editar-set', this.selectedSetId]);  // Navegar al componente de edición con el ID del set
+    this.editCard.emit(this.selectedSetId);
+    this.router.navigate(['/editar-set', this.selectedSetId]);
+  }
+
+  onclickPlay() {
+    if (this.djset.id_playlist) {
+      const spotifyUrl = `https://open.spotify.com/playlist/${this.djset.id_playlist}`;
+      window.open(spotifyUrl, '_blank'); // Abrir en una nueva pestaña
+    } else {
+      console.error('No hay ID de playlist para este set');
+    }
   }
 }
-
