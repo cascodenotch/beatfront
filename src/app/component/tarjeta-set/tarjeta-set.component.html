@@ -4,7 +4,7 @@
     <div class="header">{{ djset.titulo }}</div> 
     <div class="content"
       [ngStyle]="{ 'background-image': 'url(' + djset.imagen + ')', 'background-size': 'cover', 'background-position': 'center' }">
-      <button class="play-btn">
+      <button class="play-btn" (click)="onclickPlay()">
         <img src="../../../assets/Iconos/play-circle.png" alt="play" />
       </button>
     </div>

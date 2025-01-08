@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { UsersService } from 'src/app/shared/users.service';
 import { Router } from '@angular/router';
-import { User } from '../../models/user';
 
 @Component({
   selector: 'app-header',
@@ -29,6 +28,7 @@ export class HeaderComponent {
   }
 
   get profilePicture(): string {
-    return this.userService.user?.photo || '../../../assets/Img/default-profile.png'; // Imagen por defecto si no hay usuario
+    // Usa la imagen predeterminada "noImage" si no hay foto de perfil en el usuario
+    return this.userService.user?.photo || '../../../assets/Img/noImage.jpg';
   }
 }
