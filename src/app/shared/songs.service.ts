@@ -9,7 +9,7 @@ import { Song } from '../models/song';
 })
 export class SongsService {
 
-  private apiUrl = 'http://localhost:3000/songs';  // Ruta del back-end
+  private apiUrl = 'https://beatback-cascodenotchs-projects.vercel.app/songs';  // Ruta del back-end
   public tokenUser: string | null = null; // Token del usuario logueado
 
   constructor(private http: HttpClient) { }

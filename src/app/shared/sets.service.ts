@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class SetsService {
 
-  private apiUrl: string = 'http://localhost:3000/set';
+  private apiUrl: string = 'https://beatback-cascodenotchs-projects.vercel.app/set';
 
   public arraySets: DjSet[] = [];
   

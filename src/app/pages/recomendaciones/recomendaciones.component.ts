@@ -19,6 +19,7 @@ export class RecomendacionesComponent {
   spotifyUrl: string | null = null; // URL de reproducción de Spotify
   djSet = new DjSet(0, 0, '', '', [], ''); // Instancia del set actual
   recommendations: any[] = []; // Almacena las canciones recomendadas
+  isLoading: boolean = true;
 
   ngOnInit(): void {
     const currentSetId = this.setsService.set.id_set;
@@ -52,6 +53,7 @@ export class RecomendacionesComponent {
         console.error('Error al obtener recomendaciones:', error);
       }
     );
+    this.isLoading = false;
   }
 
   onAddSongToSet(songId: string): void {

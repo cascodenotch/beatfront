@@ -7,7 +7,7 @@ import { User } from '../models/user';
   providedIn: 'root',
 })
 export class UsersService {
-  private url: string = 'http://localhost:3000'; // URL base de tu backend
+  private url: string = 'https://beatback-cascodenotchs-projects.vercel.app'; // URL base de tu backend
 
   private _logueado: boolean = false
   private _user: User | null = null; // Datos del usuario logueado

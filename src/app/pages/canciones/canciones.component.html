@@ -53,6 +53,9 @@
   </div>
 
   <div class="content">
+    <div *ngIf="isLoading" class="loading-container">
+      <p>Cargando las canciones...</p>
+  </div>
     <div class="canciones">
       <app-tarjeta-cancion 
       *ngFor="let song of songs"
@@ -60,6 +63,7 @@
       (addSongToSet)="onAddSongToSet($event)"
       (playSong)="onPlaySong($event)">
       </app-tarjeta-cancion>
+
     </div>
 
     <div *ngIf="spotifyUrl" class="repro">
