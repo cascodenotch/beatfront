@@ -16,7 +16,9 @@
 
 
 <div class="content">
-  <!-- Canciones recomendadas -->
+  <div *ngIf="isLoading" class="loading-container">
+    <p>Cargando recomendaciones...</p>
+</div>
   <div class="canciones">
     <div *ngIf="isLoading" class="loading-container">
       <p>Buscando canciones para tu set...</p>

@@ -57,6 +57,7 @@ export class CancionesComponent implements OnInit {
         console.error('Error al obtener canciones:', error);
       }
     );
+    this.isLoading = false;
   }
 
   onAddSongToSet(songId: string) {

@@ -54,6 +54,7 @@ export class RecomendacionesComponent {
         console.error('Error al obtener recomendaciones:', error);
       }
     );
+    this.isLoading = false;
   }
 
   onAddSongToSet(songId: string): void {

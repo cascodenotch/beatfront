@@ -15,6 +15,6 @@ export class SpotifyLinkComponent {
     localStorage.setItem('logueado', 'true');
 
     // Redirigir al endpoint de autenticación de Spotify
-    window.location.href = 'http://localhost:3000/spotify/login';
+    window.location.href = 'https://beatback-cascodenotchs-projects.vercel.app/spotify/login';
   }
 }
