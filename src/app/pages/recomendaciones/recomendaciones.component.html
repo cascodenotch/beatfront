@@ -16,12 +16,9 @@
 
 
 <div class="content">
-  <div *ngIf="isLoading" class="loading-container">
-    <p>Cargando recomendaciones...</p>
-</div>
   <div class="canciones">
     <div *ngIf="isLoading" class="loading-container">
-      <p>Buscando canciones para tu set...</p>
+      <p>Cargando recomendaciones...</p>
   </div>
     <app-tarjeta-cancion
       *ngFor="let recommendation of recommendations"
