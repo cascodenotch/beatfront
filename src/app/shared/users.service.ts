@@ -36,7 +36,7 @@ export class UsersService {
 
   // Método para iniciar sesión con un usuario
   public login(user: User): Observable<any> {
-    return this.http.post(`${this.url}/login`, user);
+    return this.http.post(`${this.url}/spotify/login`, user);
   }
 
   // Método PUT para obtener los datos del usuario usando el token
