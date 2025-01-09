@@ -22,10 +22,10 @@
     </div>
 
     <div class="footer">
-      <img src="../../../assets/Iconos/danceability.png" class="subIcon" alt="play" /> : <p>{{ song.danceability  | formatSongData: 'decimal' }}</p>
-      <img src="../../../assets/Iconos/energy.png" class="subIcon" alt="play" /> : <p>{{ song.energy  | formatSongData: 'decimal' }}</p>
-      <img src="../../../assets/Iconos/key.png" class="subIcon" alt="play" /> : <p>{{ song.key | formatSongData: 'key' }}</p> 
-      <img src="../../../assets/Iconos/tempo.png" class="subIcon" alt="play" /> : <p>{{ song.tempo  | formatSongData: 'tempo' }}</p>
+      <img src="../../../assets/Iconos/danceability.png" class="subIcon" alt="play" /> : <p>{{song.danceability? (song.danceability  | formatSongData: 'decimal'):'' }}</p>
+      <img src="../../../assets/Iconos/energy.png" class="subIcon" alt="play" /> : <p>{{ song.energy? (song.energy  | formatSongData: 'decimal') : ''}}</p>
+      <img src="../../../assets/Iconos/key.png" class="subIcon" alt="play" /> : <p>{{ song.key !== null && song.key !== undefined ? (song.key | formatSongData: 'key') : '' }}</p> 
+      <img src="../../../assets/Iconos/tempo.png" class="subIcon" alt="play" /> : <p>{{ song.tempo ? (song.tempo | formatSongData: 'tempo') : '' }}</p>
       <img src="../../../assets/Iconos/duracion.png" class="subIcon" alt="play" /> : 
       <p>{{ song.durationMs }}</p>
     </div>
