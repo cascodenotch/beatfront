@@ -5,14 +5,14 @@ import { Router } from '@angular/router';
 import { DjSet } from 'src/app/models/dj-set';
 
 @Component({
-  selector: 'app-canciones',
+  selector: 'app-canciones',   
   templateUrl: './canciones.component.html',
   styleUrls: ['./canciones.component.css']
 })
 export class CancionesComponent implements OnInit {
   searchText: string = '';
   danceability: string = '';
-  energy: string = '';
+  energy: string = ''; 
   key: string = '';
   tempo: string = '';
   songs: any[] = [];  // Arreglo de canciones
@@ -44,21 +44,21 @@ export class CancionesComponent implements OnInit {
       danceability: this.danceability,
       energy: this.energy,
       key: this.key,
-      tempo: this.tempo
+      tempo: this.tempo,
     };
     
     this.songService.getTracks(token, setId, this.searchText, filters).subscribe(
       (data: any) => {
         console.log('Canciones obtenidas:', data);
-        this.songs = data; // Asignar las canciones al arreglo 'songs'
+        this.songs = data;
         this.isLoading = false;
       },
       (error) => {
         console.error('Error al obtener canciones:', error);
       }
     );
-    this.isLoading = false;
   }
+  
 
   onAddSongToSet(songId: string) {
     this.selectedSongId = songId; // Asignamos el songId cuando se hace clic en "Añadir"

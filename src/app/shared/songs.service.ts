@@ -36,12 +36,10 @@ export class SongsService {
       url += `&query=${encodeURIComponent(query)}`;
     }
   
-    // Agregar filtros opcionales a la URL
-    Object.keys(filters).forEach((key) => {
-      if (filters[key]) {
-        url += `&${key}=${encodeURIComponent(filters[key])}`;
-      }
-    });
+    // Convertir los filtros en un objeto JSON y añadirlo como parámetro
+    if (Object.keys(filters).length > 0) {
+      url += `&filters=${encodeURIComponent(JSON.stringify(filters))}`;
+    }
   
     return this.http.get<any[]>(url, { headers }).pipe(
       map((data: any[]) =>
