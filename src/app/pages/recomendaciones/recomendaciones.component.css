@@ -118,6 +118,28 @@ img{
   height: 20px;
 }
 
+/* Estilos para los íconos por defecto y al pasar el ratón */
+.default-icon, .hover-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s;
+}
+
+.hover-icon {
+  opacity: 0; /* Inicialmente oculto */
+}
+
+.default-icon:hover{
+  opacity: 0;
+}
+
+.hover-icon:hover {
+  opacity: 1; /* Aparece cuando se pasa el ratón */
+}
+
 /* Estilos para la etiqueta de cada ícono */
 .etiqueta{
   display: none;
