@@ -89,6 +89,17 @@ img{
 }
 
 /* Estilos para la etiqueta de cada ícono */
+
+menu{
+  gap: 20px;
+  position: absolute;
+  top: 130px;
+  right: 110px;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+
 .menu-icon-box {
   position: relative;
   display: flex;
