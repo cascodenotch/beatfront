@@ -111,6 +111,25 @@ export class CancionesComponent implements OnInit {
     }
   }
 
+  applyFilters(): void {
+    const danceabilityFilter = this.danceability.trim();
+    const energyFilter = this.energy.trim();
+    const keyFilter = this.key.trim();
+    const tempoFilter = this.tempo.trim();
+  
+    this.songs = this.allSongs.filter(song => {
+      return (
+        (!danceabilityFilter || (song.danceability !== null && song.danceability.toString().toLowerCase().includes(danceabilityFilter))) &&
+        (!energyFilter || (song.energy !== null && song.energy.toString().toLowerCase().includes(energyFilter))) &&
+        (!keyFilter || (song.key !== null && song.key.toString().toLowerCase().includes(keyFilter))) &&
+        (!tempoFilter || (song.tempo !== null && song.tempo.toString().toLowerCase().includes(tempoFilter)))
+      );
+    });
+  
+    console.log('Canciones después del filtrado:', this.songs);
+  }
+  
+
   onPlaySong(songId: string) {
     console.log("Reproduciendo canción con ID: ", songId);
     
