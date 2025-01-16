@@ -88,13 +88,21 @@ img{
   width: 100%;  
 }
 
+.menu-icon-box {
+  display: inline-block;
+}
+
+.menu-icon-box button {
+  position: relative; /* Relativa para que la etiqueta se posicione respecto al botón */
+}
+
 /* Estilos para la etiqueta de cada ícono */
 .etiqueta{
   display: none;
   position: absolute;
-  bottom: 12px;
-  left: -1;
-  transform: translate(50%, -50%); 
+  top: -10px; /* Ajusta para colocar la etiqueta encima del botón */
+  right: -10px;
+  transform: translate(0, -100%);
   background-color: rgba(0, 0, 0, 0.3);
   padding: 10px;
   border-radius: 10px;
