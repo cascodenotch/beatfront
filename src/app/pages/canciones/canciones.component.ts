@@ -15,8 +15,7 @@ export class CancionesComponent implements OnInit {
   energy: string = ''; 
   key: string = '';
   tempo: string = '';
-  allSongs: any[] = [];  // Arreglo con todas las canciones
-  songs: any[] = [];  // Arreglo de canciones filtradas
+  songs: any[] = [];  // Arreglo de canciones
   selectedSongId: string = "";
   showValidation = false; // Controla si se muestra el modal
   spotifyUrl: string | null = null;  // Agrega esta propiedad
@@ -41,11 +40,17 @@ export class CancionesComponent implements OnInit {
   }
 
   fetchSongs(token: string, setId: number): void {
-    this.songService.getTracks(token, setId, this.searchText, {}).subscribe(
+    const filters = {
+      danceability: this.danceability,
+      energy: this.energy,
+      key: this.key,
+      tempo: this.tempo,
+    };
+    
+    this.songService.getTracks(token, setId, this.searchText, filters).subscribe(
       (data: any) => {
         console.log('Canciones obtenidas:', data);
-        this.allSongs = data;
-        this.songs = [...this.allSongs]; // Copia de las canciones originales
+        this.songs = data;
         this.isLoading = false;
       },
       (error) => {
@@ -53,43 +58,28 @@ export class CancionesComponent implements OnInit {
       }
     );
   }
-
-  applyFilters(): void {
-    const danceabilityFilter = this.danceability.trim();
-    const energyFilter = this.energy.trim();
-    const keyFilter = this.key.trim();
-    const tempoFilter = this.tempo.trim();
-  
-    this.songs = this.allSongs.filter(song => {
-      return (
-        (!danceabilityFilter || (song.danceability !== null && song.danceability.toString().toLowerCase().includes(danceabilityFilter))) &&
-        (!energyFilter || (song.energy !== null && song.energy.toString().toLowerCase().includes(energyFilter))) &&
-        (!keyFilter || (song.key !== null && song.key.toString().toLowerCase().includes(keyFilter))) &&
-        (!tempoFilter || (song.tempo !== null && song.tempo.toString().toLowerCase().includes(tempoFilter)))
-      );
-    });
-  
-    console.log('Canciones después del filtrado:', this.songs);
-  }
-  
   
 
   onAddSongToSet(songId: string) {
-    this.selectedSongId = songId;
-    this.showValidation = true;
+    this.selectedSongId = songId; // Asignamos el songId cuando se hace clic en "Añadir"
+    this.showValidation = true; // Mostramos el modal de validación
     console.log("Song ID recibido:", songId);
   }
 
+  // Recibe el evento de cierre del modal
   closeVal() {
-    this.showValidation = false;
+    this.showValidation = false; // Cerrar el modal
     console.log("Modal cerrado");
   }
 
+  // Confirmar y añadir la canción al set
   onConfirmAdd(songId: string) {
     console.log('Añadiendo canción con ID:', songId);
-    this.confirmAddSongToSet(songId);
+    this.confirmAddSongToSet(songId); // Llamar a la función que maneja la adición de la canción al set
+    //this.router.navigate(['/editar-set']); 
   }
 
+  // Llamada al servicio para añadir la canción al set
   confirmAddSongToSet(songId: string): void {
     if (songId !== null) {
       this.djSet = this.setsService.set;
@@ -97,9 +87,10 @@ export class CancionesComponent implements OnInit {
       this.setsService.addSongToSet(setId, songId).subscribe(
         response => {
           console.log('Canción añadida con éxito:', response);
+          // Eliminar la canción del arreglo 'songs'
           this.songs = this.songs.filter(song => song.songId !== songId);
           console.log('Canción eliminada de la lista');
-          this.showValidation = false;
+          this.showValidation = false; // Cerrar el modal
         },
         error => {
           console.error('Error al añadir la canción:', error);
@@ -123,10 +114,15 @@ export class CancionesComponent implements OnInit {
   onPlaySong(songId: string) {
     console.log("Reproduciendo canción con ID: ", songId);
     
+    // Llama a la API de tu backend para obtener la URL de reproducción de la canción
     this.songService.getSpotifyTrackUrl(songId).subscribe(
       (data: any) => {
         console.log('URL de la canción:', data.url);
-        this.spotifyUrl = data.url + '?autoplay=true';
+        
+        // Agregar el parámetro autoplay=true a la URL para habilitar la reproducción automática
+        this.spotifyUrl = data.url + '?autoplay=true';  // Añadir el parámetro de autoplay
+        
+        // Guardar la URL de la canción para reproducirla automáticamente
       },
       (error) => {
         console.error('Error al obtener la URL de la canción:', error);
