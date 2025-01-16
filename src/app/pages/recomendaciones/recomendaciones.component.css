@@ -89,12 +89,6 @@ img{
 }
 
 /* Estilos para la etiqueta de cada ícono */
-
-.menu-icon-box {
-  position: relative;
-}
-
-/* Estilos para la etiqueta de cada ícono */
 .etiqueta{
   display: none;
   position: absolute;
