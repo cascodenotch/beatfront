@@ -89,24 +89,37 @@ img{
 }
 
 /* Estilos para la etiqueta de cada ícono */
-
-.icon-container button{
+.menu-icon-box {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
 }
 
-.icon-container .etiqueta{
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+/* Estilos para la etiqueta de cada ícono */
+.etiqueta{
   display: none;
   position: absolute;
   bottom: 12px;
   left: -1;
-  transform: translate(50%, -50%);
+  transform: translate(50%, -50%); 
   background-color: rgba(0, 0, 0, 0.3);
   padding: 10px;
   border-radius: 10px;
 }
 
 /* Muestra la etiqueta al pasar el ratón sobre el ícono */
-.icon-container:hover .etiqueta {
+.menu-icon-box:hover .etiqueta {
   display: block;
 }
 
