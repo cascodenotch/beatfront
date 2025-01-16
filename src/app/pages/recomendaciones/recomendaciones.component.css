@@ -101,7 +101,7 @@ img{
 }
 
 /* Muestra la etiqueta al pasar el ratón sobre el ícono */
-.menu-icon-box:hover .etiqueta {
+.etiqueta:hover{
   display: block;
 }
 
