@@ -37,7 +37,7 @@
 
   
       <div class="repro">
-        <p>Dale al play para escuchar tus canciones aquí</p>
+        <p *ngIf="!spotifyUrl">Dale al play para escuchar tus canciones aquí</p>
         <iframe *ngIf="spotifyUrl" 
         [src]="spotifyUrl | safe" 
         width="100%" 
