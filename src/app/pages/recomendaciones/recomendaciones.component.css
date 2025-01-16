@@ -88,16 +88,37 @@ img{
   width: 100%;  
 }
 
+/* Estilos del contenedor de menú */
+.menu{
+  gap: 20px;
+  position: absolute;
+  top: 130px;
+  right: 110px;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
 
-.relative-container {
+/* Estilos para cada ícono dentro del menú */
+.menu-icon-box {
   position: relative;
-  display: inline-block; /* Asegura que el tamaño se ajuste al contenido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
 }
 
-.relative-container:hover .etiqueta {
-  display: block;
+/* Estilos para los íconos de cada elemento */
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
 }
 
+/* Estilos para la etiqueta de cada ícono */
 .etiqueta{
   display: none;
   position: absolute;
@@ -109,4 +130,8 @@ img{
   border-radius: 10px;
 }
 
+/* Muestra la etiqueta al pasar el ratón sobre el ícono */
+.menu-icon-box:hover .etiqueta {
+  display: block;
+}
  
