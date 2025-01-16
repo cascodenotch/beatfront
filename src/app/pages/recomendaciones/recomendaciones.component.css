@@ -90,16 +90,6 @@ img{
 
 /* Estilos para la etiqueta de cada ícono */
 
-menu{
-  gap: 20px;
-  position: absolute;
-  top: 130px;
-  right: 110px;
-  display: flex;
-  flex-direction: row;
-  width: auto;
-}
-
 .menu-icon-box {
   position: relative;
   display: flex;
@@ -107,14 +97,6 @@ menu{
   justify-content: center;
   width: 30px;
   height: 30px;
-}
-
-.menu-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
 }
 
 /* Estilos para la etiqueta de cada ícono */
