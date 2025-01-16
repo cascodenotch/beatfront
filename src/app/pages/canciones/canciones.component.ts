@@ -62,15 +62,16 @@ export class CancionesComponent implements OnInit {
   
     this.songs = this.allSongs.filter(song => {
       return (
-        (!danceabilityFilter || song.danceability.toString().toLowerCase().includes(danceabilityFilter)) &&
-        (!energyFilter || song.energy.toString().toLowerCase().includes(energyFilter)) &&
-        (!keyFilter || song.key.toString().toLowerCase().includes(keyFilter)) &&
-        (!tempoFilter || song.tempo.toString().toLowerCase().includes(tempoFilter))
+        (!danceabilityFilter || (song.danceability !== null && song.danceability.toString().toLowerCase().includes(danceabilityFilter))) &&
+        (!energyFilter || (song.energy !== null && song.energy.toString().toLowerCase().includes(energyFilter))) &&
+        (!keyFilter || (song.key !== null && song.key.toString().toLowerCase().includes(keyFilter))) &&
+        (!tempoFilter || (song.tempo !== null && song.tempo.toString().toLowerCase().includes(tempoFilter)))
       );
     });
   
     console.log('Canciones después del filtrado:', this.songs);
   }
+  
   
 
   onAddSongToSet(songId: string) {
@@ -108,7 +109,15 @@ export class CancionesComponent implements OnInit {
   }
 
   search(): void {
-    this.applyFilters();
+    const token = this.songService.tokenUser;
+    this.djSet = this.setsService.set;
+    const setId = this.djSet.id_set; // Obtener el setId desde un servicio o una variable
+  
+    if (token && setId) {
+      this.fetchSongs(token, setId); // Llamar al método de búsqueda con los filtros
+    } else {
+      console.error("Token, texto de búsqueda o setId no proporcionados");
+    }
   }
 
   onPlaySong(songId: string) {
