@@ -90,12 +90,16 @@ img{
 
 /* Estilos para la etiqueta de cada ícono */
 
+.icon-container button{
+  position: relative;
+}
+
 .icon-container .etiqueta{
   display: none;
   position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translate(50%); 
+  bottom: 12px;
+  left: -1;
+  transform: translate(50%, -50%);
   background-color: rgba(0, 0, 0, 0.3);
   padding: 10px;
   border-radius: 10px;
