@@ -88,5 +88,23 @@ img{
   width: 100%;  
 }
 
+/* Estilos para la etiqueta de cada ícono */
+.etiqueta{
+  display: none;
+  position: absolute;
+  bottom: 12px;
+  left: -1;
+  transform: translate(50%, -50%); 
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Muestra la etiqueta al pasar el ratón sobre el ícono */
+.menu-icon-box:hover .etiqueta {
+  display: block;
+}
+
+
   
  
