@@ -16,6 +16,7 @@ export class CancionesComponent implements OnInit {
   key: string = '';
   tempo: string = '';
   songs: any[] = [];  // Arreglo de canciones
+  allSongs: any[] = []; // Arreglo con todas las canciones antes del filtrado
   selectedSongId: string = "";
   showValidation = false; // Controla si se muestra el modal
   spotifyUrl: string | null = null;  // Agrega esta propiedad
