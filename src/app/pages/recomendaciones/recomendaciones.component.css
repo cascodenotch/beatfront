@@ -89,7 +89,11 @@ img{
 }
 
 /* Estilos para la etiqueta de cada ícono */
-.etiqueta{
+.icon-container {
+  position: relative;
+}
+
+.icon-container .etiqueta{
   display: none;
   position: absolute;
   bottom: 12px;
@@ -101,7 +105,7 @@ img{
 }
 
 /* Muestra la etiqueta al pasar el ratón sobre el ícono */
-.etiqueta:hover{
+.icon-container:hover .etiqueta {
   display: block;
 }
 
