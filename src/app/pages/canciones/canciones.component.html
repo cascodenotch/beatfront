@@ -14,25 +14,25 @@
       <div class="fil1">
         <img src="../../../assets/Iconos/danceability.png" class="subIcon" alt="play" />
         <p class="dance">Danceability&nbsp;&nbsp;</p>
-        <input type="text" class="subInp1" [(ngModel)]="danceability" />
+        <input type="text" class="subInp1" [(ngModel)]="danceability" (ngModelChange)="applyFilters()" />
       </div>
 
       <div class="fil">
         <img src="../../../assets/Iconos/energy.png" class="subIcon" alt="play" />
         <p class="ener">Energía&nbsp;&nbsp;&nbsp;</p>
-        <input type="text" class="subInp" [(ngModel)]="energy" />
+        <input type="text" class="subInp" [(ngModel)]="energy" (ngModelChange)="applyFilters()" />
       </div>
 
       <div class="fil3">
         <img src="../../../assets/Iconos/key.png" class="subIcon" alt="play" />
         <p class="key">Key&nbsp;&nbsp;</p>
-        <input type="text" class="subInp3" [(ngModel)]="key" />
+        <input type="text" class="subInp3" [(ngModel)]="key" (ngModelChange)="applyFilters()" />
       </div>
 
       <div class="fil">
         <img src="../../../assets/Iconos/tempo.png" class="subIcon" alt="play" />
         <p class="temp">Tempo&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        <input type="text" class="subInp" [(ngModel)]="tempo" />
+        <input type="text" class="subInp" [(ngModel)]="tempo" (ngModelChange)="applyFilters()" />
       </div>
 
     </div>

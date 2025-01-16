@@ -55,20 +55,23 @@ export class CancionesComponent implements OnInit {
   }
 
   applyFilters(): void {
-    const danceabilityFilter = this.danceability.trim().toLowerCase();
-    const energyFilter = this.energy.trim().toLowerCase();
-    const keyFilter = this.key.trim().toLowerCase();
-    const tempoFilter = this.tempo.trim().toLowerCase();
-
+    const danceabilityFilter = this.danceability.trim();
+    const energyFilter = this.energy.trim();
+    const keyFilter = this.key.trim();
+    const tempoFilter = this.tempo.trim();
+  
     this.songs = this.allSongs.filter(song => {
       return (
-        (!danceabilityFilter || song.danceability.toString().includes(danceabilityFilter)) &&
-        (!energyFilter || song.energy.toString().includes(energyFilter)) &&
-        (!keyFilter || song.key.toString().includes(keyFilter)) &&
-        (!tempoFilter || song.tempo.toString().includes(tempoFilter))
+        (!danceabilityFilter || song.danceability.toString().toLowerCase().includes(danceabilityFilter)) &&
+        (!energyFilter || song.energy.toString().toLowerCase().includes(energyFilter)) &&
+        (!keyFilter || song.key.toString().toLowerCase().includes(keyFilter)) &&
+        (!tempoFilter || song.tempo.toString().toLowerCase().includes(tempoFilter))
       );
     });
+  
+    console.log('Canciones después del filtrado:', this.songs);
   }
+  
 
   onAddSongToSet(songId: string) {
     this.selectedSongId = songId;
