@@ -7,13 +7,20 @@
   
     <p class="title"><span>Canciones</span> recomendadas</p>
 
-    <div>
+    <div class="menu">
+      <!-- Primer ícono en el menú (Analizar) -->
+      <div class="menu-icon-box">
         <button (click)="onRefreshRecommendations()">
-            <img src="../../../assets/Iconos/refresh.png" class="act" alt="actualizar" />
+              <div class="menu-icon">
+                  <!-- Icono de estado por defecto -->
+                  <img class="default-icon" src="../../../assets/Iconos/refresh blue.png" alt="refresh">
+                  <!-- Icono que aparece cuando se pasa el ratón por encima -->
+                  <img class="hover-icon" src="../../../assets/Iconos/refresh.png" alt="refresh">
+              </div>
           </button>
+          <p class="etiqueta">Actualizar</p> <!-- Texto descriptivo del ícono -->
       </div>
-  
-
+    </div>
 
 <div class="content">
   <div class="canciones">
@@ -29,7 +36,8 @@
   </div>
 
   
-      <div *ngIf="spotifyUrl" class="repro">
+      <div class="repro">
+        <p *ngIf="!spotifyUrl">Dale al play para escuchar tus canciones aquí</p>
         <iframe *ngIf="spotifyUrl" 
         [src]="spotifyUrl | safe" 
         width="100%" 

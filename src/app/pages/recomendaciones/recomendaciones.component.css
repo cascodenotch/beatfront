@@ -73,6 +73,7 @@ img{
     width: 37%;
     height: 90%;
     margin-top: 10px;
+    text-align: center;
 }
 
 
@@ -87,18 +88,72 @@ img{
   width: 100%;  
 }
 
-  
- 
-
-.loading-container {
+/* Estilos del contenedor de menú */
+.menu{
+  gap: 20px;
+  position: absolute;
+  top: 130px;
+  right: 110px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: auto;
+}
+
+/* Estilos para cada ícono dentro del menú */
+.menu-icon-box {
+  position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
-  font-family: 'Montserrat', sans-serif;
-  height: 100%;
-  width: 100%;  
+  width: 30px;
+  height: 30px;
 }
-  
+
+/* Estilos para los íconos de cada elemento */
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+/* Estilos para los íconos por defecto y al pasar el ratón */
+.default-icon, .hover-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s;
+}
+
+.hover-icon {
+  opacity: 0; /* Inicialmente oculto */
+}
+
+.default-icon:hover{
+  opacity: 0;
+}
+
+.hover-icon:hover {
+  opacity: 1; /* Aparece cuando se pasa el ratón */
+}
+
+/* Estilos para la etiqueta de cada ícono */
+.etiqueta{
+  display: none;
+  position: absolute;
+  bottom: 12px;
+  left: -1;
+  transform: translate(50%, -50%); 
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Muestra la etiqueta al pasar el ratón sobre el ícono */
+.menu-icon-box:hover .etiqueta {
+  display: block;
+}
  
