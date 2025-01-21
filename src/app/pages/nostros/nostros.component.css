@@ -109,14 +109,14 @@ main::before {
     color: var(--color-complemento);
   }
 
-  .imag{
-    width: 40%;
-  }
-
   .imag img{
     width: 100%;
     height: 100%;
     border-radius: 7px;
+  }
+
+  .imag{
+    height: 70%;
   }
 
   .icon{
