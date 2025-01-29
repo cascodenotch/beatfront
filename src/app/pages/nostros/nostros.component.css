@@ -31,7 +31,7 @@ main::before {
     height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin-top: -10px;
   }
@@ -75,7 +75,7 @@ main::before {
     width: 90%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .perfil1{
