@@ -111,11 +111,12 @@ main::before {
 
   .imag{
     height: 70%;
+    width: 50%;
   }
 
   .imag img{
-    width: 50%;
     height: auto;
+    width: 100%;
     border-radius: 7px;
   }
 
