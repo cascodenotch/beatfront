@@ -60,7 +60,7 @@ img{
 
 .canciones {
   width: 60%;
-  
+  height: calc(85vh - 200px); 
   overflow-y: auto; 
   padding-right: 40px; 
   display: flex;
