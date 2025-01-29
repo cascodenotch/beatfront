@@ -95,13 +95,13 @@ main::before {
   
   }
 
-  .sobre{
-    font-size: 36Px;
-  }
-
   .info1, .info2{
     width: 48%;
     font-size: 20px;
+  }
+
+  .sobre{
+    font-size: 36Px;
   }
 
   .nombre{
