@@ -60,7 +60,7 @@ img{
 
 .canciones {
   width: 60%;
-
+  height: calc(85vh - 200px); 
   overflow-y: auto; 
   padding-right: 40px; 
   display: flex;
@@ -156,4 +156,20 @@ img{
 .menu-icon-box:hover .etiqueta {
   display: block;
 }
- 
+
+.canciones::-webkit-scrollbar {
+  width: 5px; 
+}
+
+.canciones::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3); 
+  border-radius: 8px; 
+}
+
+.canciones::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5); 
+}
+
+.canciones::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); 
+}
