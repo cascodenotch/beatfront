@@ -101,7 +101,7 @@ main::before {
   }
 
   .info1, .info2{
-    width: 50%;
+    width: 48%;
     font-size: 20px;
   }
 
@@ -111,7 +111,7 @@ main::before {
 
   .imag{
     height: 70%;
-    width: 50%;
+    width: 48%;
   }
 
   .imag img{
