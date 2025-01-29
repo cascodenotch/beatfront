@@ -31,7 +31,7 @@ main::before {
     height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-top: -10px;
   }
@@ -110,7 +110,7 @@ main::before {
   }
 
   .imag{
-    height: 50%;
+    height: 100%;
     width: 48%;
   }
 
