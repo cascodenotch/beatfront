@@ -80,7 +80,7 @@ main::before {
 
   .perfil1{
     width: 45%;
-    height: auto;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -89,17 +89,17 @@ main::before {
 
   .perfil2{
     width: 45%;
-    height: auto;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   
   }
 
-
   .sobre{
     font-size: 36Px;
   }
+  
   .info1, .info2{
     width: 50%;
     font-size: 20px;
