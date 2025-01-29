@@ -99,7 +99,7 @@ main::before {
   .sobre{
     font-size: 36Px;
   }
-  
+
   .info1, .info2{
     width: 50%;
     font-size: 20px;
@@ -114,7 +114,7 @@ main::before {
   }
 
   .imag img{
-    width: 100%;
+    width: 50%;
     height: auto;
     border-radius: 7px;
   }
