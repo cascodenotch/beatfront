@@ -60,7 +60,7 @@ img{
 
 .canciones {
   width: 60%;
-  height: calc(85vh - 200px); 
+  min-height: 560px; 
   overflow-y: auto; 
   padding-right: 40px; 
   display: flex;
@@ -156,6 +156,8 @@ img{
 .menu-icon-box:hover .etiqueta {
   display: block;
 }
+
+/* Estilo del scrollbar */
 
 .canciones::-webkit-scrollbar {
   width: 5px; 
