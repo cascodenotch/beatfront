@@ -33,15 +33,14 @@ main::before {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-top: -10px;
   }
 
   .head{
-    width: 90%;
+    width: 95%;
     height: 50%;
     display: flex;
     flex-direction: row;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
 
   .noso{
@@ -72,7 +71,7 @@ main::before {
 
   .perfil{
     height: 50%;
-    width: 90%;
+    width: 95%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
